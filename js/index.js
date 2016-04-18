@@ -71,7 +71,7 @@ $('input').on('change', function() {
 });
 
 //When user exits with the close button, all unsaved info gets cleared.
-$('#myModal').on('hide.bs.modal', function (e) {
+$('#makePostModal').on('hide.bs.modal', function (e) {
   clearInputPage();
 });
 
@@ -90,7 +90,7 @@ $('input#sellButton').click(function() {
 
   clearInputPage();
 
-  $('#myModal').modal('hide');
+  $('#makePostModal').modal('hide');
 });
 
 //The post should now show up on the feed and in the database.

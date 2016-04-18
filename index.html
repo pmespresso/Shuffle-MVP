@@ -32,46 +32,38 @@
 
 <body>
 
-   
+   <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header page-header">
+          <a class="navbar-brand" href="#">
+            Shuffle
+          </a>
+        </div>
+<button type="button" class="btn btn-success navbar-btn" id="makePostButton" data-target="#makePostModal" data-toggle="modal" >Add Something To Sell</button>
+        
+      </div>
+    </nav> <!-- end nav -->
 
     <!-- Page Content -->
-    <div class="container">
-
-        <!-- Page Header -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Shuffle</h1>
-                <button class="btn btn-success pull-right page-header" id="makePostButton" data-toggle="modal" data-target="#myModal">Add Something To Sell</button>
-            </div>
-        </div>
-        <!-- /.row -->
+    <div class="container wrapper">
 
         <!-- Posts Row -->
         <div class="row" id="posts">
         
         
         </div>
-        <!-- /.row -->                  
+        <!-- /.row -->   
+
+        <div class="push">
+            
+
+        </div>
     </div> <!-- container -->
 
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>   Copyright &copy; Shuffle 2016</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
+<hr>
 
 <!-- MODAL -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="makePostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -110,6 +102,17 @@
     </div>
   </div>
 </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>   Copyright &copy; Shuffle 2016</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
