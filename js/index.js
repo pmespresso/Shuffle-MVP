@@ -82,7 +82,7 @@ $('input#sellButton').click(function() {
 
   postsRef.push().update({
     time_added: date,
-    img: $('div#productImageView').val(),
+    img: $('div#productImageView').val(), //upload to Firebase the link to AWS
     title: $('input#productName').val(),
     description: $('input#productDescription').val(),
     minimumOffer: $('input#minimumOffer').val()
@@ -93,7 +93,6 @@ $('input#sellButton').click(function() {
   $('#makePostModal').modal('hide');
 });
 
-//The post should now show up on the feed and in the database.
 //TODO ***** figure out how to save the url reference to Firebase, and actually save the image to AWS S3.
 postsRef.on('value', function(snapshot) {
   var postsData = snapshot.val(); //an array of the post objects
