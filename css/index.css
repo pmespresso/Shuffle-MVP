@@ -35,20 +35,21 @@ p .lead {
 
 .market-item {
     height: 40%;
-    margin: 3px;
-    padding: 3px;
+    margin: 0;
+    padding: 0;
 }
 
 .market-item-small {
 	width: 33%;
+    height: 40% !important;
 }
 
 .market-item-medium {
 	width: 66%;
 }
 
-.market-item img {
-	max-height: 100%;
+.market-item-small img {
+	height: 100%;
 }
 
 .market-item-small img {
