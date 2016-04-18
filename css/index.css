@@ -5,13 +5,33 @@
  */
 
 body {
+    background: light-grey;
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
+button {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align: center;
+    text-decoration: none;
+}
+
+p .lead {
+    text-align: center;
+    display: inline;
+}
+.page-header {
+    display: inline;
+}
+
 .market-item {
-    border: solid 1px;
+    border: solid 0.3px;
     border-color: black;
-    height: 40%;
+    height: 40% !important;
     margin: 0;
     padding: 0;
 }
@@ -24,14 +44,43 @@ body {
 	width: 66%;
 }
 
-.market-item img,
-.market-item-medium #images .col-md-4 img {
+.market-item img {
+	max-height: 100%;
+}
 
-	height: auto;
-	width: 100%;
-
+.market-item-small img {
+    max-height: 50%;
+    width: 100%;
 }
 
 footer {
     margin: 50px 0;
+}
+
+#productSellerContent img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#productImageView {
+    padding: 20px;
+    margin: 20px;
+    height: 40%;
+    width: 40%;
+}
+
+#productImageView img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#itemInfoForm {
+    padding: 20px;
+    margin: 20px;
+}
+
+input {
+    display: block;
+    padding: 15px 20px 15px 10px;
+    width: 40%;
 }
