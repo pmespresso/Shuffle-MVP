@@ -15,6 +15,7 @@ var bucket = new AWS.S3({
     }
 });
 
+
 //Facebook Authorization
 baseURL.authWithOAuthPopup("facebook", function(error, authData) {
   if (error) {
@@ -26,7 +27,7 @@ baseURL.authWithOAuthPopup("facebook", function(error, authData) {
 
 //TODO ***** Get the image from AWS S3
 function addSmallPost(key, fullData) {
-  $('#posts').append('<div class="col-md-3 market-item market-item-small">' + '<a href="">' + '<img class="img-responsive" src="img/food1.jpg" alt=""/>' + '</a>' + 
+  $('.grid').append('<div class="grid-item">' + '<a href="">' + '<img class="img-responsive" src="img/food1.jpg" alt=""/>' + '</a>' + 
  '<h3>' + fullData[key].title + '</h3>' + 
  '<p id="description">' + fullData[key].description + '</p>' + '<button class="btn btn-primary offer">' + 'Make Offer' + '</button>' + 
  '<button class="btn btn-primary save" >' + 'Save' + '</button>' + '</div>');
@@ -51,7 +52,7 @@ $(document).ready(function() {
 			var childDatum = childSnapshot.val();
 
 			if (snapshot.val() === undefined || snapshot.val() === null) {
-				console.log("FOR THE DEVELOPER: this happens because no posts exist on the database yet.");
+				console.log("FOR THE DEVELOPER: this happens when no posts exist on the database yet.");
 			}
 			setUpFeed(key, snapshot.val());
 		});
@@ -64,10 +65,10 @@ $('input#minimumOffer').on('change', function() {
 });
 
 
-// $('input#productImage').on('change', function () {
-
-//   // figure out a way to preivew the image before uploading to aws
-// }
+$('input#productImage').on('change', function() {
+  var $fileObject = $('#productImage')[0].files[0];
+  $('div#productImageView').append();
+});
 
 function clearInputPage() {
   $('div#productImageView').empty();
