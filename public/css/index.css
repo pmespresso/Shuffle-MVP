@@ -11,13 +11,8 @@ body {
 
 button {
     padding: 10px;
-    margin: 10px;
+    margin: 20px 0 20px 0;
     display: block;
-}
-
-button:before {
-    padding: 10px;
-    margin: 10px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -44,12 +39,15 @@ button {
     float: right;
 }
 
+
+/* STUFF ON THE MAIN FEED */
 .wrapper {
     min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -4em;
 }
+
 
 #posts {
     position: absolute;
@@ -67,13 +65,14 @@ button {
     z-index: 0;
 }
 
+
 .market-item-small {
-	width: 33%;
-    height: 70% !important;
+	width: 25%;
+    height: 100% !important;
 }
 
 .market-item-medium {
-	width: 66%;
+	width: 33%;
 }
 
 .market-item-small img {
@@ -85,6 +84,8 @@ button {
     max-height: 50%;
     width: 100%;
 }
+
+/* STUFF ON THE SELL ITEM MODAL*/
 
 #productSellerContent img {
     max-height: 100%;
@@ -114,6 +115,16 @@ input {
     width: 40%;
 }
 
+/* FOOTER */
+
 footer, .push {
     height: 4em;
+    color: black;
+}
+
+footer,
+.row,
+.col-lg-12 {
+    padding-right: 0;
+    margin-right: 0;
 }

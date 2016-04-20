@@ -1,0 +1,9 @@
+{
+  "firebase": "shufflemvp",
+  "public": "public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

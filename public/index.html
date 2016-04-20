@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shuffle</title>
+
+    <!-- Custom CSS -->
+    <link href="css/index.css" rel="stylesheet">
+
+    <!-- Amazon AWS JS SDK -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.3.3.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Bootstrap CDN -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+
+</head>
+
+<body>
+
+   <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header page-header">
+          <a class="navbar-brand" href="#">
+            Shuffle?
+          </a>
+        </div>
+<button type="button" class="btn btn-success navbar-btn" id="makePostButton" data-target="#makePostModal" data-toggle="modal" >Add Something To Sell</button>
+
+      </div>
+    </nav> <!-- end nav -->
+
+    <!-- Page Content -->
+    <div class="container wrapper">
+
+        <!-- Posts Row -->
+        <div class="row" id="posts">
+
+        <!-- this is where all the main feed get injected from the Firebase Posts data -->
+
+        </div>  
+        <!-- /.row -->   
+
+        <div class="push">
+        <!-- this is for the footer to stay sticky -->
+        </div>
+    </div> <!-- container -->
+
+<hr>
+
+<!-- CLICK TO VIEW MORE INFO MODAL -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="moreInfoModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h4 class="modal-title" id="moreInfoModalLabel"> </h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD PRODUCT TO SELL MODAL -->
+<div class="modal fade" id="makePostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="makePostModalTitle">Create Your Post</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+
+            <div class="center-block" id="productSellerContent">
+                <div id="productImageView">
+                    
+                    
+                </div>
+                <p class="lead">Product Name: </p><p id="productName"> </p>
+                <p class="lead">Product Price: </p> <p id="productPrice"> </p>
+                <p class="lead">Description: </p> <p id="productDescription"></p>                
+
+                <form id="itemInfoForm">
+                    <input id="productImage" type="file" accept="image/*" ></input>
+                    <input id="productName" type="text" placeholder="Name Your Product..." maxlength="50">
+                    <input id="minimumOffer" placeholder="Minimum Offer" type="text">
+                    <input id="productDescription" type="text" placeholder="Description" maxlength="150">
+                        
+                    <input type="button" value="Sell" id='sellButton'>
+                </form>
+
+                <!-- *************** TO DO *************** -->
+                <button class="btn btn-warning" id="preview">Preview</button>
+            </div> <!-- center block -->
+        </div>
+        
+      </div> <!-- modal body -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <p id="status"> Copyright &copy; Shuffle 2016</p>
+        </div>
+    </div> <!-- /.row -->
+</footer>
+
+    <!-- jQuery CDN -->
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+
+    <!-- Custom Javascript -->
+    <script src="js/index.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Masonry Library -->
+    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+
+<!--   <script type="text/javascript">
+     // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+
+  FB.init({
+    appId      : '984999378273841',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.5' // use graph api version 2.5
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+</script> -->
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+</body>
+
+</html>

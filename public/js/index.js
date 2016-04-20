@@ -1,12 +1,33 @@
 var baseURL = new Firebase("https://shufflemvp.firebaseio.com/");
 var postsRef = new Firebase("https://shufflemvp.firebaseio.com/posts");
 
+var appId = '984999378273841';
+
+var roleArn = 'arn:aws:iam::829041221529:role/shuffleAdministrator';
+
+var bucketName = 'shuffle-norcal';
+
+AWS.config.region = 'us-west-1';
+
+var bucket = new AWS.S3({
+    params: {
+        Bucket: bucketName
+    }
+});
+
+//Facebook Authorization
+baseURL.authWithOAuthPopup("facebook", function(error, authData) {
+  if (error) {
+    console.log("Login Failed!", error);
+  } else {
+    console.log("Authenticated successfully with payload:", authData);
+  }
+});
 
 //TODO ***** Get the image from AWS S3
-function addPost(key, fullData) {
-	console.log(fullData);
-  $('#posts').append('<div class="col-md-4 market-item market-item-small">' + '<a href="">' + '<img class="img-responsive" src="img/food1.jpg" alt=""/>' + '</a>' + 
- '<h3>' + '<a href="" id="postName">' + fullData[key].title + '<a/>' + '</h3>' + 
+function addSmallPost(key, fullData) {
+  $('#posts').append('<div class="col-md-3 market-item market-item-small">' + '<a href="">' + '<img class="img-responsive" src="img/food1.jpg" alt=""/>' + '</a>' + 
+ '<h3>' + fullData[key].title + '</h3>' + 
  '<p id="description">' + fullData[key].description + '</p>' + '<button class="btn btn-primary offer">' + 'Make Offer' + '</button>' + 
  '<button class="btn btn-primary save" >' + 'Save' + '</button>' + '</div>');
 }
@@ -17,7 +38,9 @@ function addPost(key, fullData) {
 *		childDatum = {title: dildos; description: sexy; minimumOffer: 20}
 */
 function setUpFeed(key, fullData) {
-	addPost(key, fullData); 
+	//Temporary before adding other size cards
+  // Also you shouldn't be loading everything everytime you load
+	addSmallPost(key, fullData); 
 }
 
 $(document).ready(function() {
@@ -26,27 +49,25 @@ $(document).ready(function() {
 			var key = childSnapshot.key();
 
 			var childDatum = childSnapshot.val();
-			// console.log(childData);
+
+			if (snapshot.val() === undefined || snapshot.val() === null) {
+				console.log("FOR THE DEVELOPER: this happens because no posts exist on the database yet.");
+			}
 			setUpFeed(key, snapshot.val());
 		});
-	})
+	});
 });
 
-$('input#productImage').on('change', function () {
-  var reader = new FileReader();
 
-  reader.onload = function (e) {
-      var thisImage = reader.result;
-      localStorage.setItem("imgData", thisImage);
-  };
-
-  reader.readAsDataURL(this.files[0]);
-
-    var dataImage = localStorage.getItem('imgData');
-    var imgCtr = $('<img/>').prop('src', dataImage);
-    $('div#productImageView').empty();
-    $('div#productImageView').append(imgCtr);
+$('input#minimumOffer').on('change', function() {
+	return event.charCode >= 48 && event.charCode <= 57;
 });
+
+
+// $('input#productImage').on('change', function () {
+
+//   // figure out a way to preivew the image before uploading to aws
+// }
 
 function clearInputPage() {
   $('div#productImageView').empty();
@@ -75,20 +96,22 @@ $('#makePostModal').on('hide.bs.modal', function (e) {
   clearInputPage();
 });
 
-
 //User Pressed Sell button
 $('input#sellButton').click(function() {
-  var date = new Date().toLocaleString()
+  var date = new Date().toLocaleString();
 
   postsRef.push().update({
     time_added: date,
-    img: $('div#productImageView').val(), //upload to Firebase the link to AWS
+    img: '', //upload to Firebase the url to AWS link
     title: $('input#productName').val(),
     description: $('input#productDescription').val(),
     minimumOffer: $('input#minimumOffer').val()
   });
 
   clearInputPage();
+
+  //push the img url to aws. 
+
 
   $('#makePostModal').modal('hide');
 });
@@ -97,15 +120,15 @@ $('input#sellButton').click(function() {
 postsRef.on('value', function(snapshot) {
   var postsData = snapshot.val(); //an array of the post objects
   var postIDs = Object.keys(postsData); //an array of each postID
-  addPost(postIDs[postIDs.length - 1], postsData);
+  addSmallPost(postIDs[postIDs.length - 1], postsData);
 });
 
 
 //TODO ******************************
 
-$('button#preview').click(function() {
+// $('button#preview').click(function() {
   
 
   
 
-});
+// });
