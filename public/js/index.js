@@ -1,4 +1,4 @@
-var baseURL = new Firebase("https://shufflemvp.firebaseio.com/");
+var firebaseRef = new Firebase("https://shufflemvp.firebaseio.com/");
 var postsRef = new Firebase("https://shufflemvp.firebaseio.com/posts");
 
 var appId = '984999378273841';
@@ -17,7 +17,7 @@ var bucket = new AWS.S3({
 
 
 //Facebook Authorization
-baseURL.authWithOAuthPopup("facebook", function(error, authData) {
+firebaseRef.authWithOAuthPopup("facebook", function(error, authData) {
   if (error) {
     console.log("Login Failed!", error);
   } else {
@@ -27,7 +27,7 @@ baseURL.authWithOAuthPopup("facebook", function(error, authData) {
 
 //TODO ***** Get the image from AWS S3
 function addSmallPost(key, fullData) {
-  $('.grid').append('<div class="grid-item">' + '<a href="">' + '<img class="img-responsive" src="img/food1.jpg" alt=""/>' + '</a>' + 
+  $('.grid').append('<div class="grid-item">' + '<a href="">' + '<img src="img/books_collection1.jpg" alt=""/>' + '</a>' + 
  '<h3>' + fullData[key].title + '</h3>' + 
  '<p id="description">' + fullData[key].description + '</p>' + '<button class="btn btn-primary offer">' + 'Make Offer' + '</button>' + 
  '<button class="btn btn-primary save" >' + 'Save' + '</button>' + '</div>');
@@ -81,10 +81,7 @@ function clearInputPage() {
 }
 
 $('input').on('change', function() {
-  $('p#productName').empty();
-  $('p#productPrice').empty();
-  $('p#productDescription').empty();
-
+  clearInputPage();
   $('p#productName').append($('input#productName').val());
   // Temporary, later will add QuickDeal functionality
   $('p#productPrice').append($('input#minimumOffer').val());
@@ -98,8 +95,11 @@ $('#makePostModal').on('hide.bs.modal', function (e) {
 });
 
 //User Pressed Sell button
-$('input#sellButton').click(function() {
+$('input#sellButton').click(function(evt) {
   var date = new Date().toLocaleString();
+  var imageFile = $('#productImage')[0].files[0];
+
+  
 
   postsRef.push().update({
     time_added: date,
