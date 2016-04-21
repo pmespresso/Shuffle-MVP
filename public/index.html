@@ -28,7 +28,6 @@
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
-
 </head>
 
 <body>
@@ -89,7 +88,7 @@
                     <p class="lead">Product Price: </p> <p id="productPrice"> </p>
                     <p class="lead">Description: </p> <p id="productDescription"></p>                
 
-                    <form id="itemInfoForm">
+                    <form id="itemInfoForm" action="https://s3-bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
                         <input id="productImage" type="file" accept="image/*" ></input>
                         <input id="productName" type="text" placeholder="Name Your Product..." maxlength="50">
                         <input id="minimumOffer" placeholder="Minimum Offer" type="text">
