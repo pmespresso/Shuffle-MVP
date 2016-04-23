@@ -39,13 +39,42 @@ Service like eBay and Craigslist:
 
 ## Services
 
-### Model, Controller
+## Model, Controller
 	* Firebase - user authentication, post information
 	* AWS S3 - post images
 	* Venmo API - handle payments
 	* Facebook Graph API - handle user profiles, messaging sellers
 
-### View
+### Firebase
+
+| People        | Users           | Posts  			| Recent_Users     | Recent_Posts
+| ------------- |:-------------:| -----------------:| ---------------: | ----------------:
+|  '$userid'     |  '$userid' | '$postid' 			| $userid          | $postid
+|  displayName   |  sold	|  author: uid 			| 
+|  firstName	 |  bought  |  by: fullName   		|
+|  lastName		 | 	traded	|  postTitle:
+|  location		 |  'posts' |  postType:
+|  bio			 |  $postid |  postTags:
+|  pic			 |  'feed'  |  postDescription:
+|  presence	     |  $postid |  postPrice:
+|  special_friends|leaderboard| postSize:
+|  current_cohort|          | timestamp:
+|  				 |          | active:
+							| tags:
+							| intent: selling/buying/trading
+
+| Cohorts       | Leaderboards       |
+| ------------- | -----------------: | 
+| '$cohortid'	| '$leaderboardid'   |
+| name          | $userid            |
+| location      | sale_points		 |
+| mascot		| buy_points		 |
+| leaderboard   | trade_points		 |
+| 'users'		| total_points		 |
+| $userid
+
+
+## View
 	* Javascript
 	* jQuery
 	* In the future, refactor with React.js
