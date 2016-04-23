@@ -1,7 +1,6 @@
 var firebaseRef = new Firebase("https://shufflemvp.firebaseio.com/");
 var postsRef = new Firebase("https://shufflemvp.firebaseio.com/posts");
-
-var appId = '984999378273841';
+var usersRef = new Firebase("https://shufflemvp.firebaseio.com/users");
 
 var roleArn = 'arn:aws:iam::829041221529:role/shuffleAdministrator';
 
@@ -22,14 +21,35 @@ firebaseRef.authWithOAuthPopup("facebook", function(error, authData) {
     console.log("Login Failed!", error);
   } else {
     console.log("Authenticated successfully with payload:", authData);
+    $('#userProfileNavImage').append('<img src=' + authData.facebook.profileImageURL + ' />');
+
+    //creating new user
+    usersRef.transaction(function(currentData) {
+      if (currentData === null) {
+        return {
+          name: authData.facebook.displayName,
+          userid: authData.uid,
+          cohort: authData.facebook.email.slice(authData.facebook.email.search('@'), authData.facebook.email.length),
+          token: authData.token,
+          email: authData.facebook.email,
+          activePosts: '',
+          profile_image: authData.facebook.profileImageURL
+        }
+      } else {
+        window.alert(currentData + " already exists!");
+      }
+    });
   }
+}, {
+  remember: 'default',
+  scope: 'public_profile'
 });
 
 //TODO ***** Get the image from AWS S3
 function addSmallPost(key, fullData) {
   $('.grid').append('<div class="grid-item">' + '<a href="">' + '<img src="img/books_collection1.jpg" alt=""/>' + '</a>' + 
  '<h3>' + fullData[key].title + '</h3>' + 
- '<p id="description">' + fullData[key].description + '</p>' + '<button class="btn btn-primary offer">' + 'Make Offer' + '</button>' + 
+ '<p id="description">' + fullData[key].description + '</p>' + '<button class="btn btn-primary offer">' + 'Message Seller' + '</button>' + 
  '<button class="btn btn-primary save" >' + 'Save' + '</button>' + '</div>');
 }
 
@@ -81,7 +101,10 @@ function clearInputPage() {
 }
 
 $('input').on('change', function() {
-  clearInputPage();
+  $('div#productImageView').empty();
+  $('p#productName').empty();
+  $('p#productPrice').empty();
+
   $('p#productName').append($('input#productName').val());
   // Temporary, later will add QuickDeal functionality
   $('p#productPrice').append($('input#minimumOffer').val());
@@ -99,14 +122,14 @@ $('input#sellButton').click(function(evt) {
   var date = new Date().toLocaleString();
   var imageFile = $('#productImage')[0].files[0];
 
-  
-
+  //create new post
   postsRef.push().update({
     time_added: date,
     img: '', //upload to Firebase the url to AWS link
     title: $('input#productName').val(),
     description: $('input#productDescription').val(),
-    minimumOffer: $('input#minimumOffer').val()
+    minimumOffer: $('input#minimumOffer').val(),
+    author: ''
   });
 
   clearInputPage();

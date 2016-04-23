@@ -1,0 +1,38 @@
+{
+	"rules": {
+		".read": "true",
+		"people" : {
+			"$userid": {
+	          ".write": "$userid == auth.uid"
+	        }
+		},
+		"users": {
+			"$userid": {
+				".write": "$userid == auth.uid"
+			},
+			"posts": {
+				"$postid": {
+					".write": 
+						// User A can only post to User B's feed if they are in the same cohort
+						// Also User A's posts can only be put on other's posts by authoring it themself
+						// And has a Berkeley email.
+						"root.child('/users' + $userid + '/cohort').hasChild(auth.uid) &&
+						 root.child('/posts' + $postid + '/author').val() == auth.uid && 
+						 root.child('/users' + $email').val() == 'UC_BERKELEY'"
+				}
+			}
+		},
+		"posts": {
+			"$postid": {
+				".write": "!data.exists()",
+				".validate": "newData.hasChildren(['poster', 'title', 'image', 'price', 'description'])",
+
+			}
+		},
+		"cohorts": {
+			"$cohortid": {
+				".write": "false"
+			}
+		}
+	}
+}
