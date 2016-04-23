@@ -1,0 +1,41 @@
+{
+  "name": "shuffle-mvp",
+  "version": "1.0.0",
+  "description": "a community bartering social network that makes buying/selling/trading fun",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp serve",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yjkimjunior/ShuffleMVP.git"
+  },
+  "keywords": [
+    "social",
+    "network",
+    "bartering",
+    "selling",
+    "buying",
+    "market",
+    "ecommerce",
+    "community"
+  ],
+  "author": "YJ Kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yjkimjunior/ShuffleMVP/issues"
+  },
+  "homepage": "https://github.com/yjkimjunior/ShuffleMVP#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-connect": "^2.0.6",
+    "gulp-open": "^0.2.8",
+    "jshint": "^2.9.2"
+  }
+}

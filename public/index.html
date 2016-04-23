@@ -6,14 +6,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="A community bartering network that makes buying, selling, and trading really fun">
+    <meta name="author" content="YJ Kim">
+    <meta name="mobile-web-app-capable" content="yes">
 
     <title>Shuffle</title>
 
     <!-- Custom CSS -->
     <link href="css/index.css" rel="stylesheet">
 
+    
     <!-- Amazon AWS JS SDK -->
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.3.3.min.js"></script>
 
@@ -27,7 +29,12 @@
     <!-- Bootstrap CDN -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.cyan-light_blue.min.css">
+
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+
 </head>
 
 <body>
@@ -41,17 +48,74 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-   <nav class="navbar navbar-default">
+<!--    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header page-header">
-          <a class="navbar-brand" href="#">
-            Shuffle?
+          <a class="navbar-brand" >
+            Shuffle
           </a>
           <span class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></span>
           <button style="position: absolute; right: 2em;" type="button" class="btn btn-success navbar-btn" id="makePostButton" data-target="#makePostModal" data-toggle="modal" >Add Something To Sell</button>
         </div>
       </div>
-    </nav> <!-- end nav -->
+    </nav>
+
+    -->
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Home</span>
+          <div class="mdl-layout-spacer"></div>
+          
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search">
+              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+            </div>
+          </div>
+          <!-- <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-buttonicon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button> -->
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item">About</li>
+            <li class="mdl-menu__item">Contact</li>
+          </ul>
+        </div>
+      </header>
+
+      <div class="demo-drawer mdl-layout__drawer">
+        <header class="demo-drawer-header">
+          <img src="images/user.jpg" class="demo-avatar">
+          <div class="demo-avatar-dropdown">
+            <span>hello@example.com</span>
+            <div class="mdl-layout-spacer"></div>
+            <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+              <li class="mdl-menu__item">hello@example.com</li>
+              <li class="mdl-menu__item">info@example.com</li>
+              <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+            </ul>
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link" href="">Home</a>
+          <a class="mdl-navigation__link" href="">Requests</a>
+          <button type="button" class="btn btn-success" id="makePostButton" data-target="#makePostModal" data-toggle="modal" >Add Something To Sell</button>
+          <a class="mdl-navigation__link" id="trendingTag1" href=""></a>
+          <a class="mdl-navigation__link" id="trendingTag2" href=""></a>
+          <a class="mdl-navigation__link" id="trendingTag3" href=""></a>
+
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><span class="visuallyhidden">Help</span></a>
+        </nav>
+    </div> <!-- demo drawer -->
+</div> <!--demo layout -->
 
   <div class="container-fluid">
     <!-- Page Content -->
@@ -66,55 +130,71 @@
 <hr>
 
 <!-- ADD PRODUCT TO SELL MODAL -->
-    <div class="modal fade" id="makePostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="makePostModalTitle">Create Your Post</h4>
-          </div>
-          <div class="modal-body">
-            <div class="container">
-
-                <div class="center-block" id="productSellerContent">
-                    <div id="productImageView">
-                        
-                        
-                    </div>
-                    <p class="lead">Product Name: </p><p id="productName"> </p>
-                    <p class="lead">Product Price: </p> <p id="productPrice"> </p>
-                    <p class="lead">Description: </p> <p id="productDescription"></p>                
-
-                    <form id="itemInfoForm" action="https://s3-bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
-                        <input id="productImage" type="file" accept="image/*" ></input>
-                        <input id="productName" type="text" placeholder="Name Your Product..." maxlength="50">
-                        <input id="minimumOffer" placeholder="Minimum Offer" type="text">
-                        <input id="productDescription" type="text" placeholder="Description" maxlength="150">
-                            
-                        <input type="button" value="Sell" id='sellButton'>
-                    </form>
-
-                    <!-- *************** TO DO *************** -->
-                    <button class="btn btn-warning" id="preview">Preview</button>
-                </div> <!-- center block -->
-            </div>
-            
-          </div> <!-- modal body -->
-          </div>
-        </div>
-      </div>
+<div class="modal fade" id="makePostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title" id="makePostModalTitle">Create Your Post</h4>
     </div>
+    <div class="modal-body">
+      <div class="container">
 
+          <div class="center-block">
+              <div id="productImageView">
+                  
+                  
+              </div>
+                  
+              <div id="productInfoPreview">
+                <span id="productName"> </span>
+                <span id="productPrice"> </span>
+                <span id="productDescription"> </span>
+              </div>
+
+              <form id="itemInfoForm" width="100%"action="https://s3-bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+                  <input id="productImage" type="file" accept="image/*" ></input>
+                  <input id="productName" type="text" placeholder="Name Your Product..." maxlength="50">
+                  <input id="minimumOffer" placeholder="Minimum Offer" type="text">
+                  <textarea id="productDescription" maxlength="150" rows="4" cols="80" placeholder="Describe your stuff. This is where to put shirt sizes, number of times used, really sell it!"></textarea>
+                      
+                  <input type="button" value="Sell" id='sellButton'>
+              </form>
+
+              <!-- *************** TO DO *************** -->
+              <button class="btn btn-warning" id="preview">Preview</button>
+          </div> <!-- center block -->
+      </div> <!-- container --> 
+      
+    </div> <!-- modal body -->
+    </div> <!-- modal content -->
+  </div> <!-- modal dialog -->
+</div> <!-- modal -->
+
+
+
+    
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <!-- Custom Javascript -->
-    <!-- <script src="js/index.js"></script> -->
+    <script src="js/index.js"></script>
     <!-- Core Bootstrap Minimized -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
     <!-- Packery Grid CDN -->
     <script src="https://npmcdn.com/packery@2.0/dist/packery.pkgd.min.js"></script>
+
+    <!-- Other Jquery Libraries -->
+<!--     <script src="./libs/jquery.jeditable.mini.js"></script>
+    <script src="./libs/history.adapter.jquery.js"></script>
+    <script src="./libs/history.js"></script>
+    <script src="./libs/bind-polyfill.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
     
-    <script src="js/posts.js"></script>
+
+    <!-- script src="js/posts.js"></script>
+    <script src="js/postsfeed-ui.js"></script> -->
 
 </body>
 
