@@ -24,7 +24,56 @@
 
 ## Application Structure ##
 
-* 
+* api (Node, Firebase)
+	* lib
+		* cors
+			* index.js
+		* firbase_utils
+			* firebase_feed.js
+	* routes
+		* active.js
+		* contributions.js
+		* explore.js
+		* index.js
+		* likes.js
+		* uploads.js
+		* user.js
+	* config.js
+	* index.js
+
+	* processes.json
+
+* app (React)
+	* bin
+	* modules
+		* actions
+		* components
+		* reducers
+		* routes
+		* utils
+		* App.js 
+	* public
+	* routes
+		* index.js
+	* views
+		* app.ejs
+		* error.ejs
+		* index.ejs
+	* app.js
+	* .babelrc (gitignore)
+	* config.js
+	* processes.js
+	* webpack.config.js
+* www
+	* bin
+	* public
+	* routes
+	* views
+
+* env.sh (gitignore)
+
+
+
 
 
 
