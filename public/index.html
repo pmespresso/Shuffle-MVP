@@ -106,7 +106,9 @@
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href="">Home</a>
           <a class="mdl-navigation__link" href="">Requests</a>
-          <button type="button" class="btn btn-success" id="makePostButton" data-target="#makePostModal" data-toggle="modal" >Add Something To Sell</button>
+
+          <button type="button" class="btn btn-success" id="makePostButton" data-popup-open="popup-1" data-target="#makePostModal" data-toggle="modal" >Add Something to Sell</button>
+
           <a class="mdl-navigation__link" id="trendingTag1" href=""></a>
           <a class="mdl-navigation__link" id="trendingTag2" href=""></a>
           <a class="mdl-navigation__link" id="trendingTag3" href=""></a>
@@ -128,6 +130,33 @@
     
 
 <hr>
+
+
+
+<!-- ADD PRODUCT TO SELL MODAL -->
+<div class="popup" data-popup="popup-1" id="makePostModal">
+    <div class="popup-inner">
+        <h2 class="modal-title" id-"makePostModalTitle">Add Something to Sell</h2>
+        <div id="productImageView">
+            
+                  
+        </div>
+        <div id="productInfoPreview">
+            <span id="productName"> </span>
+            <span id="productPrice"> </span>
+            <span id="productDescription"> </span>
+        </div>
+        <form id="itemInfoForm" width="100%"action="https://s3-bucket.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+            <input id="productImage" type="file" accept="image/*" ></input>
+            <input id="productName" type="text" placeholder="Name Your Product..." maxlength="50">
+            <input id="minimumOffer" placeholder="Minimum Offer" type="text">
+            <textarea id="productDescription" maxlength="150" rows="4" cols="80" placeholder="Describe your stuff. This is where to put shirt sizes, number of times used, really sell it!"></textarea>
+                
+            <input data-popup-close="popup-1" type="button" value="Sell" id='sellButton'>
+        </form>
+        <button data-popup-close="popup-1" class="btn btn-warning" id="preview">Preview</button>
+    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+</div>
 
 <!-- ADD PRODUCT TO SELL MODAL -->
 <div class="modal fade" id="makePostModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

@@ -117,8 +117,32 @@ $('#makePostModal').on('hide.bs.modal', function (e) {
   clearInputPage();
 });
 
+
+$(function() {
+    //----- OPEN
+    $('[data-popup-open]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-open');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+ 
+        e.preventDefault();
+    });
+ 
+    //----- CLOSE
+    $('[data-popup-close]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+ 
+        e.preventDefault();
+    });
+
+});
+
+
+
 //User Pressed Sell button
-$('input#sellButton').click(function(evt) {
+$('#sellButton').click(function(evt) {
+  $('[data-popup="popup-1"]').fadeOut(350);
+  console.log("HI");
   var date = new Date().toLocaleString();
   // var imageFile = $('#productImage')[0].files[0];
 
@@ -155,3 +179,4 @@ postsRef.on('value', function(snapshot) {
   
 
 // });
+
