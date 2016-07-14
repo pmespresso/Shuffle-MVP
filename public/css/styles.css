@@ -36,7 +36,67 @@ a {
   list-style: none;
 }
 
+.product-item-name {
+  font-size: 19px;
+}
+
+.product-item:hover {
+  background-color: #f2f2f2;
+}
+
+.product-item-media {
+  width: 100%;
+  max-height: 100%;
+  clear: both;
+}
+
+.bottom-stick > a {
+  display: inline-block;
+    position: absolute;
+    bottom: 0;
+    float: right;
+}
+
+/* ================== SMALL PRODUCT ITEMS CSS ================== */
+
 .product-item-small {
+  padding: 25px;
+  border-radius: 4px;
+  height: 200px;
+}
+
+.product-item-small-info {
+  padding: 15px 20px;
+  height: 130px;
+}
+
+.product-item-info p {
+  color: #999999;
+  font-size: 14px;
+}
+
+.small-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  float: right;
+  margin-right: 5px;
+  padding: 3px;
+}
+
+.small-avatar-name {
+  display: inline-block;
+  float: right;
+  margin: 17px 7px;
+}
+
+.small-avatar-name:hover {
+  color: black;
+}
+
+
+/* ================== MEDIUM PRODUCT ITEMS CSS ================== */
+.product-item-medium {
   padding: 25px;
   border-radius: 4px;
   height: 200px;
@@ -46,23 +106,13 @@ a {
   background-color: #f2f2f2;
 }
 
-.product-item-small > * {
-  display: inline-block;
-  vertical-align: middle;
+.product-item-medium-info {
+  padding: 15px 20px;
+  height: 130px;
 }
 
 .product-item-name {
   font-size: 19px;
-}
-
-.product-item-media {
-  width: 100%;
-  max-height: 100%;
-}
-
-.product-item-info {
-  padding: 5px 20px;
-  height: 90px;
 }
 
 .product-item-info p {
@@ -70,45 +120,30 @@ a {
   font-size: 14px;
 }
 
-.product-item-link {
-  display: block;
-  width: 20px;
-  padding: 3px;
-  border-radius: 50%;
-  float: right;
-  background: white;
-  text-align: center;
-}
-
-.small-avatar {
-  float: right;
+.medium-avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
 }
 
-.small-avatar-name {
+.medium-avatar-name {
   display: inline-block;
   float: right;
   margin: 32px 7px;
-}
-
-.small-avatar-name:hover {
-  color: black;
 }
 
 /* ================== UPVOTE BUTTON CSS ================== */
 
 
 .upvote-button {
-  font-weight: 600;
-  width: 20px;
+  font-weight: 800;
+  width: 30px;
   text-align: center;
   border-radius: 4px;
   background-color: #fff;
   display: block;
-  float: left;
-  padding: 4px;
+  right: 5%;
+  padding: 15px;
 }
 
 .upvote-button:hover {
@@ -122,4 +157,8 @@ a {
 .upvote-button > * {
   display: block;
   padding: 3px;
+}
+
+.upvote-button-small {
+  position: absolute;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ProductItemSmall from './ProductItemSmall';
+import ProductItemMedium from './ProductItemMedium';
 
 class ProductList extends React.Component {
 
@@ -10,7 +11,12 @@ class ProductList extends React.Component {
 				<ul className="product-list">
 					{
 						this.props.productList.map(function(item, idx) {
-							return <ProductItemSmall key={idx} {...item} />
+								if (item.size == "small") {
+									return <ProductItemSmall key={idx} {...item} />
+								} else if (item.size == "medium") {
+									return <ProductItemMedium key={idx} {...item} />
+								}
+
 						})
 					}
 				</ul>

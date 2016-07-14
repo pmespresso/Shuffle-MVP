@@ -12,11 +12,11 @@ class HomePage extends React.Component {
         {
 	  			id: 1,
 		  		name: "Black Shoes",
-		  		media: '/img/black-shoes.jpg',
+		  		media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
 		  		upvote: 169,
 		  		description: "I've only worn these a few times, looking for a new owner",
-          urgency: 3,
           price: "$10",
+          size: "small",
           expires: "Tomorrow at Noon",
 		  		maker: {
 		  			name: 'Satish Rao',
@@ -27,11 +27,11 @@ class HomePage extends React.Component {
         {
 	  			id: 2,
 		  		name: "Cookies For Charity at Sproul!",
-		  		media: '/img/cal-cookies.jpg',
+		  		media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
 		  		upvote: 300,
 		  		description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
-          urgency: 9,
           price: "$1",
+          size: "medium",
           expires: "5pm",
 		  		maker: {
 		  			name: "Nicole O'Shea",
@@ -61,8 +61,6 @@ class HomePage extends React.Component {
 
     );
   }
-
-
 
 }
 
