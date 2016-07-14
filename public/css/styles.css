@@ -1,0 +1,125 @@
+
+/* ================== CUSTOM CSS ================== */
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 13px;
+  color: #444444;
+}
+
+.container {
+  width: 940px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 20px;
+  line-height: 70px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+a {
+  font-size: 13px;
+  color: #444444;
+  text-decoration: none;
+}
+
+/* ================== PRODUCT LIST CSS ================== */
+
+.product-list {
+  margin-top: 20px;
+  list-style: none;
+}
+
+.product-item-small {
+  padding: 25px;
+  border-radius: 4px;
+  height: 200px;
+}
+
+.product-item:hover {
+  background-color: #f2f2f2;
+}
+
+.product-item-small > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.product-item-name {
+  font-size: 19px;
+}
+
+.product-item-media {
+  width: 100%;
+  max-height: 100%;
+}
+
+.product-item-info {
+  padding: 5px 20px;
+  height: 90px;
+}
+
+.product-item-info p {
+  color: #999999;
+  font-size: 14px;
+}
+
+.product-item-link {
+  display: block;
+  width: 20px;
+  padding: 3px;
+  border-radius: 50%;
+  float: right;
+  background: white;
+  text-align: center;
+}
+
+.small-avatar {
+  float: right;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.small-avatar-name {
+  display: inline-block;
+  float: right;
+  margin: 32px 7px;
+}
+
+.small-avatar-name:hover {
+  color: black;
+}
+
+/* ================== UPVOTE BUTTON CSS ================== */
+
+
+.upvote-button {
+  font-weight: 600;
+  width: 20px;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #fff;
+  display: block;
+  float: left;
+  padding: 4px;
+}
+
+.upvote-button:hover {
+  color: #5e9aee;
+}
+
+.upvote-button.active {
+  color: #5e9aee;
+}
+
+.upvote-button > * {
+  display: block;
+  padding: 3px;
+}

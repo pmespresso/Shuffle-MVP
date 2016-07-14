@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ProductList from '../Product/ProductList';
+
 class HomePage extends React.Component {
 
   constructor(props) {
@@ -26,7 +28,7 @@ class HomePage extends React.Component {
 	  			id: 2,
 		  		name: "Cookies For Charity at Sproul!",
 		  		media: '/img/cal-cookies.jpg',
-		  		upvote: 169,
+		  		upvote: 300,
 		  		description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
           urgency: 9,
           price: "$1",
@@ -44,7 +46,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <section>
-					<section className="container">
+					<section className="container-fluid">
 
 						{
 							this.state.productList
