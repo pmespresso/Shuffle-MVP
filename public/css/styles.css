@@ -5,10 +5,6 @@ body {
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 13px;
   color: #444444;
-}
-
-.container {
-  width: 940px;
   margin: 0 auto;
 }
 
@@ -29,6 +25,11 @@ a {
   text-decoration: none;
 }
 
+.fa.fa-sort-asc {
+  text-align: center;
+  margin: 0 auto;
+}
+
 /* ================== PRODUCT LIST CSS ================== */
 
 .product-list {
@@ -36,7 +37,7 @@ a {
   list-style: none;
 }
 
-.product-item-name {
+.product-item-small-info .product-item-name {
   font-size: 19px;
 }
 
@@ -44,33 +45,98 @@ a {
   background-color: #f2f2f2;
 }
 
-.product-item-media {
-  width: 100%;
-  max-height: 100%;
+.bottom-stick > a {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  color: #444444;
+}
+
+.bottom-stick > span {
+  display: inline-block;
+  position: absolute;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 1.3px;
+}
+
+/* ================== PRODUCT ITEMS CSS ================== */
+
+.col-md-4,
+.col-md-8 {
+  border: 1px solid #f2f2f2;
+  height: 600px;
+  width: auto;
+}
+
+.product-item-small {
+  margin: 65px 20px;
+  border-radius: 4px;
+  height: 310px;
+  display: inline-block;
+  overflow: none;
+}
+
+.product-item-medium {
+  padding: 25px;
+  border-radius: 4px;
+  height: 310px;
+  display: inline-block;
+  overflow: none;
+}
+
+.product-item-small .product-item-small-info {
+  padding: 15px auto;
+  margin: 15px auto;
+  display: block;
+  height: auto;
+}
+
+.product-item-medium .product-item-medium-info {
+  padding: 15px auto;
+  margin: 15px auto;
+  display: block;
+  height: auto;
+  position: absolute;
+  right: 10%;
+  top: 5%;
+  width: 400px;
+}
+
+.product-item-small .product-item-media {
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
   clear: both;
 }
 
-.bottom-stick > a {
-  display: inline-block;
-    position: absolute;
-    bottom: 0;
-    float: right;
+.product-item-medium .product-item-media {
+  width: 350px;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+  clear: both;
 }
 
-/* ================== SMALL PRODUCT ITEMS CSS ================== */
 
-.product-item-small {
-  padding: 25px;
-  border-radius: 4px;
-  height: 200px;
+.bottom-stick .product-item-price-small {
+  bottom: 3%;
+  left: 5%;
 }
 
-.product-item-small-info {
-  padding: 15px 20px;
-  height: 130px;
+.bottom-stick .product-item-price-medium {
+  bottom: 3%;
+  left: 45%;
 }
 
-.product-item-info p {
+.bottom-stick .product-item-price-medium {
+  right: 20%;
+}
+
+.product-item-small .product-item-small-info p {
   color: #999999;
   font-size: 14px;
 }
@@ -84,66 +150,48 @@ a {
   padding: 3px;
 }
 
-.small-avatar-name {
-  display: inline-block;
-  float: right;
-  margin: 17px 7px;
-}
-
-.small-avatar-name:hover {
-  color: black;
-}
-
-
-/* ================== MEDIUM PRODUCT ITEMS CSS ================== */
-.product-item-medium {
-  padding: 25px;
-  border-radius: 4px;
-  height: 200px;
-}
-
-.product-item:hover {
-  background-color: #f2f2f2;
-}
-
-.product-item-medium-info {
-  padding: 15px 20px;
-  height: 130px;
-}
-
-.product-item-name {
-  font-size: 19px;
-}
-
-.product-item-info p {
-  color: #999999;
-  font-size: 14px;
-}
-
 .medium-avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  float: right;
+  margin-right: 5px;
+  padding: 3px;
+}
+
+.small-avatar-name {
+  display: inline-block;
+  float: right;
+  color: #999999;
+  margin: 17px 7px;
 }
 
 .medium-avatar-name {
   display: inline-block;
   float: right;
+  color: #999999;
   margin: 32px 7px;
+}
+
+.small-avatar-name:hover,
+.medium-avatar-name:hover {
+  color: black;
+  cursor: pointer;
 }
 
 /* ================== UPVOTE BUTTON CSS ================== */
 
 
 .upvote-button {
-  font-weight: 800;
   width: 30px;
+  font-size: 20px;
   text-align: center;
   border-radius: 4px;
   background-color: #fff;
   display: block;
   right: 5%;
   padding: 15px;
+  position: absolute;
 }
 
 .upvote-button:hover {
@@ -157,8 +205,4 @@ a {
 .upvote-button > * {
   display: block;
   padding: 3px;
-}
-
-.upvote-button-small {
-  position: absolute;
 }

@@ -4,7 +4,7 @@ class ProductItemSmall extends React.Component {
 
 	renderUpvoteButton() {
 		return (
-			<a className="upvote-button" href="#">
+			<a className="upvote-button upvote-button-medium" href="#">
 				<span>
 					<i className="fa fa-sort-asc"></i>
 				</span>
@@ -27,21 +27,24 @@ class ProductItemSmall extends React.Component {
 	renderInfoSection() {
 
 		return (
-			<section className="product-item-medium-info">
+			<div>
+			<div className="product-item-medium-info">
 				<a href="#">
 					<h2 className="product-item-name">{this.props.name}</h2>
 				</a>
 
 				<p>{this.props.description}</p>
+			</div>
 
-				<div className="bottom-stick">
-					<a href="#">
-						<p className="medium-avatar-name"> {this.props.maker.name} </p>
-						<img className="medium-avatar" src={this.props.maker.avatar} />
-					</a>
-					{this.renderUpvoteButton()}
-				</div>
-			</section>
+			<div className="bottom-stick">
+			<span className="product-item-price-medium"> {this.props.price} </span>
+
+				<a href="#">
+					<p className="medium-avatar-name"> {this.props.maker.name} </p>
+					<img className="medium-avatar" src={this.props.maker.avatar} />
+				</a>
+			</div>
+			</div>
 		);
 
 	}
@@ -51,14 +54,11 @@ class ProductItemSmall extends React.Component {
 		return (
 
 			<div className="col-md-8">
-
+				{this.renderUpvoteButton()}
 					<li className="product-item-medium">
-
 						<img className="product-item-media col-md-4" src={this.props.media[0]} />
 						<img className="product-item-media col-md-4" src={this.props.media[1]} />
-							
 						{this.renderInfoSection()}
-
 					</li>
 			</div>
 

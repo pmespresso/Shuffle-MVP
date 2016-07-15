@@ -20303,7 +20303,7 @@ module.exports = require('./lib/React');
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-		value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -20325,62 +20325,91 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var HomePage = function (_React$Component) {
-		_inherits(HomePage, _React$Component);
+  _inherits(HomePage, _React$Component);
 
-		function HomePage(props) {
-				_classCallCheck(this, HomePage);
+  function HomePage(props) {
+    _classCallCheck(this, HomePage);
 
-				var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomePage).call(this, props));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomePage).call(this, props));
 
-				_this.state = {
-						productList: [{
-								id: 1,
-								name: "Black Shoes",
-								media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
-								upvote: 169,
-								description: "I've only worn these a few times, looking for a new owner",
-								price: "$10",
-								size: "small",
-								expires: "Tomorrow at Noon",
-								maker: {
-										name: 'Satish Rao',
-										avatar: '/img/rao.jpg'
-								}
-						}, {
-								id: 2,
-								name: "Cookies For Charity at Sproul!",
-								media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
-								upvote: 300,
-								description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
-								price: "$1",
-								size: "medium",
-								expires: "5pm",
-								maker: {
-										name: "Nicole O'Shea",
-										avatar: "/img/nicole.jpg"
-								}
-						}]
+    _this.state = {
+      productList: [{
+        id: 1,
+        name: "Black Shoes",
+        media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
+        upvote: 169,
+        description: "I've only worn these a few times, looking for a new owner",
+        price: "$10",
+        size: "small",
+        expires: "Tomorrow at Noon",
+        tags: ["#Shoes, #Clothing, #SecondHand"],
+        maker: {
+          name: 'Satish Rao',
+          avatar: '/img/rao.jpg'
+        }
+      }, {
+        id: 2,
+        name: "Cookies For Charity at Sproul!",
+        media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+        upvote: 300,
+        description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+        price: "$1",
+        size: "small",
+        expires: "5pm",
+        tags: ["#Cookies, #Charity, #TriDelt"],
+        maker: {
+          name: "Nicole O'Shea",
+          avatar: "/img/nicole.jpg"
+        }
+      }, {
+        id: 3,
+        name: "Need Help In CS70 ASAP!!!",
+        media: ['/img/rao.jpg', '/img/truthtable.jpg'],
+        upvote: 300,
+        description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+        price: "$1",
+        size: "small",
+        expires: "5pm",
+        maker: {
+          name: "Nicole O'Shea",
+          avatar: "/img/nicole.jpg"
+        }
+      }, {
+        id: 4,
+        name: "Blue JanSport Bag",
+        media: ['/img/blue_bag.jpg', '/img/pink-shoes.jpg'],
+        upvote: 10,
+        description: "I have been using this bag since last year and it's really good but it's time for a style change so... ",
+        price: "$1",
+        size: "medium",
+        expires: "5pm",
+        maker: {
+          name: "Nicole O'Shea",
+          avatar: "/img/nicole.jpg"
+        }
 
-				};
-				return _this;
-		}
+      }]
 
-		_createClass(HomePage, [{
-				key: 'render',
-				value: function render() {
-						return _react2.default.createElement(
-								'section',
-								null,
-								_react2.default.createElement(
-										'section',
-										{ className: 'container-fluid' },
-										this.state.productList ? _react2.default.createElement(_ProductList2.default, { productList: this.state.productList }) : null
-								)
-						);
-				}
-		}]);
+    };
+    return _this;
+  }
 
-		return HomePage;
+  _createClass(HomePage, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'section',
+        null,
+        _react2.default.createElement(
+          'section',
+          { className: 'container-fluid' },
+          this.state.productList ? _react2.default.createElement(_ProductList2.default, { productList: this.state.productList }) : null
+        )
+      );
+    }
+  }]);
+
+  return HomePage;
 }(_react2.default.Component);
 
 exports.default = HomePage;
@@ -20420,7 +20449,7 @@ var ProductItemSmall = function (_React$Component) {
 		value: function renderUpvoteButton() {
 			return _react2.default.createElement(
 				"a",
-				{ className: "upvote-button", href: "#" },
+				{ className: "upvote-button upvote-button-medium", href: "#" },
 				_react2.default.createElement(
 					"span",
 					null,
@@ -20445,25 +20474,36 @@ var ProductItemSmall = function (_React$Component) {
 		value: function renderInfoSection() {
 
 			return _react2.default.createElement(
-				"section",
-				{ className: "product-item-medium-info" },
+				"div",
+				null,
 				_react2.default.createElement(
-					"a",
-					{ href: "#" },
+					"div",
+					{ className: "product-item-medium-info" },
 					_react2.default.createElement(
-						"h2",
-						{ className: "product-item-name" },
-						this.props.name
+						"a",
+						{ href: "#" },
+						_react2.default.createElement(
+							"h2",
+							{ className: "product-item-name" },
+							this.props.name
+						)
+					),
+					_react2.default.createElement(
+						"p",
+						null,
+						this.props.description
 					)
-				),
-				_react2.default.createElement(
-					"p",
-					null,
-					this.props.description
 				),
 				_react2.default.createElement(
 					"div",
 					{ className: "bottom-stick" },
+					_react2.default.createElement(
+						"span",
+						{ className: "product-item-price-medium" },
+						" ",
+						this.props.price,
+						" "
+					),
 					_react2.default.createElement(
 						"a",
 						{ href: "#" },
@@ -20475,8 +20515,7 @@ var ProductItemSmall = function (_React$Component) {
 							" "
 						),
 						_react2.default.createElement("img", { className: "medium-avatar", src: this.props.maker.avatar })
-					),
-					this.renderUpvoteButton()
+					)
 				)
 			);
 		}
@@ -20487,6 +20526,7 @@ var ProductItemSmall = function (_React$Component) {
 			return _react2.default.createElement(
 				"div",
 				{ className: "col-md-8" },
+				this.renderUpvoteButton(),
 				_react2.default.createElement(
 					"li",
 					{ className: "product-item-medium" },
@@ -20574,23 +20614,33 @@ var ProductItemSmall = function (_React$Component) {
 						this.props.name
 					)
 				),
-				this.renderUpvoteButton(),
 				_react2.default.createElement(
 					"p",
 					null,
 					this.props.description
 				),
 				_react2.default.createElement(
-					"a",
-					{ href: "#" },
+					"div",
+					{ className: "bottom-stick" },
 					_react2.default.createElement(
-						"p",
-						{ className: "small-avatar-name" },
+						"span",
+						{ className: "product-item-price-small" },
 						" ",
-						this.props.maker.name,
+						this.props.price,
 						" "
 					),
-					_react2.default.createElement("img", { className: "small-avatar", src: this.props.maker.avatar })
+					_react2.default.createElement(
+						"a",
+						{ href: "#" },
+						_react2.default.createElement(
+							"p",
+							{ className: "small-avatar-name" },
+							" ",
+							this.props.maker.name,
+							" "
+						),
+						_react2.default.createElement("img", { className: "small-avatar", src: this.props.maker.avatar })
+					)
 				)
 			);
 		}
@@ -20600,7 +20650,8 @@ var ProductItemSmall = function (_React$Component) {
 
 			return _react2.default.createElement(
 				"div",
-				{ className: "col-md-4" },
+				{ className: "col-xs-2 col-md-4" },
+				this.renderUpvoteButton(),
 				_react2.default.createElement(
 					"li",
 					{ className: "product-item-small" },

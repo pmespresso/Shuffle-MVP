@@ -31,14 +31,18 @@ class ProductItemSmall extends React.Component {
 				<a href="#">
 					<h2 className="product-item-name">{this.props.name}</h2>
 				</a>
-				{this.renderUpvoteButton()}
 
 				<p>{this.props.description}</p>
 
+
+				<div className="bottom-stick">
+
+					<span className="product-item-price-small"> {this.props.price} </span>
 					<a href="#">
 						<p className="small-avatar-name"> {this.props.maker.name} </p>
 						<img className="small-avatar" src={this.props.maker.avatar} />
 					</a>
+				</div>
 
 			</section>
 		);
@@ -49,8 +53,8 @@ class ProductItemSmall extends React.Component {
 
 		return (
 
-			<div className="col-md-4">
-
+			<div className="col-xs-2 col-md-4">
+				{this.renderUpvoteButton()}
 					<li className="product-item-small">
 						<img className="product-item-media" src={this.props.media[0]} />
 						{this.renderInfoSection()}
