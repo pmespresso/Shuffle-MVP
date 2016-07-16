@@ -1,26 +1,41 @@
 import React from 'react';
-
+import Masonry from 'react-masonry-component';
 import ProductItemSmall from './ProductItemSmall';
 import ProductItemMedium from './ProductItemMedium';
 
-class ProductList extends React.Component {
+var masonryOptions = {
+	transitionDuration: '0.2s',
+	columnWidth: 20,
+	fitWidth: true,
+};
 
+class ProductList extends React.Component {
 	render() {
 
-		return(
-				<ul className="product-list">
-					{
-						this.props.productList.map(function(item, idx) {
-								if (item.size == "small") {
-									return <ProductItemSmall key={idx} {...item} />
-								} else if (item.size == "medium") {
-									return <ProductItemMedium key={idx} {...item} />
-								}
+		var childElements = this.props.productList.map(function(item, idx) {
+			if (item.size == "small") {
+				return <div className="product-item-small">
+					<ProductItemSmall key={idx} {...item} />
+					</div>
+			} else if (item.size == "medium") {
+				return <div className="product-item-medium">
+					<ProductItemMedium key={idx} {...item} />
+				</div>
+			}
+		})
 
-						})
-					}
-				</ul>
+		return (
+			<Masonry
+				className={'product-list-masonry'}
+				elementType={'div'}
+				options={masonryOptions}
+				disableImagesLoaded={false}
+				updateOnEachImageLoad={false}
+			>
+				{childElements}
+			</Masonry>
 		);
+
 	}
 }
 

@@ -24,8 +24,9 @@
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.3.0",
     "express": "^4.14.0",
-    "react": "^15.2.0",
-    "react-dom": "^15.2.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-masonry-component": "^4.2.1",
     "watch": "^0.19.1"
   }
 }
