@@ -20342,7 +20342,7 @@ var HomePage = function (_React$Component) {
         price: "$10",
         size: "small",
         expires: "Tomorrow at Noon",
-        tags: ["#Shoes, #Clothing, #SecondHand"],
+        tags: ["#Shoes", "#Clothing", "#SecondHand"],
         maker: {
           name: 'Satish Rao',
           avatar: '/img/rao.jpg'
@@ -20356,7 +20356,7 @@ var HomePage = function (_React$Component) {
         price: "$1",
         size: "small",
         expires: "5pm",
-        tags: ["#Cookies, #Charity, #TriDelt"],
+        tags: ["#Cookies", "#Charity", "#TriDelt"],
         maker: {
           name: "Nicole O'Shea",
           avatar: "/img/nicole.jpg"
@@ -20370,6 +20370,7 @@ var HomePage = function (_React$Component) {
         price: "$1",
         size: "small",
         expires: "5pm",
+        tags: ["#CS70", "#Rao", "#Tutoring"],
         maker: {
           name: "Nicole O'Shea",
           avatar: "/img/nicole.jpg"
@@ -20383,6 +20384,7 @@ var HomePage = function (_React$Component) {
         price: "$1",
         size: "medium",
         expires: "5pm",
+        tags: ["#Bag", "#School", "#Clothes"],
         maker: {
           name: "Nicole O'Shea",
           avatar: "/img/nicole.jpg"
@@ -20402,7 +20404,7 @@ var HomePage = function (_React$Component) {
         null,
         _react2.default.createElement(
           'section',
-          { className: 'container-fluid' },
+          { className: 'container' },
           this.state.productList ? _react2.default.createElement(_ProductList2.default, { productList: this.state.productList }) : null
         )
       );
@@ -20453,22 +20455,40 @@ var ProductItemSmall = function (_React$Component) {
 				_react2.default.createElement(
 					"span",
 					null,
-					_react2.default.createElement("i", { className: "fa fa-sort-asc" })
+					_react2.default.createElement("i", { className: "fa fa-heart-o" })
 				),
 				this.props.upvote
 			);
 		}
-
-		// renderNewWindowIcon() {
-		//
-		// 	return (
-		// 		<a className="product-item-link" href={this.props.link}>
-		// 			<span> <i className="fa fa-external-link"></i> </span>
-		// 		</a>
-		// 	);
-		//
-		// }
-
+	}, {
+		key: "renderHeadingSection",
+		value: function renderHeadingSection() {
+			return _react2.default.createElement(
+				"header",
+				{ className: "tags" },
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					" ",
+					this.props.tags[0],
+					" "
+				),
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					" ",
+					this.props.tags[1],
+					" "
+				),
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					" ",
+					this.props.tags[2],
+					" "
+				)
+			);
+		}
 	}, {
 		key: "renderInfoSection",
 		value: function renderInfoSection() {
@@ -20479,6 +20499,7 @@ var ProductItemSmall = function (_React$Component) {
 				_react2.default.createElement(
 					"div",
 					{ className: "product-item-medium-info" },
+					this.renderHeadingSection(),
 					_react2.default.createElement(
 						"a",
 						{ href: "#" },
@@ -20525,13 +20546,13 @@ var ProductItemSmall = function (_React$Component) {
 
 			return _react2.default.createElement(
 				"div",
-				{ className: "col-md-8" },
+				{ className: "col-xs-10 col-sm-12 col-md-8" },
 				this.renderUpvoteButton(),
 				_react2.default.createElement(
 					"li",
 					{ className: "product-item-medium" },
-					_react2.default.createElement("img", { className: "product-item-media col-md-4", src: this.props.media[0] }),
-					_react2.default.createElement("img", { className: "product-item-media col-md-4", src: this.props.media[1] }),
+					_react2.default.createElement("img", { className: "product-item-media col-sm-3 col-md-4 img-responsive ", src: this.props.media[0] }),
+					_react2.default.createElement("img", { className: "product-item-media col-sm-3 col-md-4 img-responsive", src: this.props.media[1] }),
 					this.renderInfoSection()
 				)
 			);
@@ -20582,22 +20603,41 @@ var ProductItemSmall = function (_React$Component) {
 				_react2.default.createElement(
 					"span",
 					null,
-					_react2.default.createElement("i", { className: "fa fa-sort-asc" })
+					_react2.default.createElement("i", { className: "fa fa-heart-o" })
 				),
 				this.props.upvote
 			);
 		}
+	}, {
+		key: "renderHeadingSection",
+		value: function renderHeadingSection() {
 
-		// renderNewWindowIcon() {
-		//
-		// 	return (
-		// 		<a className="product-item-link" href={this.props.link}>
-		// 			<span> <i className="fa fa-external-link"></i> </span>
-		// 		</a>
-		// 	);
-		//
-		// }
-
+			return _react2.default.createElement(
+				"header",
+				{ className: "tags" },
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					" ",
+					this.props.tags[0],
+					" "
+				),
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					" ",
+					this.props.tags[1],
+					" "
+				),
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					" ",
+					this.props.tags[2],
+					" "
+				)
+			);
+		}
 	}, {
 		key: "renderInfoSection",
 		value: function renderInfoSection() {
@@ -20650,11 +20690,12 @@ var ProductItemSmall = function (_React$Component) {
 
 			return _react2.default.createElement(
 				"div",
-				{ className: "col-xs-2 col-md-4" },
+				{ className: "col-xs-10 col-sm-6 col-md-4" },
 				this.renderUpvoteButton(),
 				_react2.default.createElement(
 					"li",
 					{ className: "product-item-small" },
+					this.renderHeadingSection(),
 					_react2.default.createElement("img", { className: "product-item-media", src: this.props.media[0] }),
 					this.renderInfoSection()
 				)

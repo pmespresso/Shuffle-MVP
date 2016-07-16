@@ -18,7 +18,7 @@ class HomePage extends React.Component {
           price: "$10",
           size: "small",
           expires: "Tomorrow at Noon",
-          tags: ["#Shoes, #Clothing, #SecondHand"],
+          tags: ["#Shoes", "#Clothing", "#SecondHand"],
 		  		maker: {
 		  			name: 'Satish Rao',
 		  			avatar: '/img/rao.jpg'
@@ -34,7 +34,7 @@ class HomePage extends React.Component {
           price: "$1",
           size: "small",
           expires: "5pm",
-          tags: ["#Cookies, #Charity, #TriDelt"],
+          tags: ["#Cookies", "#Charity", "#TriDelt"],
 		  		maker: {
 		  			name: "Nicole O'Shea",
 		  			avatar: "/img/nicole.jpg"
@@ -49,6 +49,7 @@ class HomePage extends React.Component {
             price: "$1",
             size: "small",
             expires: "5pm",
+            tags: ["#CS70", "#Rao", "#Tutoring"],
   		  		maker: {
   		  			name: "Nicole O'Shea",
   		  			avatar: "/img/nicole.jpg"
@@ -63,6 +64,7 @@ class HomePage extends React.Component {
           price: "$1",
           size: "medium",
           expires: "5pm",
+          tags: ["#Bag", "#School", "#Clothes"],
           maker: {
             name: "Nicole O'Shea",
             avatar: "/img/nicole.jpg"
@@ -77,7 +79,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <section>
-					<section className="container-fluid">
+					<section className="container">
 
 						{
 							this.state.productList

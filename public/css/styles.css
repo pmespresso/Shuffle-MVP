@@ -8,6 +8,17 @@ body {
   margin: 0 auto;
 }
 
+.container {
+  margin: 20px 20px 0 20px;
+  padding: 0;
+}
+
+header {
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 h1 {
   font-size: 20px;
   line-height: 70px;
@@ -25,7 +36,7 @@ a {
   text-decoration: none;
 }
 
-.fa.fa-sort-asc {
+.fa.fa-heart-o {
   text-align: center;
   margin: 0 auto;
 }
@@ -61,12 +72,13 @@ a {
   letter-spacing: 1.3px;
 }
 
+
 /* ================== PRODUCT ITEMS CSS ================== */
 
 .col-md-4,
 .col-md-8 {
   border: 1px solid #f2f2f2;
-  height: 600px;
+  height: 700px;
   width: auto;
 }
 
@@ -79,11 +91,16 @@ a {
 }
 
 .product-item-medium {
-  padding: 25px;
+  margin: 35px 10px;
+  padding: 25px 10px;
   border-radius: 4px;
   height: 310px;
   display: inline-block;
   overflow: none;
+}
+
+.tags {
+  font-size: 19px;
 }
 
 .product-item-small .product-item-small-info {
@@ -95,13 +112,14 @@ a {
 
 .product-item-medium .product-item-medium-info {
   padding: 15px auto;
-  margin: 15px auto;
+  margin: 5px auto
   display: block;
   height: auto;
-  position: absolute;
-  right: 10%;
-  top: 5%;
-  width: 400px;
+}
+
+.product-item-medium .product-item-medium-info h2 {
+  font-size: 27px;
+  font-weight: 400;
 }
 
 .product-item-small .product-item-media {
@@ -116,9 +134,8 @@ a {
 .product-item-medium .product-item-media {
   width: 350px;
   height: 100%;
-  margin: 0 auto;
+  margin: 0 20px 0 0;
   display: block;
-  clear: both;
 }
 
 
@@ -132,13 +149,11 @@ a {
   left: 45%;
 }
 
-.bottom-stick .product-item-price-medium {
-  right: 20%;
-}
-
-.product-item-small .product-item-small-info p {
+.product-item-small .product-item-small-info p,
+.product-item-medium .product-item-medium-info p {
   color: #999999;
   font-size: 14px;
+  text-align: left;
 }
 
 .small-avatar {
@@ -191,6 +206,7 @@ a {
   display: block;
   right: 5%;
   padding: 15px;
+  margin: 0 10px;
   position: absolute;
 }
 
