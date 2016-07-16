@@ -54,14 +54,14 @@ class ProductItemSmall extends React.Component {
 
 		return (
 
-			<div className="col-xs-10 col-sm-12 col-md-8">
-				{this.renderUpvoteButton()}
-					<li className="product-item-medium">
-						<img className="product-item-media col-sm-3 col-md-4 img-responsive " src={this.props.media[0]} />
-						<img className="product-item-media col-sm-3 col-md-4 img-responsive" src={this.props.media[1]} />
+					<div className="product-item-medium-content">
+
+						<img className="product-item-media-medium" src={this.props.media[0]} />
+						<img className="product-item-media-medium" src={this.props.media[1]} />
+
 						{this.renderInfoSection()}
-					</li>
-			</div>
+
+					</div>
 
 		);
 	}
