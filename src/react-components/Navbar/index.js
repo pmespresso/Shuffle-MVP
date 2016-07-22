@@ -29,7 +29,7 @@ class Navbar extends React.Component {
 
   renderLogo() {
     return (
-      <a href="#"><img className="logo" src="/img/logo.jpg"/></a>
+      <a href="#"><img className="logo" src="/img/logo-alt.jpg"/></a>
     );
   }
 
@@ -55,7 +55,7 @@ class Navbar extends React.Component {
         <section className="navbar">
           {this.renderProductSearch()}
           {this.renderLogo()}
-          {this.renderUser()}
+
         </section>
       </section>
     );

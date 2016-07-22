@@ -12,11 +12,13 @@ class HomePage extends React.Component {
         {
 	  			id: 1,
 		  		name: "Black Shoes",
-		  		media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
+		  		media: ['/img/sunbeam.jpeg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
 		  		upvote: 169,
 		  		description: "I've only worn these a few times, looking for a new owner",
           price: "$10",
           size: "small",
+          tags: ["Shoes", "Prada", "Sexy"],
+          location: "",
           expires: "Tomorrow at Noon",
 		  		maker: {
 		  			name: 'Satish Rao',
@@ -31,7 +33,9 @@ class HomePage extends React.Component {
 		  		upvote: 300,
 		  		description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
           price: "$1",
-          size: "medium",
+          size: "small",
+          tags: ["#Cookies", "#Sproul", "#TriDelt"],
+          location: "",
           expires: "5pm",
 		  		maker: {
 		  			name: "Nicole O'Shea",
@@ -47,6 +51,8 @@ class HomePage extends React.Component {
 		  		description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
           price: "$1",
           size: "small",
+          tags: ["#MORE", "#COOKIES", "#CHARITY"],
+          location: "",
           expires: "5pm",
 		  		maker: {
 		  			name: "Nicole O'Shea",
@@ -54,13 +60,32 @@ class HomePage extends React.Component {
 		  		}
 		  	},
         {
-	  			id: 4,
+	  			id: 1,
+		  		name: "Black Shoes",
+		  		media: ['/img/sunbeam.jpeg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
+		  		upvote: 169,
+		  		description: "I've only worn these a few times, looking for a new owner",
+          price: "$10",
+          size: "small",
+          tags: ["#Shoes", "#Prada", "#Sexy"],
+          location: "",
+          expires: "Tomorrow at Noon",
+		  		maker: {
+		  			name: 'Satish Rao',
+		  			avatar: '/img/rao.jpg'
+		  		}
+		  	},
+
+        {
+	  			id: 2,
 		  		name: "Cookies For Charity at Sproul!",
-		  		media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+		  		media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
 		  		upvote: 300,
 		  		description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
           price: "$1",
           size: "small",
+          tags: ["#Cookies", "#Sproul", "#TriDelt"],
+          location: "",
           expires: "5pm",
 		  		maker: {
 		  			name: "Nicole O'Shea",
@@ -69,33 +94,22 @@ class HomePage extends React.Component {
 		  	},
 
         {
-	  			id: 5,
-		  		name: "Black Shoes",
-		  		media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
-		  		upvote: 169,
-		  		description: "I've only worn these a few times, looking for a new owner",
-          price: "$10",
+	  			id: 3,
+		  		name: "Cookies For Charity at Sproul!",
+		  		media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+		  		upvote: 300,
+		  		description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+          price: "$1",
           size: "small",
-          expires: "Tomorrow at Noon",
+          tags: ["#MORE", "#COOKIES", "#CHARITY"],
+          location: "",
+          expires: "5pm",
 		  		maker: {
-		  			name: 'Satish Rao',
-		  			avatar: '/img/rao.jpg'
-		  		}
-		  	},
-        {
-	  			id: 6,
-		  		name: "Black Shoes",
-		  		media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
-		  		upvote: 169,
-		  		description: "I've only worn these a few times, looking for a new owner",
-          price: "$10",
-          size: "small",
-          expires: "Tomorrow at Noon",
-		  		maker: {
-		  			name: 'Satish Rao',
-		  			avatar: '/img/rao.jpg'
+		  			name: "Nicole O'Shea",
+		  			avatar: "/img/nicole.jpg"
 		  		}
 		  	}
+
       ]
 
     }

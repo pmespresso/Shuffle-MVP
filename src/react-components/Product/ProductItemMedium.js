@@ -4,7 +4,7 @@ class ProductItemSmall extends React.Component {
 
 	renderUpvoteButton() {
 		return (
-			<a className="upvote-button" href="#">
+			<a className="upvote-button upvote-button-medium" href="#">
 				<span>
 					<i className="fa fa-sort-asc"></i>
 				</span>

@@ -26866,7 +26866,7 @@ module.exports = require('./lib/React');
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+								value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -26888,114 +26888,126 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var HomePage = function (_React$Component) {
-	_inherits(HomePage, _React$Component);
+								_inherits(HomePage, _React$Component);
 
-	function HomePage(props) {
-		_classCallCheck(this, HomePage);
+								function HomePage(props) {
+																_classCallCheck(this, HomePage);
 
-		var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomePage).call(this, props));
+																var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomePage).call(this, props));
 
-		_this.state = {
-			productList: [{
-				id: 1,
-				name: "Black Shoes",
-				media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
-				upvote: 169,
-				description: "I've only worn these a few times, looking for a new owner",
-				price: "$10",
-				size: "small",
-				expires: "Tomorrow at Noon",
-				maker: {
-					name: 'Satish Rao',
-					avatar: '/img/rao.jpg'
-				}
-			}, {
-				id: 2,
-				name: "Cookies For Charity at Sproul!",
-				media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
-				upvote: 300,
-				description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
-				price: "$1",
-				size: "medium",
-				expires: "5pm",
-				maker: {
-					name: "Nicole O'Shea",
-					avatar: "/img/nicole.jpg"
-				}
-			}, {
-				id: 3,
-				name: "Cookies For Charity at Sproul!",
-				media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
-				upvote: 300,
-				description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
-				price: "$1",
-				size: "small",
-				expires: "5pm",
-				maker: {
-					name: "Nicole O'Shea",
-					avatar: "/img/nicole.jpg"
-				}
-			}, {
-				id: 4,
-				name: "Cookies For Charity at Sproul!",
-				media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
-				upvote: 300,
-				description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
-				price: "$1",
-				size: "small",
-				expires: "5pm",
-				maker: {
-					name: "Nicole O'Shea",
-					avatar: "/img/nicole.jpg"
-				}
-			}, {
-				id: 5,
-				name: "Black Shoes",
-				media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
-				upvote: 169,
-				description: "I've only worn these a few times, looking for a new owner",
-				price: "$10",
-				size: "small",
-				expires: "Tomorrow at Noon",
-				maker: {
-					name: 'Satish Rao',
-					avatar: '/img/rao.jpg'
-				}
-			}, {
-				id: 6,
-				name: "Black Shoes",
-				media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
-				upvote: 169,
-				description: "I've only worn these a few times, looking for a new owner",
-				price: "$10",
-				size: "small",
-				expires: "Tomorrow at Noon",
-				maker: {
-					name: 'Satish Rao',
-					avatar: '/img/rao.jpg'
-				}
-			}]
+																_this.state = {
+																								productList: [{
+																																id: 1,
+																																name: "Black Shoes",
+																																media: ['/img/sunbeam.jpeg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
+																																upvote: 169,
+																																description: "I've only worn these a few times, looking for a new owner",
+																																price: "$10",
+																																size: "small",
+																																tags: ["Shoes", "Prada", "Sexy"],
+																																location: "",
+																																expires: "Tomorrow at Noon",
+																																maker: {
+																																								name: 'Satish Rao',
+																																								avatar: '/img/rao.jpg'
+																																}
+																								}, {
+																																id: 2,
+																																name: "Cookies For Charity at Sproul!",
+																																media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+																																upvote: 300,
+																																description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+																																price: "$1",
+																																size: "small",
+																																tags: ["#Cookies", "#Sproul", "#TriDelt"],
+																																location: "",
+																																expires: "5pm",
+																																maker: {
+																																								name: "Nicole O'Shea",
+																																								avatar: "/img/nicole.jpg"
+																																}
+																								}, {
+																																id: 3,
+																																name: "Cookies For Charity at Sproul!",
+																																media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+																																upvote: 300,
+																																description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+																																price: "$1",
+																																size: "small",
+																																tags: ["#MORE", "#COOKIES", "#CHARITY"],
+																																location: "",
+																																expires: "5pm",
+																																maker: {
+																																								name: "Nicole O'Shea",
+																																								avatar: "/img/nicole.jpg"
+																																}
+																								}, {
+																																id: 1,
+																																name: "Black Shoes",
+																																media: ['/img/sunbeam.jpeg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
+																																upvote: 169,
+																																description: "I've only worn these a few times, looking for a new owner",
+																																price: "$10",
+																																size: "small",
+																																tags: ["#Shoes", "#Prada", "#Sexy"],
+																																location: "",
+																																expires: "Tomorrow at Noon",
+																																maker: {
+																																								name: 'Satish Rao',
+																																								avatar: '/img/rao.jpg'
+																																}
+																								}, {
+																																id: 2,
+																																name: "Cookies For Charity at Sproul!",
+																																media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+																																upvote: 300,
+																																description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+																																price: "$1",
+																																size: "small",
+																																tags: ["#Cookies", "#Sproul", "#TriDelt"],
+																																location: "",
+																																expires: "5pm",
+																																maker: {
+																																								name: "Nicole O'Shea",
+																																								avatar: "/img/nicole.jpg"
+																																}
+																								}, {
+																																id: 3,
+																																name: "Cookies For Charity at Sproul!",
+																																media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+																																upvote: 300,
+																																description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+																																price: "$1",
+																																size: "small",
+																																tags: ["#MORE", "#COOKIES", "#CHARITY"],
+																																location: "",
+																																expires: "5pm",
+																																maker: {
+																																								name: "Nicole O'Shea",
+																																								avatar: "/img/nicole.jpg"
+																																}
+																								}]
 
-		};
-		return _this;
-	}
+																};
+																return _this;
+								}
 
-	_createClass(HomePage, [{
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				'section',
-				null,
-				_react2.default.createElement(
-					'section',
-					{ className: 'container-fluid' },
-					this.state.productList ? _react2.default.createElement(_ProductList2.default, { productList: this.state.productList }) : null
-				)
-			);
-		}
-	}]);
+								_createClass(HomePage, [{
+																key: 'render',
+																value: function render() {
+																								return _react2.default.createElement(
+																																'section',
+																																null,
+																																_react2.default.createElement(
+																																								'section',
+																																								{ className: 'container-fluid' },
+																																								this.state.productList ? _react2.default.createElement(_ProductList2.default, { productList: this.state.productList }) : null
+																																)
+																								);
+																}
+								}]);
 
-	return HomePage;
+								return HomePage;
 }(_react2.default.Component);
 
 exports.default = HomePage;
@@ -27445,7 +27457,7 @@ var Navbar = function (_React$Component) {
       return _react2.default.createElement(
         'a',
         { href: '#' },
-        _react2.default.createElement('img', { className: 'logo', src: '/img/logo.jpg' })
+        _react2.default.createElement('img', { className: 'logo', src: '/img/logo-alt.jpg' })
       );
     }
   }, {
@@ -27473,8 +27485,7 @@ var Navbar = function (_React$Component) {
           'section',
           { className: 'navbar' },
           this.renderProductSearch(),
-          this.renderLogo(),
-          this.renderUser()
+          this.renderLogo()
         )
       );
     }
@@ -27520,7 +27531,7 @@ var ProductItemSmall = function (_React$Component) {
 		value: function renderUpvoteButton() {
 			return _react2.default.createElement(
 				"a",
-				{ className: "upvote-button", href: "#" },
+				{ className: "upvote-button upvote-button-medium", href: "#" },
 				_react2.default.createElement(
 					"span",
 					null,
@@ -27643,17 +27654,55 @@ var ProductItemSmall = function (_React$Component) {
 				this.props.upvote
 			);
 		}
-
-		// renderNewWindowIcon() {
-		//
-		// 	return (
-		// 		<a className="product-item-link" href={this.props.link}>
-		// 			<span> <i className="fa fa-external-link"></i> </span>
-		// 		</a>
-		// 	);
-		//
-		// }
-
+	}, {
+		key: "renderTags",
+		value: function renderTags() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "tags" },
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					" ",
+					this.props.tags[0],
+					" "
+				),
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					" ",
+					this.props.tags[1],
+					" "
+				),
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					" ",
+					this.props.tags[2],
+					" "
+				)
+			);
+		}
+	}, {
+		key: "renderAvatarInfo",
+		value: function renderAvatarInfo() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "bottom-stick avatar-info" },
+				_react2.default.createElement(
+					"a",
+					{ href: "#" },
+					_react2.default.createElement("img", { className: "small-avatar", src: this.props.maker.avatar }),
+					_react2.default.createElement(
+						"p",
+						{ className: "small-avatar-name" },
+						" ",
+						this.props.maker.name,
+						" "
+					)
+				)
+			);
+		}
 	}, {
 		key: "renderInfoSection",
 		value: function renderInfoSection() {
@@ -27676,22 +27725,7 @@ var ProductItemSmall = function (_React$Component) {
 					null,
 					this.props.description
 				),
-				_react2.default.createElement(
-					"div",
-					{ className: "avatar-info" },
-					_react2.default.createElement(
-						"a",
-						{ href: "#" },
-						_react2.default.createElement(
-							"p",
-							{ className: "small-avatar-name" },
-							" ",
-							this.props.maker.name,
-							" "
-						),
-						_react2.default.createElement("img", { className: "small-avatar", src: this.props.maker.avatar })
-					)
-				)
+				this.renderAvatarInfo()
 			);
 		}
 	}, {
@@ -27701,7 +27735,12 @@ var ProductItemSmall = function (_React$Component) {
 			return _react2.default.createElement(
 				"div",
 				{ className: "product-item-small-content" },
-				_react2.default.createElement("img", { className: "product-item-media-small", src: this.props.media[0] }),
+				this.renderTags(),
+				_react2.default.createElement(
+					"section",
+					{ className: "product-item-media-small" },
+					_react2.default.createElement("img", { src: this.props.media[0] })
+				),
 				this.renderInfoSection()
 			);
 		}

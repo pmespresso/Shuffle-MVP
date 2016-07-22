@@ -14,15 +14,26 @@ class ProductItemSmall extends React.Component {
 		);
 	}
 
-	// renderNewWindowIcon() {
-	//
-	// 	return (
-	// 		<a className="product-item-link" href={this.props.link}>
-	// 			<span> <i className="fa fa-external-link"></i> </span>
-	// 		</a>
-	// 	);
-	//
-	// }
+	renderTags() {
+		return (
+			<div className="tags">
+	  		<a href="#"> {this.props.tags[0]} </a>
+				<a href="#"> {this.props.tags[1]} </a>
+				<a href="#"> {this.props.tags[2]} </a>
+		  </div>
+		)
+	}
+
+	renderAvatarInfo() {
+		return (
+			<div className="bottom-stick avatar-info">
+				<a href="#">
+					<img className="small-avatar" src={this.props.maker.avatar} />
+					<p className="small-avatar-name"> {this.props.maker.name} </p>
+				</a>
+			</div>
+		);
+	}
 
 	renderInfoSection() {
 
@@ -34,12 +45,8 @@ class ProductItemSmall extends React.Component {
 				{this.renderUpvoteButton()}
 
 				<p>{this.props.description}</p>
-				<div className="avatar-info">
-					<a href="#">
-						<p className="small-avatar-name"> {this.props.maker.name} </p>
-						<img className="small-avatar" src={this.props.maker.avatar} />
-					</a>
-				</div>
+
+				{this.renderAvatarInfo()}
 
 			</section>
 		);
@@ -49,12 +56,14 @@ class ProductItemSmall extends React.Component {
 	render() {
 
 		return (
+				<div className="product-item-small-content">
+					{this.renderTags()}
+					<section className="product-item-media-small" >
+						<img src={this.props.media[0]} />
+					</section>
+					{this.renderInfoSection()}
 
-					<div className="product-item-small-content">
-						<img className="product-item-media-small" src={this.props.media[0]} />
-						{this.renderInfoSection()}
-					</div>
-
+				</div>
 		);
 	}
 }
