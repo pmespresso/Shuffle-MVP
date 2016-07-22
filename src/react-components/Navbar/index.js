@@ -2,6 +2,7 @@ import React from 'react';
 import LoginPopup from './LoginPopup';
 import PostPopup from './PostPopup';
 import ProfileMenu from './ProfileMenu';
+import Actions from '../../actions';
 
 class Navbar extends React.Component {
   constructor() {
@@ -32,6 +33,11 @@ class Navbar extends React.Component {
       <a href="#"><img className="logo" src="/img/logo-alt.jpg"/></a>
     );
   }
+  
+  handleLogin = () => {
+    Actions.login();
+    this.props.hidePopup();
+  };
 
   renderUser() {
     return (
@@ -43,7 +49,10 @@ class Navbar extends React.Component {
           <section>
             <ProfileMenu/>
           </section>
-          :null
+          :
+          <section>
+            <a href="#" onClick={this.handleLogin} className="login-btn">LOGIN</a>
+          </section>
         }
       </section>
     );
@@ -53,6 +62,7 @@ class Navbar extends React.Component {
     return (
       <section>
         <section className="navbar">
+          {this.renderUser()}
           {this.renderProductSearch()}
           {this.renderLogo()}
 

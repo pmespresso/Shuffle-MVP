@@ -382,7 +382,9 @@ button:hover {
 
 .post-btn {
 	color: white;
+  width: 70px;
 	background: #5e9aee;
+  margin: 0 auto;
 }
 
 .post-popup .post-header {
@@ -543,6 +545,11 @@ button:hover {
 .profile-menu .profile-btn {
   margin-left: 24px;
 	opacity: 0.9;
+}
+
+img.profile-btn.medium-avatar {
+  height: 50px;
+  width: 50px;
 }
 
 .profile-menu .profile-btn:hover {

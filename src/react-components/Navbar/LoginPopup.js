@@ -1,7 +1,14 @@
 import React from 'react';
 import Popup from './Popup';
+import Actions from '../../actions';
 
 class LoginPopup extends React.Component {
+
+  handleLogin = () => {
+    Actions.login();
+    this.props.hidePopup();
+  };
+  
   render() {
     return (
       <Popup {...this.props} style="login-popup">
