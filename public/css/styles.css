@@ -27,9 +27,10 @@ a {
 }
 
 
-.fa.fa-heart-o {
+.fa {
   text-align: center;
-  margin: 0 auto;
+  font-size: 17px;
+  margin: 0 5px 10px 0;
 }
 
 /* ================== PRODUCT LIST CSS ================== */
@@ -68,8 +69,6 @@ a {
   letter-spacing: 1.3px;
 }
 
-.tags {
-  font-size: 19px;
 /* ================== PRODUCT ITEMS CSS ================== */
 
 .product-list-masonry {
@@ -79,14 +78,15 @@ a {
 .product-item-small {
   border: 1px solid #f2f2f2;
   border-radius: 4px;
-  height: 400px;
+  height: 480px;
   width: 300px;
   display: inline-block;
   margin-top: 15px;
   margin-left: 15px;
 }
 
-.product-item-medium {
+
+/*.product-item-medium {
   border: 1px solid #f2f2f2;
   padding: 25px;
   border-radius: 4px;
@@ -95,16 +95,32 @@ a {
   display: inline-block;
   margin-top: 10px;
   margin-left: 15px;
+}*/
+
+.product-item-small .tags {
+  text-align: center;
+  margin: 18px auto 0 auto;
+}
+
+.product-item-small .tags > a {
+  font-weight: 300;
+  font-size: 16px;
+  padding: 3px;
 }
 
 .product-item-small .product-item-small-info {
-  padding: 15px auto;
-  margin: 15px auto;
-  display: block;
-  height: auto;
+  position: absolute;
+  bottom: 0;
+  padding: 0;
 }
 
-.product-item-medium .product-item-medium-info {
+.product-item-small .product-item-small-info p {
+  color: #999999;
+  font-size: 14px;
+  padding: 0 23px 3px 23px;
+}
+
+/*.product-item-medium .product-item-medium-info {
   padding-left: 15px;
   display: block;
   position: absolute;
@@ -112,82 +128,80 @@ a {
   top: 5%;
   width: 250px;
   height: 400px;
-}
+}*/
+
 
 .product-item-small .product-item-media-small {
-  width: auto;
-  max-width: 200px;
-  height: 200px;
-  margin: 0 auto;
   display: block;
-  clear: both;
-  margin-top: 32px;
+  height: 280px;
+  margin: 0 auto;
+  padding: 20px;
+  position: inherit;
 }
 
-.product-item-medium .product-item-media-medium {
+.product-item-small .product-item-media-small img {
+  zoom: 2;
+  display: block;
+  margin: 0 auto;
+
+  height: auto;
+  max-height: 100%;
+
+  width: auto;
+  max-width: 100%;
+  clear: both;
+
+  padding: auto;
+}
+
+
+
+
+/*.product-item-medium .product-item-media-medium {
   width: 200px;
   height: 200px;
   display: block;
   clear: both;
-}
+}*/
+
 
 .bottom-stick .product-item-price-small {
-  bottom: 3%;
-  left: 5%;
+  bottom: 1%;
+  left: 1%;
 }
 
-.bottom-stick .product-item-price-medium {
+/*.bottom-stick .product-item-price-medium {
   bottom: 3%;
   left: 45%;
 }
 
 .bottom-stick .product-item-price-medium {
   right: 20%;
-}
+}*/
 
-.product-item-small .product-item-small-info p {
-  color: #999999;
-  font-size: 14px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
+
 
 .avatar-info {
-  height: 50px;
-  width: 200px;
-  margin: 0 auto;
+  height: 60px;
+}
+
+.avatar-info .avatar-link {
+  width: 78%;
+  float: left;
 }
 
 .small-avatar {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  float: right;
-  margin-right: 5px;
-  padding: 3px;
-}
-
-.medium-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  float: right;
-  margin-right: 5px;
-  padding: 3px;
+  float: left;
+  margin-bottom: 5px;
 }
 
 .small-avatar-name {
-  display: inline-block;
-  float: right;
-  color: #999999;
-  margin: 17px 7px;
-}
-
-.medium-avatar-name {
-  display: inline-block;
-  float: right;
-  color: #999999;
-  margin: 32px 7px;
+  float: left;
+  margin: 10px auto;
+  text-align: left;
 }
 
 .small-avatar-name:hover,
@@ -195,6 +209,27 @@ a {
   color: black;
   cursor: pointer;
 }
+
+
+/*.medium-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  float: right;
+  margin-right: 5px;
+  padding: 3px;
+}*/
+
+
+
+/*.medium-avatar-name {
+  display: inline-block;
+  float: right;
+  color: #999999;
+  margin: 32px 7px;
+}*/
+
+
 
 /* ================== UPVOTE BUTTON CSS ================== */
 
@@ -205,9 +240,15 @@ a {
   text-align: center;
   border-radius: 4px;
   display: block;
-  right: 8.5%;
   position: absolute;
-  top: 15%;
+  right: 0;
+  bottom: 0;
+  color: #5e9aee;
+}
+
+.upvote-button.upvote-button-small {
+  margin: 5px;
+  padding: 4px;
 }
 
 .upvote-button:hover {
@@ -225,7 +266,7 @@ a {
 
 /*------------------------------ NAVBAR ------------------------------*/
 .navbar {
-  background-color: #B3D7E3;
+  background-color: white;
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.2);
 }
 .logo {

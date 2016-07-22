@@ -6,22 +6,34 @@ class ProductItemSmall extends React.Component {
 		return (
 			<a className="upvote-button upvote-button-small" href="#">
 				<span>
-					<i className="fa fa-heart-o"></i>
+					<i className="fa fa-heart-o">{this.props.upvote}</i>
 				</span>
 
-				{this.props.upvote}
+
 			</a>
 		);
 	}
 
-	renderHeadingSection() {
-
+	renderTags() {
 		return (
-			<header className="tags">
-				<a href="#"> {this.props.tags[0]} </a>
+			<div className="tags">
+	  		<a href="#"> {this.props.tags[0]} </a>
 				<a href="#"> {this.props.tags[1]} </a>
 				<a href="#"> {this.props.tags[2]} </a>
-			</header>
+		  </div>
+		)
+	}
+
+	renderAvatarInfo() {
+		return (
+			<section className="bottom-stick avatar-info">
+				<a href="#" className="avatar-link">
+					<img className="small-avatar" src={this.props.maker.avatar} />
+
+					<p className="small-avatar-name"> {this.props.maker.name} </p>
+				</a>
+					{this.renderUpvoteButton()}
+			</section>
 		);
 	}
 
@@ -29,18 +41,13 @@ class ProductItemSmall extends React.Component {
 
 		return (
 			<section className="product-item-small-info">
+				<section>
 				<a href="#">
 					<h2 className="product-item-name">{this.props.name}</h2>
 				</a>
-				<p>{this.props.description}</p>
+				<p>{this.props.description}</p></section>
 
-				<div className="avatar-info">
-					<a href="#">
-						<p className="small-avatar-name"> {this.props.maker.name} </p>
-						<img className="small-avatar" src={this.props.maker.avatar} />
-					</a>
-				</div>
-
+		{this.renderAvatarInfo()}
 			</section>
 		);
 
@@ -49,14 +56,13 @@ class ProductItemSmall extends React.Component {
 	render() {
 
 		return (
-
-
-					<div className="product-item-small-content">
-						<img className="product-item-media-small" src={this.props.media[0]} />
-
-						{this.renderInfoSection()}
-					</div>
-
+				<div className="product-item-small-content">
+					{this.renderTags()}
+					<section className="product-item-media-small" >
+						<img src={this.props.media[0]} />
+					</section>
+					{this.renderInfoSection()}
+				</div>
 		);
 	}
 }

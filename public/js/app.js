@@ -26866,7 +26866,7 @@ module.exports = require('./lib/React');
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+								value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -26881,6 +26881,8 @@ var _ProductList2 = _interopRequireDefault(_ProductList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -26888,116 +26890,126 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var HomePage = function (_React$Component) {
-	_inherits(HomePage, _React$Component);
+								_inherits(HomePage, _React$Component);
 
-	function HomePage(props) {
-		_classCallCheck(this, HomePage);
+								function HomePage(props) {
+																var _ref, _ref2;
 
-		var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomePage).call(this, props));
+																_classCallCheck(this, HomePage);
 
-		_this.state = {
-			productList: [{
-				id: 1,
-				name: "Black Shoes",
-				media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
-				upvote: 169,
-				description: "I've only worn these a few times, looking for a new owner",
-				price: "$10",
-				size: "small",
-				expires: "Tomorrow at Noon",
-				tags: ["#Shoes", "#Clothing", "#SecondHand"],
-				maker: {
-					name: 'Satish Rao',
-					avatar: '/img/rao.jpg'
-				}
-			}, {
-				id: 2,
-				name: "Cookies For Charity at Sproul!",
-				media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
-				upvote: 300,
-				description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
-				price: "$1",
-				size: "small",
-				expires: "5pm",
-				tags: ["#Cookies", "#Charity", "#TriDelt"],
-				maker: {
-					name: "Nicole O'Shea",
-					avatar: "/img/nicole.jpg"
-				}
-			}, {
-				id: 3,
-				name: "Cookies For Charity at Sproul!",
-				media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
-				upvote: 300,
-				description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
-				price: "$1",
-				size: "small",
-				expires: "5pm",
-				maker: {
-					name: "Nicole O'Shea",
-					avatar: "/img/nicole.jpg"
-				}
-			}, {
-				id: 4,
-				name: "Cookies For Charity at Sproul!",
-				media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
-				upvote: 300,
-				description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
-				price: "$1",
-				size: "small",
-				expires: "5pm",
-				maker: {
-					name: "Nicole O'Shea",
-					avatar: "/img/nicole.jpg"
-				}
-			}, {
-				id: 5,
-				name: "Black Shoes",
-				media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
-				upvote: 169,
-				description: "I've only worn these a few times, looking for a new owner",
-				price: "$10",
-				size: "small",
-				expires: "Tomorrow at Noon",
-				maker: {
-					name: 'Satish Rao',
-					avatar: '/img/rao.jpg'
-				}
-			}, {
-				id: 6,
-				name: "Black Shoes",
-				media: ['/img/black-shoes.jpg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
-				upvote: 169,
-				description: "I've only worn these a few times, looking for a new owner",
-				price: "$10",
-				size: "small",
-				expires: "Tomorrow at Noon",
-				maker: {
-					name: 'Satish Rao',
-					avatar: '/img/rao.jpg'
-				}
-			}]
+																var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomePage).call(this, props));
 
-		};
-		return _this;
-	}
+																_this.state = {
+																								productList: [(_ref = {
+																																id: 1,
+																																name: "Black Shoes",
+																																media: ['/img/sunbeam.jpeg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
+																																upvote: 169,
+																																description: "I've only worn these a few times, looking for a new owner",
+																																price: "$10",
+																																size: "small",
+																																tags: ["Shoes", "Prada", "Sexy"],
+																																location: "",
+																																expires: "Tomorrow at Noon"
+																								}, _defineProperty(_ref, 'tags', ["#Shoes", "#Clothing", "#SecondHand"]), _defineProperty(_ref, 'maker', {
+																																name: 'Satish Rao',
+																																avatar: '/img/rao.jpg'
+																								}), _ref), (_ref2 = {
+																																id: 2,
+																																name: "Cookies For Charity at Sproul!",
+																																media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+																																upvote: 300,
+																																description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+																																price: "$1",
+																																size: "small",
+																																tags: ["#Cookies", "#Sproul", "#TriDelt"],
+																																location: "",
+																																expires: "5pm"
+																								}, _defineProperty(_ref2, 'tags', ["#Cookies", "#Charity", "#TriDelt"]), _defineProperty(_ref2, 'maker', {
+																																name: "Nicole O'Shea",
+																																avatar: "/img/nicole.jpg"
+																								}), _ref2), {
+																																id: 3,
+																																name: "Cookies For Charity at Sproul!",
+																																media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+																																upvote: 300,
+																																description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+																																price: "$1",
+																																size: "small",
+																																tags: ["#MORE", "#COOKIES", "#CHARITY"],
+																																location: "",
+																																expires: "5pm",
+																																maker: {
+																																								name: "Nicole O'Shea",
+																																								avatar: "/img/nicole.jpg"
+																																}
+																								}, {
+																																id: 1,
+																																name: "Black Shoes",
+																																media: ['/img/sunbeam.jpeg', '/img/black-shoes.jpg', '/img/black-shoes.jpg'],
+																																upvote: 169,
+																																description: "I've only worn these a few times, looking for a new owner",
+																																price: "$10",
+																																size: "small",
+																																tags: ["#Shoes", "#Prada", "#Sexy"],
+																																location: "",
+																																expires: "Tomorrow at Noon",
+																																maker: {
+																																								name: 'Satish Rao',
+																																								avatar: '/img/rao.jpg'
+																																}
+																								}, {
+																																id: 2,
+																																name: "Cookies For Charity at Sproul!",
+																																media: ['/img/cal-cookies.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+																																upvote: 300,
+																																description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+																																price: "$1",
+																																size: "small",
+																																tags: ["#Cookies", "#Sproul", "#TriDelt"],
+																																location: "",
+																																expires: "5pm",
+																																maker: {
+																																								name: "Nicole O'Shea",
+																																								avatar: "/img/nicole.jpg"
+																																}
+																								}, {
+																																id: 3,
+																																name: "Cookies For Charity at Sproul!",
+																																media: ['/img/cal-balloons.jpg', '/img/cal-balloons.jpg', '/img/cal-cookies.jpg'],
+																																upvote: 300,
+																																description: "Delta Delta Delta are holding a charity event for homeless people on Sproul! Come support! ",
+																																price: "$1",
+																																size: "small",
+																																tags: ["#MORE", "#COOKIES", "#CHARITY"],
+																																location: "",
+																																expires: "5pm",
+																																maker: {
+																																								name: "Nicole O'Shea",
+																																								avatar: "/img/nicole.jpg"
+																																}
+																								}]
 
-	_createClass(HomePage, [{
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				'section',
-				null,
-				_react2.default.createElement(
-					'section',
-					{ className: 'container' },
-					this.state.productList ? _react2.default.createElement(_ProductList2.default, { productList: this.state.productList }) : null
-				)
-			);
-		}
-	}]);
+																};
+																return _this;
+								}
 
-	return HomePage;
+								_createClass(HomePage, [{
+																key: 'render',
+																value: function render() {
+																								return _react2.default.createElement(
+																																'section',
+																																null,
+																																_react2.default.createElement(
+																																								'section',
+																																								{ className: 'container-fluid' },
+																																								this.state.productList ? _react2.default.createElement(_ProductList2.default, { productList: this.state.productList }) : null
+																																)
+																								);
+																}
+								}]);
+
+								return HomePage;
 }(_react2.default.Component);
 
 exports.default = HomePage;
@@ -27447,7 +27459,7 @@ var Navbar = function (_React$Component) {
       return _react2.default.createElement(
         'a',
         { href: '#' },
-        _react2.default.createElement('img', { className: 'logo', src: '/img/logo.jpg' })
+        _react2.default.createElement('img', { className: 'logo', src: '/img/logo-alt.jpg' })
       );
     }
   }, {
@@ -27475,8 +27487,7 @@ var Navbar = function (_React$Component) {
           'section',
           { className: 'navbar' },
           this.renderProductSearch(),
-          this.renderLogo(),
-          this.renderUser()
+          this.renderLogo()
         )
       );
     }
@@ -27669,17 +27680,19 @@ var ProductItemSmall = function (_React$Component) {
 				_react2.default.createElement(
 					"span",
 					null,
-					_react2.default.createElement("i", { className: "fa fa-heart-o" })
-				),
-				this.props.upvote
+					_react2.default.createElement(
+						"i",
+						{ className: "fa fa-heart-o" },
+						this.props.upvote
+					)
+				)
 			);
 		}
 	}, {
-		key: "renderHeadingSection",
-		value: function renderHeadingSection() {
-
+		key: "renderTags",
+		value: function renderTags() {
 			return _react2.default.createElement(
-				"header",
+				"div",
 				{ className: "tags" },
 				_react2.default.createElement(
 					"a",
@@ -27705,6 +27718,27 @@ var ProductItemSmall = function (_React$Component) {
 			);
 		}
 	}, {
+		key: "renderAvatarInfo",
+		value: function renderAvatarInfo() {
+			return _react2.default.createElement(
+				"section",
+				{ className: "bottom-stick avatar-info" },
+				_react2.default.createElement(
+					"a",
+					{ href: "#", className: "avatar-link" },
+					_react2.default.createElement("img", { className: "small-avatar", src: this.props.maker.avatar }),
+					_react2.default.createElement(
+						"p",
+						{ className: "small-avatar-name" },
+						" ",
+						this.props.maker.name,
+						" "
+					)
+				),
+				this.renderUpvoteButton()
+			);
+		}
+	}, {
 		key: "renderInfoSection",
 		value: function renderInfoSection() {
 
@@ -27712,35 +27746,24 @@ var ProductItemSmall = function (_React$Component) {
 				"section",
 				{ className: "product-item-small-info" },
 				_react2.default.createElement(
-					"a",
-					{ href: "#" },
-					_react2.default.createElement(
-						"h2",
-						{ className: "product-item-name" },
-						this.props.name
-					)
-				),
-				_react2.default.createElement(
-					"p",
+					"section",
 					null,
-					this.props.description
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "avatar-info" },
 					_react2.default.createElement(
 						"a",
 						{ href: "#" },
 						_react2.default.createElement(
-							"p",
-							{ className: "small-avatar-name" },
-							" ",
-							this.props.maker.name,
-							" "
-						),
-						_react2.default.createElement("img", { className: "small-avatar", src: this.props.maker.avatar })
+							"h2",
+							{ className: "product-item-name" },
+							this.props.name
+						)
+					),
+					_react2.default.createElement(
+						"p",
+						null,
+						this.props.description
 					)
-				)
+				),
+				this.renderAvatarInfo()
 			);
 		}
 	}, {
@@ -27750,7 +27773,12 @@ var ProductItemSmall = function (_React$Component) {
 			return _react2.default.createElement(
 				"div",
 				{ className: "product-item-small-content" },
-				_react2.default.createElement("img", { className: "product-item-media-small", src: this.props.media[0] }),
+				this.renderTags(),
+				_react2.default.createElement(
+					"section",
+					{ className: "product-item-media-small" },
+					_react2.default.createElement("img", { src: this.props.media[0] })
+				),
 				this.renderInfoSection()
 			);
 		}
