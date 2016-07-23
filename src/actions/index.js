@@ -3,16 +3,17 @@ var _ = require('lodash');
 var firebase = require("firebase/app");
   require("firebase/auth");
   require("firebase/database");
+var configs = require("./config");
 
 class Actions {
 
   initSession() {
     return (dispatch) => {
       var config = {
-        apiKey: "AIzaSyAlovAl22dr9Dn8gEuzMdL4IYVXQywXkDs",
-        authDomain: "shufflemvp.firebaseapp.com",
-        databaseURL: "https://shufflemvp.firebaseio.com",
-        storageBucket: "project-3575180930557666999.appspot.com",
+        apiKey: configs.apiKey,
+        authDomain: configs.authDomain,
+        databaseURL: configs.databaseURL,
+        storageBucket: configs.storageBucket,
       };
       firebase.initializeApp(config);
       var authData = firebase.auth().currentUser;

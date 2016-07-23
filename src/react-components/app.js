@@ -5,6 +5,7 @@ import HomePage from './HomePage/';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../stores/ProductStore';
 import Actions from '../actions';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 @connectToStores
 class App extends React.Component {
@@ -23,12 +24,17 @@ class App extends React.Component {
 	}
 
 
+
 	render() {
 		return(
+			<StickyContainer>
 			<section>
-				<Navbar user={this.props.user}/>
+				<Sticky className="sticky">
+					<Navbar user={this.props.user}/>
+				</Sticky>
         <HomePage />
 			</section>
+			</StickyContainer>
 			);
 	}
 }

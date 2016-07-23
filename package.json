@@ -32,6 +32,7 @@
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-masonry-component": "^4.2.1",
+    "react-sticky": "^5.0.4",
     "watch": "^0.19.1"
   }
 }

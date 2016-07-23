@@ -1,8 +1,12 @@
 import React from 'react';
+
+import { StickyContainer, Sticky } from 'react-sticky';
+
 import LoginPopup from './LoginPopup';
 import PostPopup from './PostPopup';
 import ProfileMenu from './ProfileMenu';
 import Actions from '../../actions';
+
 
 class Navbar extends React.Component {
   constructor() {
@@ -76,6 +80,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
+
       <section>
         <section className="navbar">
           {this.renderUser()}
@@ -83,6 +88,8 @@ class Navbar extends React.Component {
           {this.renderProductSearch()}
         </section>
       </section>
+
+
     );
   }
 }
