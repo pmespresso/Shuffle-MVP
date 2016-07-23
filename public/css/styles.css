@@ -27,10 +27,8 @@ a {
 }
 
 
-.fa {
-  text-align: center;
-  font-size: 17px;
-  margin: 0 5px 10px 0;
+.fa.fa-heart-o {
+  margin-left: 2px
 }
 
 /* ================== PRODUCT LIST CSS ================== */
@@ -49,30 +47,15 @@ a {
   font-size: 25px;
 }
 
-.product-item:hover {
+.product-item-small:hover {
   background-color: #f2f2f2;
-}
-
-.bottom-stick > a {
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  right: 10%;
-  color: #444444;
-}
-
-.bottom-stick > span {
-  display: inline-block;
-  position: absolute;
-  font-weight: bold;
-  font-size: 22px;
-  letter-spacing: 1.3px;
+  cursor: pointer;
 }
 
 /* ================== PRODUCT ITEMS CSS ================== */
 
 .product-list-masonry {
-  /* margin: 0 auto FOR 3 columns per row*/
+  margin: 0 auto;
 }
 
 .product-item-small {
@@ -83,19 +66,8 @@ a {
   display: inline-block;
   margin-top: 15px;
   margin-left: 15px;
+   box-shadow: 4px 4px 3px #f2f2f2;
 }
-
-
-/*.product-item-medium {
-  border: 1px solid #f2f2f2;
-  padding: 25px;
-  border-radius: 4px;
-  width: 500px;
-  height: 450px;
-  display: inline-block;
-  margin-top: 10px;
-  margin-left: 15px;
-}*/
 
 .product-item-small .tags {
   text-align: center;
@@ -111,7 +83,11 @@ a {
 .product-item-small .product-item-small-info {
   position: absolute;
   bottom: 0;
-  padding: 0;
+  margin-top: 20px;
+}
+
+.product-item-small .product-item-small-info h2 {
+  color: #5e9aee;
 }
 
 .product-item-small .product-item-small-info p {
@@ -120,23 +96,11 @@ a {
   padding: 0 23px 3px 23px;
 }
 
-/*.product-item-medium .product-item-medium-info {
-  padding-left: 15px;
-  display: block;
-  position: absolute;
-  left: 225px;
-  top: 5%;
-  width: 250px;
-  height: 400px;
-}*/
-
-
 .product-item-small .product-item-media-small {
   display: block;
   height: 280px;
   margin: 0 auto;
   padding: 20px;
-  position: inherit;
 }
 
 .product-item-small .product-item-media-small img {
@@ -154,31 +118,13 @@ a {
   padding: auto;
 }
 
-
-
-
-/*.product-item-medium .product-item-media-medium {
-  width: 200px;
-  height: 200px;
-  display: block;
-  clear: both;
-}*/
-
-
-.bottom-stick .product-item-price-small {
-  bottom: 1%;
-  left: 1%;
+.bottom-stick .avatar-link {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  color: #444444;
 }
-
-/*.bottom-stick .product-item-price-medium {
-  bottom: 3%;
-  left: 45%;
-}
-
-.bottom-stick .product-item-price-medium {
-  right: 20%;
-}*/
-
 
 
 .avatar-info {
@@ -198,6 +144,11 @@ a {
   margin-bottom: 5px;
 }
 
+.small-avatar:hover {
+  background: #999999;
+  opacity: .9;
+}
+
 .small-avatar-name {
   float: left;
   margin: 10px auto;
@@ -206,44 +157,25 @@ a {
 
 .small-avatar-name:hover,
 .medium-avatar-name:hover {
-  color: black;
+  color: black !important;
   cursor: pointer;
 }
-
-
-/*.medium-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  float: right;
-  margin-right: 5px;
-  padding: 3px;
-}*/
-
-
-
-/*.medium-avatar-name {
-  display: inline-block;
-  float: right;
-  color: #999999;
-  margin: 32px 7px;
-}*/
-
 
 
 /* ================== UPVOTE BUTTON CSS ================== */
 
 
 .upvote-button {
-  width: 30px;
-  font-size: 16px;
-  text-align: center;
+  width: 35px;
+  font-size: 20px;
   border-radius: 4px;
   display: block;
   position: absolute;
-  right: 0;
+  right: 10%;
   bottom: 0;
-  color: #5e9aee;
+  font-weight: 300;
+  text-align: center;
+  color: #5e9aee !important;
 }
 
 .upvote-button.upvote-button-small {
@@ -252,11 +184,15 @@ a {
 }
 
 .upvote-button:hover {
-  color: #5e9aee;
+  font-weight: 400;
+  color: black !important;
+  text-decoration: none;
 }
 
 .upvote-button.active {
-  color: #5e9aee;
+  text-decoration: none;
+  font-weight: 400;
+  color: black !important;
 }
 
 .upvote-button > * {

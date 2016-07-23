@@ -1,0 +1,149 @@
+{
+
+  "products":
+  {
+  	"0": {
+      "name": "TriDelt Charity Event",
+	  "description": "Come get yourselves some cookies! Proceeds go to charity so come help a good cause!",
+      "expires": "1 hour",
+      "maker": {
+      	"name": "Nicole O'Shea",
+      	"avatar": "img/dummy-users/nicole.jpg"
+      },
+      "media": ["img/dummy-media-shuffle/cal-cookies.jpg"],
+      "price": "$1",
+      "size": "small",
+      "tags": ["Cookies", "Charity", "SproulPlaza"],
+      "upvotes": 993
+    },
+
+  	"1": {
+      "name": "Black Shoes",
+	  "description": "Only wore these once before, and they're great but they need some new owners.",
+      "expires": "Next Tuesday",
+      "maker": {
+      	"name": "Satish Rao",
+      	"avatar": "img/dummy-users/rao.jpg"
+      },
+      "media": ["img/dummy-media-shuffle/black-shoes.jpg"],
+      "price": "$10",
+      "size": "small",
+      "tags": ["Negotiable", "Prada", "Heels"],
+      "upvotes": 5129
+    },
+
+    "2": {
+      "name": "School Bag from JanSports",
+      "description": "This is your standard bag for school and whatnot. Come get it very cheap.",
+      "expires": "Next Week",
+      "location": "Berkeley",
+      "maker": {
+      	"name": "Krystal Hsu",
+      	"avatar": "img/dummy-users/krystal-hsu.jpg"
+      },
+      "media": ["img/dummy-media-shuffle/mattress1.jpg", "img/dummy-media-shuffle/mattress2.jpg"],
+      "price": "$75",
+      "size": "small",
+      "tags": ["Bag", "JanSports", "GoodCondition"],
+      "upvotes": 9
+    },
+
+    "3": {
+      "name": "Couch",
+	  "description": "Comfy. Minor stains. Must pick up. OBO",
+      "expires": "Tomorrow",
+      "maker": {
+      	"name": "Kristi Choy",
+      	"avatar": "img/dummy-users/kristy-choy.jpg"
+      },
+      "media": ["img/dummy-media-shuffle/brown-couch.jpg"],
+      "price": "$20",
+      "size": "small",
+      "tags": ["Cheap", "Couch", "Comfy"],
+      "upvotes": 59
+    },
+
+    "4": {
+      "name": "Ikea Full Size Mattress",
+      "description": "IKEA SULTAN HANESTAD FULL SIZE MATTRESS Two years old, in good condition Pick up only",
+      "expires": "Next Week",
+      "location": "Berkeley",
+      "maker": {
+      	"name": "Krystal Hsu",
+      	"avatar": "img/dummy-users/krystal-hsu.jpg"
+      },
+      "media": ["img/dummy-media-shuffle/mattress1.jpg", "img/dummy-media-shuffle/mattress2.jpg"],
+      "price": "$75",
+      "size": "small",
+      "tags": ["Mattress", "Ikea", "GoodCondition"],
+      "upvotes": 9
+    },
+
+    "5": {
+      "name": "Zara low back dress",
+      "description": "Size: xs",
+      "expires": "4 Days",
+      "location": "",
+      "maker": {
+      	"name": "Srinidhi Sampath",
+      	"avatar": "img/dummy-users/srinidhi-sampath.jpg"
+      },
+      "media": ["img/dummy-media-shuffle/low-back-dress1.jpg", "img/dummy-media-shuffle/low-back-dress2.jpg"],
+      "price": "$15",
+      "size": "small",
+      "tags": ["Zara", "Yellow", "Dress"],
+      "upvotes": 1
+    },
+
+    "6": {
+      "name": "Black F21 Dress",
+      "description": "Black Forever 21 dress, square neckline and criss-cross back - S",
+      "expires": "2 Days",
+      "location": "",
+      "maker": {
+      	"name": "Susan Le",
+      	"avatar": "img/dummy-users/susan-le.jpg"
+      },
+      "media": ["img/dummy-media-shuffle/black-f21-dress.jpg"],
+      "price": "$10",
+      "size": "small",
+      "tags": ["Black", "Forever21", "Dress"],
+      "upvotes": 88
+    },
+
+     "6": {
+      "name": "Navy Blue Longchamp",
+      "description": " Small navy blue Longchamp",
+      "expires": "2 Days",
+      "location": "",
+      "maker": {
+      	"name": "Susan Le",
+      	"avatar": "img/dummy-users/susan-le.jpg"
+      },
+      "media": ["img/dummy-media-shuffle/navy-blue-longchamp-bag.jpg"],
+      "price": "$25",
+      "size": "small",
+      "tags": ["NavyBlue", "Longchamp", "NeverUsed"],
+      "upvotes": 92
+    },
+
+    "7": {
+      "name": "White floral romper - M",
+      "description": "",
+      "expires": "2 Days",
+      "location": "",
+      "maker": {
+      	"name": "Susan Le",
+      	"avatar": "img/dummy-users/susan-le.jpg"
+      },
+      "media": ["img/dummy-media-shuffle/white-flower-romper.jpg"],
+      "price": "$5",
+      "size": "small",
+      "tags": ["NavyBlue", "Longchamp", "NeverUsed"],
+      "upvotes": 2
+    }
+
+
+  }
+}
+

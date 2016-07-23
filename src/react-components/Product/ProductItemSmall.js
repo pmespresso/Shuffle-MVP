@@ -6,10 +6,8 @@ class ProductItemSmall extends React.Component {
 		return (
 			<a className="upvote-button upvote-button-small" href="#">
 				<span>
-					<i className="fa fa-heart-o">{this.props.upvote}</i>
+					<i className="fa fa-heart-o"></i> {this.props.upvotes}
 				</span>
-
-
 			</a>
 		);
 	}
@@ -30,7 +28,7 @@ class ProductItemSmall extends React.Component {
 				<a href="#" className="avatar-link">
 					<img className="small-avatar" src={this.props.maker.avatar} />
 
-					<p className="small-avatar-name"> {this.props.maker.name} </p>
+					<p className="small-avatar-name"> {this.props.maker.name.split(" ")[0]} </p>
 				</a>
 					{this.renderUpvoteButton()}
 			</section>
@@ -42,10 +40,15 @@ class ProductItemSmall extends React.Component {
 		return (
 			<section className="product-item-small-info">
 				<section>
-				<a href="#">
 					<h2 className="product-item-name">{this.props.name}</h2>
-				</a>
-				<p>{this.props.description}</p></section>
+				<p>
+					{
+						this.props.description.length > 200 ?
+						this.props.description.slice(0, 200) :
+						this.props.description
+					}
+				</p>
+				</section>
 
 		{this.renderAvatarInfo()}
 			</section>

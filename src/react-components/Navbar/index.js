@@ -33,9 +33,17 @@ class Navbar extends React.Component {
 
   handleLogout = () => {
     Actions.logout();
+    this.props.showConfirmation();
   }
 
+
+
+
   handlePost = () => {
+
+
+
+
     Actions.addProduct(product);
   }
 

@@ -46429,9 +46429,11 @@ var Navbar = function (_React$Component) {
 
     _this.handleLogout = function () {
       _actions2.default.logout();
+      _this.props.showConfirmation();
     };
 
     _this.handlePost = function () {
+
       _actions2.default.addProduct(product);
     };
 
@@ -46686,11 +46688,9 @@ var ProductItemSmall = function (_React$Component) {
 				_react2.default.createElement(
 					"span",
 					null,
-					_react2.default.createElement(
-						"i",
-						{ className: "fa fa-heart-o" },
-						this.props.upvote
-					)
+					_react2.default.createElement("i", { className: "fa fa-heart-o" }),
+					" ",
+					this.props.upvotes
 				)
 			);
 		}
@@ -46737,7 +46737,7 @@ var ProductItemSmall = function (_React$Component) {
 						"p",
 						{ className: "small-avatar-name" },
 						" ",
-						this.props.maker.name,
+						this.props.maker.name.split(" ")[0],
 						" "
 					)
 				),
@@ -46755,18 +46755,14 @@ var ProductItemSmall = function (_React$Component) {
 					"section",
 					null,
 					_react2.default.createElement(
-						"a",
-						{ href: "#" },
-						_react2.default.createElement(
-							"h2",
-							{ className: "product-item-name" },
-							this.props.name
-						)
+						"h2",
+						{ className: "product-item-name" },
+						this.props.name
 					),
 					_react2.default.createElement(
 						"p",
 						null,
-						this.props.description
+						this.props.description.length > 200 ? this.props.description.slice(0, 200) : this.props.description
 					)
 				),
 				this.renderAvatarInfo()
