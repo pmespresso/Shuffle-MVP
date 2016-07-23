@@ -1,0 +1,32 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.0.0
+[debug] Platform:     darwin
+[debug] Node Version: v4.4.5
+[debug] Time:         Fri Jun 17 2016 03:54:40 GMT-0700 (PDT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[warn] ⚠  "firebase" key in firebase.json is deprecated. Run firebase use --add instead
+[warn] ⚠  Deprecation Warning: Firebase Hosting configuration should be moved under "hosting" key.
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/drealiu/shuffleProject/shufflemvp
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.0.2
+[debug] Platform:     darwin
+[debug] Node Version: v4.4.5
+[debug] Time:         Fri Jun 17 2016 04:47:32 GMT-0700 (PDT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[warn] ⚠  "firebase" key in firebase.json is deprecated. Run firebase use --add instead
+[warn] ⚠  Deprecation Warning: Firebase Hosting configuration should be moved under "hosting" key.
+[info] Starting Firebase development server...
+[info] 
+[info] Project Directory: /Users/drealiu/shuffleProject/shufflemvp
+[info] Public Directory: public
+[info] 
+[info] Server listening at: http://localhost:5000

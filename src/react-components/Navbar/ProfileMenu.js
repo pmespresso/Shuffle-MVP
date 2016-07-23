@@ -1,5 +1,10 @@
 import React from 'react';
+import ProductStore from '../../stores/ProductStore';
+import Actions from '../../actions';
+import connectToStores from 'alt-utils/lib/connectToStores';
 
+
+@connectToStores
 class ProfileMenu extends React.Component {
 
   constructor() {
@@ -7,6 +12,14 @@ class ProfileMenu extends React.Component {
     this.state = {
       showProfileNav: false
     }
+  }
+
+  static getStores() {
+    return [ProductStore];
+  }
+
+  static getPropsFromStores() {
+    return ProductStore.getState();
   }
 
   handleClick = () => {
@@ -35,14 +48,14 @@ class ProfileMenu extends React.Component {
     return (
       <nav className="profile-nav" ref="profileNav">
         <a href="#">My Profile</a>
-        <a href="#">Logout</a>
+        <a href="#" onClick={this.props.handleLogout}>Logout</a>
       </nav>
     );
   }
   render() {
     return (
       <section className="profile-menu">
-        <img src="/img/rao.jpg" onClick={this.handleClick} className="profile-btn medium-avatar" ref="profileBtn"/>
+        <img src={this.props.user.avatar} onClick={this.handleClick} className="profile-btn medium-avatar" ref="profileBtn"/>
         {
           this.state.showProfileNav? this.renderProfileNav() : null
         }

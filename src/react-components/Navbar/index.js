@@ -2,6 +2,7 @@ import React from 'react';
 import LoginPopup from './LoginPopup';
 import PostPopup from './PostPopup';
 import ProfileMenu from './ProfileMenu';
+import Actions from '../../actions';
 
 class Navbar extends React.Component {
   constructor() {
@@ -19,31 +20,47 @@ class Navbar extends React.Component {
     this.setState({popupStatus: false});
   };
 
-  renderProductSearch() {
+  renderLogo() {
     return (
-      <section className="right-side">
-        <input className="product-search" placeholder="SEARCH" />
-      </section>
+      <a href="#" className="shuffle-btn"><img className="logo" src="/img/logo-alt.jpg"/></a>
     );
   }
 
-  renderLogo() {
+  handleLogin = () => {
+    Actions.login();
+    this.props.hidePopup();
+  };
+
+  handleLogout = () => {
+    Actions.logout();
+  }
+
+  handlePost = () => {
+    Actions.addProduct(product);
+  }
+
+  renderProductSearch() {
     return (
-      <a href="#"><img className="logo" src="/img/logo-alt.jpg"/></a>
+      <section className="search-section">
+        <input className="product-search" placeholder="Let's See What We Can Find..." />
+      </section>
     );
   }
 
   renderUser() {
     return (
-      <section className="left-side">
+      <section className="right-side">
         {
           this.props.user
           ?
           // Display Profile Menu
           <section>
-            <ProfileMenu/>
+            <ProfileMenu handleLogout={this.handleLogout}/>
           </section>
-          :null
+          :
+          <section>
+            <a href="#" onClick={this.handleLogin} className="login-btn">LOGIN</a>
+          </section>
         }
       </section>
     );
@@ -53,9 +70,9 @@ class Navbar extends React.Component {
     return (
       <section>
         <section className="navbar">
-          {this.renderProductSearch()}
+          {this.renderUser()}
           {this.renderLogo()}
-
+          {this.renderProductSearch()}
         </section>
       </section>
     );

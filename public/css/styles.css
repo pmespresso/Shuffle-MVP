@@ -72,7 +72,7 @@ a {
 /* ================== PRODUCT ITEMS CSS ================== */
 
 .product-list-masonry {
-  margin: 0 auto;
+  /* margin: 0 auto FOR 3 columns per row*/
 }
 
 .product-item-small {
@@ -269,21 +269,26 @@ a {
   background-color: white;
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.2);
 }
+
 .logo {
   height: 75px;
   width: 75px;
   border-radius: 25%;
+  float: left;
+  margin: 10px 20px;
 }
+
 .login-btn {
-	padding-top: 9px;
+	padding: 10px;
+  margin: 20px 20px;
 	color: #999999;
 	font-weight: 500;
-	font-size: 11px;
+	font-size: 17px;
 	display: block;
 }
 
 .login-btn:hover {
-	color: #da552f;
+	color: #5e9aee;
 }
 
 .navbar {
@@ -291,36 +296,33 @@ a {
 	padding: 10px 10px 5px;
 }
 
-.navbar .left-side {
-	float: left;
-}
-
-.navbar .right-side .product-search {
+.navbar .search-section .product-search {
 	background-color: #f2f2f2;
 	color: #999999;
-	padding: 0 12px;
+	padding: 12px 12px;
 	border: 1px solid #f2f2f2;
 	border-radius: 4px;
 	font-size: 11px;
 	font-weight: 500;
-	height: 30px;
-	width: 200px;
+	height: 50px;
+	width: 70%;
 	outline: 0;
-  margin-top: 20px;
+  margin: 20px 0;
 }
+
 
 .navbar .right-side {
 	float: right;
 }
 
-.navbar .right-side span > * {
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: 10px;
+.navbar .right-side .profile-menu {
+  margin: 13px 20px;
 }
 
-.navbar .right-side a:hover {
-	color: #da552f;
+.navbar .right-side .profile-menu img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
 }
 
 /*------------------------------ POPUP ------------------------------*/
@@ -382,7 +384,9 @@ button:hover {
 
 .post-btn {
 	color: white;
+  width: 70px;
 	background: #5e9aee;
+  margin: 0 auto;
 }
 
 .post-popup .post-header {
@@ -543,6 +547,11 @@ button:hover {
 .profile-menu .profile-btn {
   margin-left: 24px;
 	opacity: 0.9;
+}
+
+img.profile-btn.medium-avatar {
+  height: 50px;
+  width: 50px;
 }
 
 .profile-menu .profile-btn:hover {
