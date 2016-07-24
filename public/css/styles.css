@@ -115,7 +115,7 @@ a, a:hover, a:active, a:visited {
 
 .product-item-small .product-item-small-info {
   bottom: 0;
-  margin-top: 20px;
+  margin: 20px auto;
   width: 100%;
 }
 
@@ -132,8 +132,8 @@ a, a:hover, a:active, a:visited {
 
 .product-item-small .product-item-media-small {
   display: block;
-  height: 280px;
-  padding: 20px;
+  height: 250px;
+  padding: 2px;
 }
 
 .product-item-small .product-item-media-small img {
