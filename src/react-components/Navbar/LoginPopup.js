@@ -1,5 +1,5 @@
 import React from 'react';
-import Popup from './Popup';
+import Popup from '../Popup';
 import Actions from '../../actions';
 
 class LoginPopup extends React.Component {
@@ -8,7 +8,7 @@ class LoginPopup extends React.Component {
     Actions.login();
     this.props.hidePopup();
   };
-  
+
   render() {
     return (
       <Popup {...this.props} style="login-popup">

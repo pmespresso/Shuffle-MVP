@@ -26,7 +26,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="main-content">
 					<section className="container-fluid">
 						{
 							this.props.products
