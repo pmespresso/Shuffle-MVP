@@ -56,14 +56,20 @@ class ProductItemSmall extends React.Component {
 
 	}
 
+	renderMediaSection() {
+		return (
+			<section className="product-item-media-small" >
+				<img src={this.props.media[0]} />
+			</section>
+		);
+	}
+
 	render() {
 
 		return (
 				<div className="product-item-small-content">
 					{this.renderTags()}
-					<section className="product-item-media-small" >
-						<img src={this.props.media[0]} />
-					</section>
+					{this.renderMediaSection()}
 					{this.renderInfoSection()}
 				</div>
 		);

@@ -45,7 +45,24 @@ a {
   margin: 0 auto;
 }
 
-/* ================== PRODUCT ITEMS CSS ================== */
+.bottom-stick .avatar-link {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  color: #444444;
+}
+
+.avatar-info {
+  height: 60px;
+}
+
+.avatar-info .avatar-link {
+  width: 78%;
+  float: left;
+}
+
+/* ================== PRODUCT ITEM SMALL CSS ================== */
 
 
 .product-item-small {
@@ -56,7 +73,7 @@ a {
   display: inline-block;
   margin-top: 15px;
   margin-left: 15px;
-   box-shadow: 4px 4px 3px #f2f2f2;
+  box-shadow: 4px 4px 3px #f2f2f2;
 }
 
 .product-item-small-info .product-item-name {
@@ -64,11 +81,8 @@ a {
   text-align: center;
 }
 
-.product-item-medium-info .product-item-name {
-  font-size: 25px;
-}
-
-.product-item-small:hover {
+.product-item-small:hover,
+.product-item-medium:hover {
   background-color: #f2f2f2;
   cursor: pointer;
 }
@@ -88,9 +102,11 @@ a {
   position: absolute;
   bottom: 0;
   margin-top: 20px;
+  width: 100%;
 }
 
 .product-item-small .product-item-small-info h2 {
+  text-align: center;
   color: #5e9aee;
 }
 
@@ -121,24 +137,6 @@ a {
   padding: auto;
 }
 
-.bottom-stick .avatar-link {
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  right: 10%;
-  color: #444444;
-}
-
-
-.avatar-info {
-  height: 60px;
-}
-
-.avatar-info .avatar-link {
-  width: 78%;
-  float: left;
-}
-
 .small-avatar {
   width: 45px;
   height: 45px;
@@ -147,12 +145,14 @@ a {
   margin-bottom: 5px;
 }
 
-.small-avatar:hover {
+.small-avatar:hover,
+.medium-avatar:hover {
   background: #999999;
   opacity: .9;
 }
 
-.small-avatar-name {
+.small-avatar-name,
+.medium-avatar-name {
   float: left;
   margin: 10px auto;
   text-align: left;
@@ -164,6 +164,85 @@ a {
   cursor: pointer;
 }
 
+/* ================== PRODUCT ITEM MEDIUM HORIZONTAL CSS ================== */
+
+.product-item-medium {
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  height: 550px;
+  width: 615px;
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 15px;
+  box-shadow: 4px 4px 3px #f2f2f2;
+}
+
+.product-item-medium .tags {
+  text-align: center;
+  margin: 18px auto 0 auto;
+}
+
+.product-item-medium .tags > a {
+  font-weight: 300;
+  font-size: 19px !important;
+  padding: 8px !important;
+}
+
+
+.product-item-medium .product-item-media-medium img {
+ zoom: 2;
+ display: inline-block;
+ margin: 0 auto;
+
+ height: auto;
+ max-height: 100%;
+
+ width: auto;
+ max-width: 100%;
+ clear: none;
+
+ text-align: center;
+ padding: auto;
+
+ border: 1px solid #f2f2f2;
+}
+
+.product-item-medium .product-item-media-medium {
+  display: block;
+  height: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.product-item-medium .product-item-medium-info {
+  position: absolute;
+  text-align: center !important;
+  bottom: 0;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.product-item-medium .product-item-medium-info h2 {
+  text-align: center !important;
+  font-size: 21px;
+  color: #5e9aee;
+
+}
+
+.product-item-medium .product-item-medium-info p {
+  text-align: center !important;
+  color: #999999;
+  font-size: 14px;
+  padding: 0 23px 3px 23px;
+}
+
+.medium-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  float: left;
+  margin-bottom: 5px;
+}
 
 /* ================== UPVOTE BUTTON CSS ================== */
 
@@ -189,6 +268,10 @@ a {
 .upvote-button:hover {
   font-weight: 400;
   color: black !important;
+  text-decoration: none;
+}
+
+.upvote-button:focus {
   text-decoration: none;
 }
 

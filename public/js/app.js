@@ -46978,14 +46978,15 @@ var ProductItemSmall = function (_React$Component) {
 				_react2.default.createElement(
 					"span",
 					null,
-					_react2.default.createElement("i", { className: "fa fa-heart-o" })
-				),
-				this.props.upvote
+					_react2.default.createElement("i", { className: "fa fa-heart-o" }),
+					" ",
+					this.props.upvotes
+				)
 			);
 		}
 	}, {
-		key: "renderHeadingSection",
-		value: function renderHeadingSection() {
+		key: "renderTags",
+		value: function renderTags() {
 			return _react2.default.createElement(
 				"header",
 				{ className: "tags" },
@@ -47013,54 +47014,58 @@ var ProductItemSmall = function (_React$Component) {
 			);
 		}
 	}, {
+		key: "renderAvatarInfo",
+		value: function renderAvatarInfo() {
+			return _react2.default.createElement(
+				"section",
+				{ className: "bottom-stick avatar-info" },
+				_react2.default.createElement(
+					"a",
+					{ href: "#", className: "avatar-link" },
+					_react2.default.createElement("img", { className: "medium-avatar", src: this.props.maker.avatar }),
+					_react2.default.createElement(
+						"p",
+						{ className: "medium-avatar-name" },
+						" ",
+						this.props.maker.name.split(" ")[0],
+						" "
+					)
+				),
+				this.renderUpvoteButton()
+			);
+		}
+	}, {
 		key: "renderInfoSection",
 		value: function renderInfoSection() {
 
 			return _react2.default.createElement(
-				"div",
-				null,
+				"section",
+				{ className: "product-item-medium-info" },
 				_react2.default.createElement(
-					"div",
-					{ className: "product-item-medium-info" },
-					this.renderHeadingSection(),
+					"section",
+					null,
 					_react2.default.createElement(
-						"a",
-						{ href: "#" },
-						_react2.default.createElement(
-							"h2",
-							{ className: "product-item-name" },
-							this.props.name
-						)
+						"h2",
+						{ className: "product-item-name" },
+						this.props.name
 					),
 					_react2.default.createElement(
 						"p",
 						null,
-						this.props.description
+						this.props.description.length > 200 ? this.props.description.slice(0, 200) : this.props.description
 					)
 				),
-				_react2.default.createElement(
-					"div",
-					{ className: "bottom-stick" },
-					_react2.default.createElement(
-						"span",
-						{ className: "product-item-price-medium" },
-						" ",
-						this.props.price,
-						" "
-					),
-					_react2.default.createElement(
-						"a",
-						{ href: "#" },
-						_react2.default.createElement(
-							"p",
-							{ className: "medium-avatar-name" },
-							" ",
-							this.props.maker.name,
-							" "
-						),
-						_react2.default.createElement("img", { className: "medium-avatar", src: this.props.maker.avatar })
-					)
-				)
+				this.renderAvatarInfo()
+			);
+		}
+	}, {
+		key: "renderMediaSection",
+		value: function renderMediaSection() {
+			return _react2.default.createElement(
+				"section",
+				{ className: "product-item-media-medium" },
+				_react2.default.createElement("img", { src: this.props.media[0] }),
+				_react2.default.createElement("img", { src: this.props.media[1] })
 			);
 		}
 	}, {
@@ -47070,8 +47075,8 @@ var ProductItemSmall = function (_React$Component) {
 			return _react2.default.createElement(
 				"div",
 				{ className: "product-item-medium-content" },
-				_react2.default.createElement("img", { className: "product-item-media-medium", src: this.props.media[0] }),
-				_react2.default.createElement("img", { className: "product-item-media-medium", src: this.props.media[1] }),
+				this.renderTags(),
+				this.renderMediaSection(),
 				this.renderInfoSection()
 			);
 		}
@@ -47202,6 +47207,15 @@ var ProductItemSmall = function (_React$Component) {
 			);
 		}
 	}, {
+		key: "renderMediaSection",
+		value: function renderMediaSection() {
+			return _react2.default.createElement(
+				"section",
+				{ className: "product-item-media-small" },
+				_react2.default.createElement("img", { src: this.props.media[0] })
+			);
+		}
+	}, {
 		key: "render",
 		value: function render() {
 
@@ -47209,11 +47223,7 @@ var ProductItemSmall = function (_React$Component) {
 				"div",
 				{ className: "product-item-small-content" },
 				this.renderTags(),
-				_react2.default.createElement(
-					"section",
-					{ className: "product-item-media-small" },
-					_react2.default.createElement("img", { src: this.props.media[0] })
-				),
+				this.renderMediaSection(),
 				this.renderInfoSection()
 			);
 		}

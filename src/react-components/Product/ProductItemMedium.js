@@ -6,15 +6,13 @@ class ProductItemSmall extends React.Component {
 		return (
 			<a className="upvote-button upvote-button-medium" href="#">
 				<span>
-					<i className="fa fa-heart-o"></i>
+					<i className="fa fa-heart-o"></i> {this.props.upvotes}
 				</span>
-
-				{this.props.upvote}
 			</a>
 		);
 	}
 
-	renderHeadingSection() {
+	renderTags() {
 		return (
 			<header className="tags">
 				<a href="#"> {this.props.tags[0]} </a>
@@ -24,44 +22,58 @@ class ProductItemSmall extends React.Component {
 		);
 	}
 
+	renderAvatarInfo() {
+		return (
+			<section className="bottom-stick avatar-info">
+				<a href="#" className="avatar-link">
+					<img className="medium-avatar" src={this.props.maker.avatar} />
+
+					<p className="medium-avatar-name"> {this.props.maker.name.split(" ")[0]} </p>
+				</a>
+					{this.renderUpvoteButton()}
+			</section>
+		);
+	}
+
 	renderInfoSection() {
 
 		return (
-			<div>
-			<div className="product-item-medium-info">
-			{this.renderHeadingSection()}
-				<a href="#">
+			<section className="product-item-medium-info">
+				<section>
 					<h2 className="product-item-name">{this.props.name}</h2>
-				</a>
+				<p>
+					{
+						this.props.description.length > 200 ?
+						this.props.description.slice(0, 200) :
+						this.props.description
+					}
+				</p>
+				</section>
 
-				<p>{this.props.description}</p>
-			</div>
-
-			<div className="bottom-stick">
-			<span className="product-item-price-medium"> {this.props.price} </span>
-				<a href="#">
-					<p className="medium-avatar-name"> {this.props.maker.name} </p>
-					<img className="medium-avatar" src={this.props.maker.avatar} />
-				</a>
-			</div>
-
-			</div>
+		{this.renderAvatarInfo()}
+			</section>
 		);
 
+	}
+
+	renderMediaSection() {
+		return (
+				<section className="product-item-media-medium">
+			     	<img src={this.props.media[0]} />
+						<img src={this.props.media[1]} />
+		    </section>
+		);
 	}
 
 	render() {
 
 		return (
 
-					<div className="product-item-medium-content">
-
-						<img className="product-item-media-medium" src={this.props.media[0]} />
-						<img className="product-item-media-medium" src={this.props.media[1]} />
-
-						{this.renderInfoSection()}
-
-					</div>
+			<div className="product-item-medium-content">
+				{this.renderTags()}
+				{this.renderMediaSection()}
+				{this.renderInfoSection()}
+			</div>
 
 		);
 	}
