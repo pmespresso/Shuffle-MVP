@@ -9,7 +9,7 @@ var masonryOptions = {
 	fitWidth: true,
 };
 
-var smallSizes = ['480px', '520px', '440px', '540px'];
+var smallSizes = ['480px', '520px', '500px', '540px', '560px'];
 
 class ProductList extends React.Component {
 	render() {
