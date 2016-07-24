@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Navbar from './Navbar';
 import HomePage from './HomePage/';
+import Post from './Post';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../stores/ProductStore';
 import Actions from '../actions';
@@ -31,6 +32,7 @@ class App extends React.Component {
 			<section>
 				<Sticky className="sticky">
 					<Navbar user={this.props.user}/>
+					<Post/>
 				</Sticky>
         <HomePage />
 			</section>

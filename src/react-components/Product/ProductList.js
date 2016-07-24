@@ -9,12 +9,14 @@ var masonryOptions = {
 	fitWidth: true,
 };
 
+var smallSizes = ['480px', '520px', '500px', '540px', '560px'];
+
 class ProductList extends React.Component {
 	render() {
 
 		var childElements = this.props.productList.map(function(item, idx) {
 			if (item.size == "small") {
-				return <div className="product-item-small">
+				return <div style={{height: smallSizes[idx % 3]}} className="product-item-small">
 					<ProductItemSmall key={idx} {...item} />
 					</div>
 			} else if (item.size == "medium") {

@@ -26,6 +26,10 @@ a {
   text-decoration: none;
 }
 
+a, a:hover, a:active, a:visited {
+    text-decoration:none;
+}
+
 .sticky {
   z-index: 9393939;
 }
@@ -34,6 +38,12 @@ a {
   margin-left: 2px
 }
 
+.main-content {
+  padding-left: 60px;
+  padding-right: 60px;
+  top: -60px;
+  position: relative;
+}
 /* ================== PRODUCT LIST CSS ================== */
 
 .product-list {
@@ -68,7 +78,7 @@ a {
 .product-item-small {
   border: 1px solid #f2f2f2;
   border-radius: 4px;
-  height: 480px;
+  /*height: 480px;*/
   width: 300px;
   display: inline-block;
   margin-top: 15px;
@@ -92,6 +102,11 @@ a {
   margin: 18px auto 0 auto;
 }
 
+.product-item-small-content {
+  width: 100%;
+  height: 100%;
+}
+
 .product-item-small .tags > a {
   font-weight: 300;
   font-size: 16px;
@@ -99,7 +114,6 @@ a {
 }
 
 .product-item-small .product-item-small-info {
-  position: absolute;
   bottom: 0;
   margin-top: 20px;
   width: 100%;
@@ -404,13 +418,6 @@ button:hover {
 	background-color: white;
 }
 
-.post-btn {
-	color: white;
-  width: 70px;
-	background: #5e9aee;
-  margin: 0 auto;
-}
-
 .post-popup .post-header {
 	background: #5e9aee;
 	color: white;
@@ -602,4 +609,61 @@ img.profile-btn.medium-avatar {
 .profile-menu .profile-nav a:hover {
 	background-color: #f2f2f2;
 	border-radius: 4px;
+}
+
+/*------------------------------ POST BUTTON ------------------------------*/
+.post-btn-container {
+  height: 80px;
+  width: 80px;
+  margin-left: 36px;
+}
+
+.post-btn {
+	color: #FFFFF3;
+  width: 60px;
+  height: 60px;
+	background: #3b8686;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50%;
+  padding-top: 1px;
+  font-size: 36px;
+}
+
+.transition-fast {
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.transition-medium {
+  -webkit-transition: all .7s ease-in-out;
+  -moz-transition: all .7s ease-in-out;
+  -o-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
+}
+
+.post-btn-desc {
+  opacity:0;
+  position: relative;
+  top: 0px;
+  color: #79bd9a;
+}
+
+.post-btn:hover {
+  text-decoration: none;
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: #FFFFF3;
+  background-color: #a8dba8;
+  cursor: pointer;
+}
+
+.post-btn:hover~.post-btn-desc{
+    opacity: 1.0;
+    top: 5px;
+    font-weight:bolder;
+
+
 }
