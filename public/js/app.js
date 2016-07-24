@@ -46799,7 +46799,7 @@ var Popup = function (_React$Component) {
 exports.default = Popup;
 
 },{"react":217}],226:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -46807,9 +46807,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactSticky = require('react-sticky');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46829,29 +46831,29 @@ var Post = function (_React$Component) {
   }
 
   _createClass(Post, [{
-    key: "renderPostButton",
+    key: 'renderPostButton',
     value: function renderPostButton() {
       return _react2.default.createElement(
-        "section",
-        { className: "post-btn-container" },
+        'section',
+        { className: 'post-btn-container' },
         _react2.default.createElement(
-          "div",
-          { className: "post-btn transition-medium" },
-          "+"
+          'div',
+          { className: 'post-btn transition-medium' },
+          '+'
         ),
         _react2.default.createElement(
-          "div",
-          { className: "post-btn-desc transition-fast" },
-          "POST"
+          'div',
+          { className: 'post-btn-desc transition-fast' },
+          'POST'
         )
       );
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "section",
-        { className: "post-section" },
+        'section',
+        { className: 'post-section' },
         this.renderPostButton()
       );
     }
@@ -46862,7 +46864,7 @@ var Post = function (_React$Component) {
 
 exports.default = Post;
 
-},{"react":217}],227:[function(require,module,exports){
+},{"react":217,"react-sticky":47}],227:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -47317,7 +47319,7 @@ var App = (0, _connectToStores2.default)(_class = function (_React$Component) {
 				null,
 				_react2.default.createElement(
 					'section',
-					null,
+					{ className: 'page-content' },
 					_react2.default.createElement(
 						_reactSticky.Sticky,
 						{ className: 'sticky' },

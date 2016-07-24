@@ -664,6 +664,10 @@ img.profile-btn.medium-avatar {
     opacity: 1.0;
     top: 5px;
     font-weight:bolder;
+}
 
-
+section.post-section {
+  position: inherit;
+  right: 50px;
+  bottom: 70px;
 }

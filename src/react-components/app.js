@@ -29,7 +29,7 @@ class App extends React.Component {
 	render() {
 		return(
 			<StickyContainer>
-			<section>
+			<section className="page-content">
 				<Sticky className="sticky">
 					<Navbar user={this.props.user}/>
 					<Post/>
