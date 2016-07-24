@@ -41,7 +41,6 @@ a, a:hover, a:active, a:visited {
 .main-content {
   padding-left: 60px;
   padding-right: 60px;
-  top: -60px;
   position: relative;
 }
 /* ================== PRODUCT LIST CSS ================== */
