@@ -2,6 +2,7 @@ import React from 'react';
 import Masonry from 'react-masonry-component';
 import ProductItemSmall from './ProductItemSmall';
 import ProductItemMedium from './ProductItemMedium';
+import ProductItemLarge from './ProductItemLarge';
 
 var masonryOptions = {
 	transitionDuration: '0.2s',
@@ -23,6 +24,11 @@ class ProductList extends React.Component {
 				return <div className="product-item-medium">
 					<ProductItemMedium key={idx} {...item} />
 				</div>
+			} else if (item.size == "large") {
+				return <div className="product-item-large">
+					<ProductItemLarge key={idx} {...item} />
+				</div>
+
 			}
 		})
 

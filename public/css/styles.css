@@ -41,7 +41,6 @@ a, a:hover, a:active, a:visited {
 .main-content {
   padding-left: 60px;
   padding-right: 60px;
-  top: -60px;
   position: relative;
 }
 /* ================== PRODUCT LIST CSS ================== */
@@ -72,18 +71,40 @@ a, a:hover, a:active, a:visited {
   float: left;
 }
 
+.small-avatar:hover,
+.medium-avatar:hover,
+.large-avatar:hover {
+  background: #999999;
+  opacity: .9;
+}
+
+.small-avatar-name,
+.medium-avatar-name,
+.large-avatar-name {
+  float: left;
+  margin: 8px auto;
+  text-align: left;
+}
+
+.small-avatar-name:hover,
+.medium-avatar-name:hover,
+.large-avatar-name:hover {
+  color: black !important;
+  cursor: pointer;
+}
+
 /* ================== PRODUCT ITEM SMALL CSS ================== */
 
 
 .product-item-small {
   border: 1px solid #f2f2f2;
   border-radius: 4px;
-  /*height: 480px;*/
+  height: 480px;
   width: 300px;
   display: inline-block;
   margin-top: 15px;
   margin-left: 15px;
-  box-shadow: 4px 4px 3px #f2f2f2;
+  box-shadow: 4px 4px 6px #f2f2f2;
 }
 
 .product-item-small-info .product-item-name {
@@ -92,7 +113,8 @@ a, a:hover, a:active, a:visited {
 }
 
 .product-item-small:hover,
-.product-item-medium:hover {
+.product-item-medium:hover,
+.product-item-large:hover {
   background-color: #f2f2f2;
   cursor: pointer;
 }
@@ -159,25 +181,6 @@ a, a:hover, a:active, a:visited {
   margin-bottom: 5px;
 }
 
-.small-avatar:hover,
-.medium-avatar:hover {
-  background: #999999;
-  opacity: .9;
-}
-
-.small-avatar-name,
-.medium-avatar-name {
-  float: left;
-  margin: 10px auto;
-  text-align: left;
-}
-
-.small-avatar-name:hover,
-.medium-avatar-name:hover {
-  color: black !important;
-  cursor: pointer;
-}
-
 /* ================== PRODUCT ITEM MEDIUM HORIZONTAL CSS ================== */
 
 .product-item-medium {
@@ -188,7 +191,7 @@ a, a:hover, a:active, a:visited {
   display: inline-block;
   margin-top: 15px;
   margin-left: 15px;
-  box-shadow: 4px 4px 3px #f2f2f2;
+  box-shadow: 4px 4px 6px #f2f2f2;
 }
 
 .product-item-medium .tags {
@@ -257,6 +260,92 @@ a, a:hover, a:active, a:visited {
   float: left;
   margin-bottom: 5px;
 }
+
+/* ================== PRODUCT ITEM LARGE CSS ================== */
+
+.product-item-large {
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  height: 800px;
+  width: 615px;
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 15px;
+  box-shadow: 4px 4px 6px #f2f2f2;
+}
+
+.product-item-large .tags {
+  text-align: center;
+  margin: 18px auto 0 auto;
+}
+
+.product-item-large .tags > a {
+  font-weight: 300;
+  font-size: 19px !important;
+  padding: 8px !important;
+}
+
+
+.product-item-large .product-item-media-large img {
+ zoom: 2;
+ display: inline-block;
+ margin: 0 auto;
+
+ height: auto;
+ max-height: 100%;
+
+ width: auto;
+ max-width: 100%;
+ clear: none;
+
+ text-align: center;
+ padding: auto;
+
+ border: 1px solid #f2f2f2;
+}
+
+.product-item-large .product-item-media-large {
+  display: block;
+  height: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.product-item-large .product-item-large-info {
+  position: absolute;
+  text-align: center !important;
+  bottom: 0;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.product-item-large .product-item-large-info h2 {
+  text-align: center !important;
+  font-size: 23px;
+  color: #5e9aee;
+
+}
+
+.product-item-large .product-item-large-info p {
+  text-align: center !important;
+  color: #999999;
+  font-size: 14px;
+  padding: 0 23px 3px 23px;
+}
+
+.large-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  float: left;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
 
 /* ================== UPVOTE BUTTON CSS ================== */
 
@@ -327,25 +416,19 @@ a, a:hover, a:active, a:visited {
 	color: #5e9aee;
 }
 
-.navbar {
-	text-align: center;
-	padding: 10px 10px 5px;
-}
-
 .navbar .search-section .product-search {
 	background-color: #f2f2f2;
 	color: #999999;
-	padding: 12px 12px;
+	padding: 19px 12px;
 	border: 1px solid #f2f2f2;
 	border-radius: 4px;
 	font-size: 11px;
 	font-weight: 500;
-	height: 50px;
-	width: 70%;
+	height: 40px;
+  width: 70%;
 	outline: 0;
-  margin: 20px 0;
+  margin: 25px 0 10px 0;
 }
-
 
 .navbar .right-side {
 	float: right;
@@ -359,6 +442,15 @@ a, a:hover, a:active, a:visited {
   height: 60px;
   width: 60px;
   border-radius: 50%;
+}
+
+.profile-nav {
+  margin: 20px 27px 0 0;
+}
+
+.profile-nav > a:hover {
+  color: #5e9aee !important;
+  text-decoration: none;
 }
 
 /*------------------------------ POPUP ------------------------------*/
@@ -664,6 +756,10 @@ img.profile-btn.medium-avatar {
     opacity: 1.0;
     top: 5px;
     font-weight:bolder;
+}
 
-
+section.post-section {
+  position: inherit;
+  right: 50px;
+  bottom: 40px;
 }

@@ -43,7 +43,7 @@
       },
       "media": ["img/dummy-media-shuffle/mattress1.jpg", "img/dummy-media-shuffle/mattress2.jpg"],
       "price": "$75",
-      "size": "small",
+      "size": "medium",
       "tags": ["Bag", "JanSports", "GoodCondition"],
       "upvotes": 9
     },
@@ -72,9 +72,9 @@
       	"name": "Krystal Hsu",
       	"avatar": "img/dummy-users/krystal-hsu.jpg"
       },
-      "media": ["img/dummy-media-shuffle/mattress1.jpg", "img/dummy-media-shuffle/mattress2.jpg"],
+      "media": ["img/dummy-media-shuffle/mattress1.jpg", "img/dummy-media-shuffle/mattress2.jpg", "img/dummy-media-shuffle/mattress1.jpg"],
       "price": "$75",
-      "size": "small",
+      "size": "large",
       "tags": ["Mattress", "Ikea", "GoodCondition"],
       "upvotes": 9
     },
@@ -146,4 +146,3 @@
 
   }
 }
-

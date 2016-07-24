@@ -1,10 +1,10 @@
 import React from 'react';
 
-class ProductItemMedium extends React.Component {
+class ProductItemLarge extends React.Component {
 
 	renderUpvoteButton() {
 		return (
-			<a className="upvote-button upvote-button-medium" href="#">
+			<a className="upvote-button upvote-button-large" href="#">
 				<span>
 					<i className="fa fa-heart-o"></i> {this.props.upvotes}
 				</span>
@@ -26,9 +26,9 @@ class ProductItemMedium extends React.Component {
 		return (
 			<section className="bottom-stick avatar-info">
 				<a href="#" className="avatar-link">
-					<img className="medium-avatar" src={this.props.maker.avatar} />
+					<img className="large-avatar" src={this.props.maker.avatar} />
 
-					<p className="medium-avatar-name"> {this.props.maker.name.split(" ")[0]} </p>
+					<p className="large-avatar-name"> {this.props.maker.name.split(" ")[0]} </p>
 				</a>
 					{this.renderUpvoteButton()}
 			</section>
@@ -38,7 +38,7 @@ class ProductItemMedium extends React.Component {
 	renderInfoSection() {
 
 		return (
-			<section className="product-item-medium-info">
+			<section className="product-item-large-info">
 				<section>
 					<h2 className="product-item-name">{this.props.name}</h2>
 				<p>
@@ -58,9 +58,10 @@ class ProductItemMedium extends React.Component {
 
 	renderMediaSection() {
 		return (
-				<section className="product-item-media-medium">
+				<section className="product-item-media-large">
 			     	<img src={this.props.media[0]} />
 						<img src={this.props.media[1]} />
+            <img src={this.props.media[1]} />
 		    </section>
 		);
 	}
@@ -69,7 +70,7 @@ class ProductItemMedium extends React.Component {
 
 		return (
 
-			<div className="product-item-medium-content">
+			<div className="product-item-large-content">
 				{this.renderTags()}
 				{this.renderMediaSection()}
 				{this.renderInfoSection()}
@@ -79,4 +80,4 @@ class ProductItemMedium extends React.Component {
 	}
 }
 
-export default ProductItemMedium;
+export default ProductItemLarge;

@@ -40,8 +40,6 @@ class Navbar extends React.Component {
   }
 
 
-
-
   handlePost = () => {
 
 
@@ -80,14 +78,14 @@ class Navbar extends React.Component {
   render() {
     return (
 
-      <section>
+      <section className="container-fluid">
         <section className="navbar">
-          {this.renderUser()}
           {this.renderLogo()}
           {this.renderProductSearch()}
+          {this.renderUser()}
+
         </section>
       </section>
-
 
     );
   }
