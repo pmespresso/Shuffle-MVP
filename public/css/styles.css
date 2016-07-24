@@ -51,7 +51,7 @@ a {
 .product-item-small {
   border: 1px solid #f2f2f2;
   border-radius: 4px;
-  height: 480px;
+  /*height: 480px;*/
   width: 300px;
   display: inline-block;
   margin-top: 15px;
