@@ -7,6 +7,7 @@ import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../stores/ProductStore';
 import Actions from '../actions';
 import { StickyContainer, Sticky } from 'react-sticky';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 @connectToStores
 class App extends React.Component {

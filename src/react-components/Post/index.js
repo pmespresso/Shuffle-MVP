@@ -1,6 +1,7 @@
 import React from 'react';
 import { StickyContainer, Sticky } from 'react-sticky';
 import PostPopup from './PostPopup';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Post extends React.Component {
 
@@ -31,8 +32,13 @@ class Post extends React.Component {
   render() {
     return (
       <section className="post-section">
-        {this.renderPostButton()}
-        <PostPopup user={this.props.user} status={this.state.popupStatus} hidePopup={this.hidePopup}/>
+        <ReactCSSTransitionGroup transitionName = "post-fade"
+               transitionAppear = {true} transitionAppearTimeout = {500}
+               transitionEnter = {true} transitionLeave = {true}
+               transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+          {this.renderPostButton()}
+          <PostPopup user={this.props.user} status={this.state.popupStatus} hidePopup={this.hidePopup}/>
+        </ReactCSSTransitionGroup>
       </section>
     );
   }

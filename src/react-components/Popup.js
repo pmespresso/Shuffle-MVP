@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 class Popup extends React.Component {
   renderPopupContent() {
     return (
@@ -17,9 +17,16 @@ class Popup extends React.Component {
   render() {
     return (
       <section>
+        <ReactCSSTransitionGroup transitionName = "fade"
+          transitionEnterTimeout={500} transitionLeaveTimeout={500}>
         {
-          this.props.status? this.renderPopupContent() : null
+          this.props.status?
+            this.renderPopupContent()
+           :
+
+            null
         }
+        </ReactCSSTransitionGroup>
       </section>
     );
   }
