@@ -456,13 +456,13 @@ a, a:hover, a:active, a:visited {
 
 /*------------------------------ POPUP ------------------------------*/
 .popup .popup-wrap {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background-color: white;
-	opacity: 0.97;
+  width:100%;
+  height:100%;
+  display:none;
+  position:fixed;
+  top:0px;
+  left:0px;
+  background:rgba(0,0,0,0.75);
 }
 
 .popup .popup-wrap img {
@@ -474,6 +474,11 @@ a, a:hover, a:active, a:visited {
 
 .popup .popup-content {
 	position: fixed;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  background:rgba(0,0,0,0.5);
 }
 
 button {
@@ -507,9 +512,60 @@ button:hover {
 .post-popup {
 	width: 90%;
 	right: 0;
-	top: 0;
+	top: 10%;
 	background-color: white;
+  margin: 0 auto;
+  position: relative;
 }
+
+.popup-close {
+    width:30px;
+    height:30px;
+    padding-top:4px;
+    display:inline-block;
+    position:absolute;
+    top: 10%;
+    right: 15%;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(0,0,0,0.8);
+    font-family:Arial, Sans-Serif;
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#fff;
+    z-index: 2;
+}
+
+.popup-close:hover {
+    -webkit-transform:translate(50%, -50%) rotate(180deg);
+    transform:translate(50%, -50%) rotate(180deg);
+    background:rgba(0,0,0,1);
+    text-decoration:none;
+}
+
+.popup-inner.post-popup {
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 70%;
+}
+
+header.post-popup-header {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+button.post-product-btn {
+  color: #FFFFF3;
+  background-color: #3b8686;
+}
+
+button.post-product-btn:hover {
+  background-color: #a8dba8;
+}
+
 
 .post-popup .post-header {
 	background: #5e9aee;
@@ -539,7 +595,7 @@ button:hover {
 }
 
 .post-popup > section table tr td {
-	padding: 30px;
+	padding: 15px;
 }
 
 .post-popup > section table tr td:first-child {

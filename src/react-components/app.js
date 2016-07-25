@@ -32,7 +32,7 @@ class App extends React.Component {
 			<section className="page-content">
 				<Sticky className="sticky">
 					<Navbar user={this.props.user}/>
-					<Post/>
+					<Post user={this.props.user}/>
 				</Sticky>
         <HomePage />
 			</section>
