@@ -544,6 +544,9 @@ button:hover {
     transform:translate(50%, -50%) rotate(180deg);
     background:rgba(0,0,0,1);
     text-decoration:none;
+    cursor:pointer;
+    width: 35px;
+    height: 35px;
 }
 
 .popup-inner.post-popup {

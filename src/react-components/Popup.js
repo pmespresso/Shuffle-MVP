@@ -5,7 +5,7 @@ class Popup extends React.Component {
     return (
           <section className="popup">
             <section className={"popup-content " + this.props.style}>
-              <a className="popup-close" onClick={this.props.hidePopup} href="#">x</a>
+              <div className="popup-close" onClick={this.props.hidePopup}>x</div>
               <div className={"popup-inner " + this.props.style}>
                 {this.props.children}
               </div>

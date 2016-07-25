@@ -47622,8 +47622,8 @@ var Popup = function (_React$Component) {
           'section',
           { className: "popup-content " + this.props.style },
           _react2.default.createElement(
-            'a',
-            { className: 'popup-close', onClick: this.props.hidePopup, href: '#' },
+            'div',
+            { className: 'popup-close', onClick: this.props.hidePopup },
             'x'
           ),
           _react2.default.createElement(
