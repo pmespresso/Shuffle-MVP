@@ -1,12 +1,29 @@
 import React from 'react';
+import Actions from '../../actions';
+import connectToStores from 'alt-utils/lib/connectToStores';
+import ProductStore from '../../stores/ProductStore';
 
+@connectToStores
 class ProductItemMedium extends React.Component {
+
+	static getStores() {
+		return [ProductStore];
+	}
+
+	static getPropsFromStores() {
+		return ProductStore.getState();
+	}
+
+	handleVote = (e) => {
+		e.preventDefault();
+		Actions.upvote(this.props.pid, this.props.user.id);
+	};
 
 	renderUpvoteButton() {
 		return (
 			<a className="upvote-button upvote-button-medium" href="#">
-				<span>
-					<i className="fa fa-heart-o"></i> {this.props.upvotes}
+				<span onClick={this.handleVote}>
+					<i className="fa fa-heart-o"><span> {this.props.upvote ? this.props.upvote : 0} </span></i>
 				</span>
 			</a>
 		);

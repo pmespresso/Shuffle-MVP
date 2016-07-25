@@ -14,7 +14,7 @@
       "price": "$1",
       "size": "small",
       "tags": ["Cookies", "Charity", "SproulPlaza"],
-      "upvotes": 993
+      "upvote": 993
     },
 
   	"1": {
@@ -29,7 +29,7 @@
       "price": "$10",
       "size": "small",
       "tags": ["Negotiable", "Prada", "Heels"],
-      "upvotes": 5129
+      "upvote": 5129
     },
 
     "2": {
@@ -45,7 +45,7 @@
       "price": "$75",
       "size": "medium",
       "tags": ["Bag", "JanSports", "GoodCondition"],
-      "upvotes": 9
+      "upvote": 9
     },
 
     "3": {
@@ -60,7 +60,7 @@
       "price": "$20",
       "size": "small",
       "tags": ["Cheap", "Couch", "Comfy"],
-      "upvotes": 59
+      "upvote": 59
     },
 
     "4": {
@@ -76,7 +76,7 @@
       "price": "$75",
       "size": "large",
       "tags": ["Mattress", "Ikea", "GoodCondition"],
-      "upvotes": 9
+      "upvote": 9
     },
 
     "5": {
@@ -92,7 +92,7 @@
       "price": "$15",
       "size": "small",
       "tags": ["Zara", "Yellow", "Dress"],
-      "upvotes": 1
+      "upvote": 1
     },
 
     "6": {
@@ -108,7 +108,7 @@
       "price": "$10",
       "size": "small",
       "tags": ["Black", "Forever21", "Dress"],
-      "upvotes": 88
+      "upvote": 88
     },
 
      "6": {
@@ -124,7 +124,7 @@
       "price": "$25",
       "size": "small",
       "tags": ["NavyBlue", "Longchamp", "NeverUsed"],
-      "upvotes": 92
+      "upvote": 92
     },
 
     "7": {
@@ -140,7 +140,7 @@
       "price": "$5",
       "size": "small",
       "tags": ["NavyBlue", "Longchamp", "NeverUsed"],
-      "upvotes": 2
+      "upvote": 2
     }
 
 

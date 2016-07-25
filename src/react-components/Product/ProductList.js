@@ -18,15 +18,15 @@ class ProductList extends React.Component {
 		var childElements = this.props.productList.map(function(item, idx) {
 			if (item.size == "small") {
 				return <div style={{height: smallSizes[idx % 3]}} className="product-item-small">
-					<ProductItemSmall key={idx} {...item} />
+					<ProductItemSmall key={idx} pid={item.key} {...item} />
 					</div>
 			} else if (item.size == "medium") {
 				return <div className="product-item-medium">
-					<ProductItemMedium key={idx} {...item} />
+					<ProductItemMedium key={idx} pid={item.key} {...item} />
 				</div>
 			} else if (item.size == "large") {
 				return <div className="product-item-large">
-					<ProductItemLarge key={idx} {...item} />
+					<ProductItemLarge key={idx} pid={item.key} {...item} />
 				</div>
 
 			}

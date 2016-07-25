@@ -80,10 +80,9 @@ class Navbar extends React.Component {
 
       <section className="container-fluid">
         <section className="navbar">
+          {this.renderUser()}
           {this.renderLogo()}
           {this.renderProductSearch()}
-          {this.renderUser()}
-
         </section>
       </section>
 

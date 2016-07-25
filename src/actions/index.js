@@ -1,4 +1,7 @@
+'use strict';
+
 import alt from '../alt';
+
 var _ = require('lodash');
 var firebase = require("firebase/app");
   require("firebase/auth");
@@ -80,10 +83,18 @@ class Actions {
     return(dispatch) => {
       var db = firebase.database();
       var firebaseRef = db.ref("/products");
+
       firebaseRef.on('value', (snapshot) => {
-          console.log("dispatching products");
-          console.log("prev products", snapshot.val());
-          var products = _.values(snapshot.val());
+        console.log("dispatching products");
+        console.log("prev products", snapshot.val());
+          var productsValue = snapshot.val();
+
+          var products = _(productsValue).keys().map((productKey) => {
+            var item = _.clone(productsValue[productKey]);
+            item.key = productKey;
+            return item;
+          })
+          .value();
           console.log(products);
           dispatch(products);
         });
@@ -95,6 +106,35 @@ class Actions {
       var db = firebase.database();
       var firebaseRef = db.ref("/products");
       firebaseRef.push(product);
+    }
+  }
+
+  upvote(productID, userID) {
+    return (dispatch) => {
+      var db = firebase.database();
+      var ref = db.ref('products');
+      console.log(productID);
+      // ref = ref.child(productID).child('upvote');
+
+      // var vote = 0;
+      // ref.on('value', (snapshot)=> {
+      //   vote = snapshot.val();
+      // });
+      // ref.set(vote+1);
+      var voteRef = db.ref('votes').child(productID).child(userID);
+      voteRef.on('value', (snapshot) => {
+        if(snapshot.val() == null) {
+          voteRef.set(true);
+
+          ref = ref.child(productID).child('upvote');
+
+          var vote = 0;
+          ref.on('value', (snapshot)=> {
+            vote = snapshot.val();
+          });
+          ref.set(vote+1);
+        }
+      });
     }
   }
 

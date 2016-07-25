@@ -409,7 +409,7 @@ a, a:hover, a:active, a:visited {
 	color: #999999;
 	font-weight: 500;
 	font-size: 17px;
-	display: block;
+	display: inline-block;
 }
 
 .login-btn:hover {
@@ -426,6 +426,7 @@ a, a:hover, a:active, a:visited {
 	font-weight: 500;
 	height: 40px;
   width: 70%;
+  clear: none;
 	outline: 0;
   margin: 25px 0 10px 0;
 }
@@ -705,9 +706,8 @@ img.profile-btn.medium-avatar {
 
 /*------------------------------ POST BUTTON ------------------------------*/
 .post-btn-container {
-  height: 80px;
-  width: 80px;
-  margin-left: 36px;
+  height: 60px;
+  width: 60px;
 }
 
 .post-btn {
@@ -760,6 +760,7 @@ img.profile-btn.medium-avatar {
 
 section.post-section {
   position: inherit;
-  right: 50px;
+  right: 35px;
   bottom: 40px;
+  margin: 0;
 }

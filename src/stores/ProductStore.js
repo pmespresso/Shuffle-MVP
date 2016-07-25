@@ -13,7 +13,7 @@ class ProductStore {
 
   @bind(Actions.login, Actions.initSession, Actions.logout)
   setUser(user) {
-    this.setState({user:user});
+    this.setState({user: user});
   }
 
   @bind(Actions.getProducts)
