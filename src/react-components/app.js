@@ -25,6 +25,10 @@ class App extends React.Component {
 		return ProductStore.getState();
 	}
 
+	shuffle() {
+		Actions.shuffleProducts();
+	}
+
 
 
 	render() {

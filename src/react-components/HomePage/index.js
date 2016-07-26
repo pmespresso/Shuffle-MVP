@@ -13,6 +13,7 @@ class HomePage extends React.Component {
     console.log("homepage constructor called");
 
     Actions.getProducts();
+    Actions.shuffleProducts();
   }
 
   static getStores() {

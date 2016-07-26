@@ -23,7 +23,6 @@ class Actions {
       var user;
 
       firebase.auth().onAuthStateChanged( (current) => {
-        console.log(current);
         if (current) {
           console.log("user is currently logged in");
           user = {
@@ -79,14 +78,11 @@ class Actions {
   }
 
   getProducts() {
-    console.log("getting products");
     return(dispatch) => {
       var db = firebase.database();
       var firebaseRef = db.ref("/products");
 
       firebaseRef.on('value', (snapshot) => {
-        console.log("dispatching products");
-        console.log("prev products", snapshot.val());
           var productsValue = snapshot.val();
 
           var products = _(productsValue).keys().map((productKey) => {
@@ -95,10 +91,14 @@ class Actions {
             return item;
           })
           .value();
-          console.log(products);
+          console.log("products", products);
           dispatch(products);
         });
     }
+  }
+
+  shuffleProducts() {
+    return null;
   }
 
   addProduct(product) {

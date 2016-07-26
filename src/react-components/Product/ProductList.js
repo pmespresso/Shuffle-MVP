@@ -13,6 +13,7 @@ var masonryOptions = {
 var smallSizes = ['480px', '520px', '500px', '540px', '560px'];
 
 class ProductList extends React.Component {
+
 	render() {
 
 		var childElements = this.props.productList.map(function(item, idx) {
