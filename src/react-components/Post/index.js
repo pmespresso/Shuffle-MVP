@@ -32,13 +32,18 @@ class Post extends React.Component {
   render() {
     return (
       <section className="post-section">
-        <ReactCSSTransitionGroup transitionName = "post-fade"
-               transitionAppear = {true} transitionAppearTimeout = {500}
-               transitionEnter = {true} transitionLeave = {true}
-               transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-          {this.renderPostButton()}
-          <PostPopup user={this.props.user} status={this.state.popupStatus} hidePopup={this.hidePopup}/>
-        </ReactCSSTransitionGroup>
+        {
+          this.props.user?
+          <ReactCSSTransitionGroup transitionName = "post-fade"
+                 transitionAppear = {true} transitionAppearTimeout = {500}
+                 transitionEnter = {true} transitionLeave = {true}
+                 transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+            {this.renderPostButton()}
+            <PostPopup user={this.props.user} status={this.state.popupStatus} hidePopup={this.hidePopup}/>
+          </ReactCSSTransitionGroup>
+          :
+          null
+      }
       </section>
     );
   }

@@ -47952,7 +47952,7 @@ var Post = function (_React$Component) {
       return _react2.default.createElement(
         'section',
         { className: 'post-section' },
-        _react2.default.createElement(
+        this.props.user ? _react2.default.createElement(
           _reactAddonsCssTransitionGroup2.default,
           { transitionName: 'post-fade',
             transitionAppear: true, transitionAppearTimeout: 500,
@@ -47960,7 +47960,7 @@ var Post = function (_React$Component) {
             transitionEnterTimeout: 500, transitionLeaveTimeout: 500 },
           this.renderPostButton(),
           _react2.default.createElement(_PostPopup2.default, { user: this.props.user, status: this.state.popupStatus, hidePopup: this.hidePopup })
-        )
+        ) : null
       );
     }
   }]);
