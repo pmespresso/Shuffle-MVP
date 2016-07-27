@@ -34,7 +34,7 @@ class Post extends React.Component {
       <section className="post-section">
         {
           this.props.user?
-          <ReactCSSTransitionGroup transitionName = "post-fade"
+          <ReactCSSTransitionGroup transitionName = "sticky-btn-fade"
                  transitionAppear = {true} transitionAppearTimeout = {500}
                  transitionEnter = {true} transitionLeave = {true}
                  transitionEnterTimeout={500} transitionLeaveTimeout={500}>

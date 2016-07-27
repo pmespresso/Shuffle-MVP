@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Navbar from './Navbar';
 import HomePage from './HomePage/';
 import Post from './Post';
+import Shuffle from './Shuffle';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../stores/ProductStore';
 import Actions from '../actions';
@@ -38,6 +39,7 @@ class App extends React.Component {
 				<Sticky className="sticky">
 					<Navbar user={this.props.user}/>
 					<Post user={this.props.user}/>
+					<Shuffle user={this.props.user} shuffle={this.shuffle}/>
 				</Sticky>
         <HomePage />
 			</section>

@@ -824,23 +824,56 @@ section.post-section {
   margin: 0;
 }
 
+/*------------------------------ SHUFFLE BUTTON ------------------------------*/
+
+.shuffle-btn-container {
+  width: 60px;
+  height: 60px;
+}
+
+.shuffle-section {
+  position: inherit;
+  bottom: 135px;
+  right: 35px;
+  margin: 0;
+}
+
+img.shuffle-btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.shuffle-btn-desc {
+  opacity:0;
+  position: relative;
+  top: 0px;
+}
+
+.shuffle-btn:hover~.shuffle-btn-desc{
+    opacity: 1.0;
+    top: 5px;
+    font-weight:bolder;
+}
+
+
 /*------------------------------ REACT CSS TRANSITION ------------------------------*/
 
-.post-fade-appear {
+.sticky-btn-fade-appear {
    opacity: 0.01;
 }
 
-.post-fade-appear.post-fade-appear-active {
+.sticky-btn-fade-appear.sticky-btn-fade-appear-active {
    opacity: 1;
    transition: opacity 500ms ease-in;
 }
 
-.post-fade-leave {
+.sticky-btn-fade-leave {
   opacity: 1;
   transition: opacity 1s ease-in;
 }
 
-.post-fade-leave.post-fade-leave-active {
+.sticky-btn-fade-leave.sticky-btn-fade-leave-active {
   opacity: 0.01;
 }
 
