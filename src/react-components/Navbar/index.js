@@ -39,15 +39,6 @@ class Navbar extends React.Component {
     this.props.showConfirmation();
   }
 
-
-  handlePost = () => {
-
-
-
-
-    Actions.addProduct(product);
-  }
-
   renderProductSearch() {
     return (
       <section className="search-section">

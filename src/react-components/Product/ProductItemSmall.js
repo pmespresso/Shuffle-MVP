@@ -23,7 +23,7 @@ class ProductItemSmall extends React.Component {
 		return (
 			<a className="upvote-button upvote-button-small">
 				<span onClick={this.handleVote}>
-					<i className="fa fa-heart-o"><span> {this.props.upvote} </span></i>
+					<i className="fa fa-heart-o"></i><span>{this.props.upvote}</span>
 				</span>
 			</a>
 		);
@@ -76,7 +76,11 @@ class ProductItemSmall extends React.Component {
 	renderMediaSection() {
 		return (
 			<section className="product-item-media-small" >
-				<img src={this.props.media[0]} />
+				{
+					this.props.media ?
+					<img src={this.props.media[0]} /> :
+					null
+				}
 			</section>
 		);
 	}
@@ -85,7 +89,6 @@ class ProductItemSmall extends React.Component {
 
 		return (
 				<div className="product-item-small-content">
-					{this.renderTags()}
 					{this.renderMediaSection()}
 					{this.renderInfoSection()}
 				</div>
