@@ -87,7 +87,6 @@ class ProductItemMedium extends React.Component {
 		return (
 
 			<div className="product-item-medium-content">
-				{this.renderTags()}
 				{this.renderMediaSection()}
 				{this.renderInfoSection()}
 			</div>

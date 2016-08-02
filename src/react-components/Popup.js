@@ -20,10 +20,9 @@ class Popup extends React.Component {
         <ReactCSSTransitionGroup transitionName = "fade"
           transitionEnterTimeout={500} transitionLeaveTimeout={500}>
         {
-          this.props.status?
+          this.props.status ?
             this.renderPopupContent()
            :
-
             null
         }
         </ReactCSSTransitionGroup>

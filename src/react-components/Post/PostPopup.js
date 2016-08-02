@@ -3,6 +3,9 @@ import ImageUpload from '../ImageUpload';
 import Popup from '../Popup';
 import Actions from '../../actions';
 import LoginPopup from '../Navbar';
+import PostForm from './PostForm';
+
+
 
 class PostPopup extends React.Component {
 
@@ -64,63 +67,18 @@ class PostPopup extends React.Component {
     this.newProduct.media = this.newProduct.media.concat(files);
   }
 
-  renderLogin = () => {
-    return (
-      <LoginPopup />
-    );
-  }
+
 
   render() {
     return (
       <Popup {...this.props} style="post-popup">
           <header className="post-popup-header">Add Something to Sell</header>
-          <section>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Name *</td>
-                  <td><input placeholder="What are you selling? Maximum 50 characters..." ref="name" maxLength="50"/></td>
-                </tr>
-                <tr>
-                  <td>Description *</td>
-                  <td><input placeholder="Enter a description in under 200 characters..." ref="description" maxLength="200"/></td>
-                </tr>
-                <tr className="media-upload">
-                  <td>Media * <br/> Please upload three images.</td>
-                  <td>
-                    <ImageUpload uploadMedia={this.uploadMedia}/>
-                  </td>
-                </tr>
 
-              </tbody>
-            </table>
-          </section>
-          <footer className="post-footer">
-            <button onClick={this.handlePost} className="post-product-btn transition-fast">Create Post!</button>
-          </footer>
+          <PostForm />
+
       </Popup>
     );
   }
 }
 
 export default PostPopup;
-
-{/*<tr>
-  <td>Price</td>
-  <td><input placeholder="How much are you looking to sell for?" ref="price"/></td>
-</tr>
-<tr>
-  <td>Location</td>
-  <td><input placeholder="Where can this item be picked up?" ref="location"/></td>
-</tr>
-<tr>
-  <td>Expiration Date</td>
-  <td><input placeholder="When will you no longer be offering this item?" ref="expires"/></td>
-</tr>
-<tr>
-  <td>Tags</td>
-  <td>
-    <div className="tag-upload-txt">Separate your tags with commas!</div>
-    <input placeholder="Enter some tags for your item!" ref="tags"/>
-  </td>
-</tr>*/}
