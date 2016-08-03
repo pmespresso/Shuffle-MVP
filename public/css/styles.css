@@ -115,7 +115,7 @@ a, a:hover, a:active, a:visited {
 .product-item-small:hover,
 .product-item-medium:hover,
 .product-item-large:hover {
-  background-color: #f2f2f2;
+  /*background-color: #f2f2f2;*/
   cursor: pointer;
 }
 
@@ -139,6 +139,7 @@ a, a:hover, a:active, a:visited {
   bottom: 0;
   margin: 20px auto;
   width: 100%;
+  position: relative;
 }
 
 .product-item-small .product-item-small-info h2 {
@@ -232,7 +233,7 @@ a, a:hover, a:active, a:visited {
 }
 
 .product-item-medium .product-item-medium-info {
-  position: absolute;
+  position: relative;
   text-align: center !important;
   bottom: 0;
   margin-top: 20px;
@@ -313,7 +314,7 @@ a, a:hover, a:active, a:visited {
 .product-item-large .product-item-large-info {
   position: absolute;
   text-align: center !important;
-  bottom: 0;
+  bottom: 40px;
   margin-top: 20px;
   width: 100%;
 }
@@ -906,4 +907,63 @@ img.shuffle-btn {
 
 .fade-leave.fade-leave-active {
   opacity: 0.01;
+}
+
+/*------------------------------ CARD FLIPPING ------------------------------*/
+
+/* entire container, keeps perspective */
+.flip-container-large, .flip-container-medium, .flip-container-small {
+	perspective: 1000px;
+  margin-top: 15px;
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flip-product, .flip-container.hover .flip-product {
+		transform: rotateY(180deg);
+	}
+
+.flip-container-large, .front-large, .back-large {
+  height: 800px;
+  width: 620px;
+}
+
+.flip-container-medium, .front-medium, .back-medium {
+  height: 550px;
+  width: 620px;
+}
+
+.flip-container-small, .front-small, .back-small {
+  width: 300px;
+}
+
+/* flip speed goes here */
+.flip-product {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
 }

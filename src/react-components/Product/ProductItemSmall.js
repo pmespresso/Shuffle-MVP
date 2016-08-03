@@ -3,6 +3,8 @@ import Actions from '../../actions';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../../stores/ProductStore';
 
+var smallSizes = ['480px', '520px', '500px', '540px', '560px'];
+
 @connectToStores
 class ProductItemSmall extends React.Component {
 
@@ -19,11 +21,15 @@ class ProductItemSmall extends React.Component {
 		Actions.upvote(this.props.pid, this.props.user.id);
 	};
 
+	toggleHover = () => {
+		this.classList.toggle('hover');
+	}
+
 	renderUpvoteButton() {
 		return (
 			<a className="upvote-button upvote-button-small">
 				<span onClick={this.handleVote}>
-					<i className="fa fa-heart-o"></i><span>{this.props.upvote}</span>
+					<i className="fa fa-heart-o"><span> {this.props.upvote} </span></i>
 				</span>
 			</a>
 		);
@@ -76,11 +82,7 @@ class ProductItemSmall extends React.Component {
 	renderMediaSection() {
 		return (
 			<section className="product-item-media-small" >
-				{
-					this.props.media ?
-					<img src={this.props.media[0]} /> :
-					null
-				}
+				<img src={this.props.media[0]} />
 			</section>
 		);
 	}
@@ -88,10 +90,19 @@ class ProductItemSmall extends React.Component {
 	render() {
 
 		return (
-				<div className="product-item-small-content">
-					{this.renderMediaSection()}
-					{this.renderInfoSection()}
-				</div>
+			<div className="flip-container-small flip-container" onTouchStart={this.toggleHover}>
+					<div style={{height: smallSizes[this.props.sizeIDX % 3]}} className="product-item-small flip-product">
+						<div className="front-small front">
+							<div className="product-item-small-content">
+								{this.renderMediaSection()}
+								{this.renderInfoSection()}
+							</div>
+						</div>
+						<div className="back-small back">
+							{this.renderTags()}
+						</div>
+					</div>
+			</div>
 		);
 	}
 }
