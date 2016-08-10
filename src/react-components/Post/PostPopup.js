@@ -1,32 +1,62 @@
 import React from 'react';
-import ImageUpload from '../ImageUpload';
 import Popup from '../Popup';
 import Actions from '../../actions';
+import Formsy from 'formsy-react';
+import NameInput from './NameInput'
+import ImageUpload from '../ImageUpload';
 import LoginPopup from '../Navbar';
+import MediaInput from './MediaInput';
+import DescriptionInput from './DescriptionInput';
+
+
+Formsy.addValidationRule('isValidName', function (values, value) {
+  return value != undefined && value.trim().length > 0 && value.length <= 50;
+});
+
+Formsy.addValidationRule('isValidDesc', function (values, value) {
+  return value != undefined && value.trim().length > 0 && value.length <= 200;
+});
 
 class PostPopup extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      canSubmit: false
+    }
+  }
 
-    this.newProduct = {
-      name: "",
-      media: [],
+  enableButton = () => {
+    this.setState({canSubmit:true});
+  }
+
+  disableButton = () => {
+    this.setState({canSubmit:false});
+  }
+
+  submit = (model) => {
+    console.log(model.name);
+    console.log(model.media);
+    console.log(model.description);
+    var newProduct = {
+      name: model.name,
+      media: model.media,
       maker: {
-        name: "",
-        avatar: ""
+        name: this.props.user.name,
+        avatar: this.props.user.avatar
       },
-      description: "",
-      price: "",
+      description: model.description,
+      price: "$",
       size: "small",
-      tags: [],
+      tags: ["temp"],
       location: "",
       expires: "",
       upvote: 0
     }
-
-    this.uploadMedia = this.uploadMedia.bind(this);
+    Actions.addProduct(newProduct);
+    this.props.hidePopup();
   }
+
 
   handlePost = () => {
 
@@ -58,12 +88,6 @@ class PostPopup extends React.Component {
     }
   };
 
-  uploadMedia = (files) => {
-    //Todo: just emptying array like this will likely cause problems later.
-    this.newProduct.media = [];
-    this.newProduct.media = this.newProduct.media.concat(files);
-  }
-
   renderLogin = () => {
     return (
       <LoginPopup />
@@ -72,6 +96,7 @@ class PostPopup extends React.Component {
 
   render() {
     return (
+      <Formsy.Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
       <Popup {...this.props} style="post-popup">
           <header className="post-popup-header">Add Something to Sell</header>
           <section>
@@ -79,16 +104,20 @@ class PostPopup extends React.Component {
               <tbody>
                 <tr>
                   <td>Name *</td>
-                  <td><input placeholder="What are you selling? Maximum 50 characters..." ref="name" maxLength="50"/></td>
+                  <td>
+                      <NameInput name="name" validations="isValidName" validationError="This is not a valid name." required/>
+                  </td>
                 </tr>
                 <tr>
                   <td>Description *</td>
-                  <td><input placeholder="Enter a description in under 200 characters..." ref="description" maxLength="200"/></td>
+                  <td>
+                    <DescriptionInput name="description" validations="isValidDesc" validationError="This is not a valid description." required/>
+                  </td>
                 </tr>
                 <tr className="media-upload">
-                  <td>Media * <br/> Please upload three images.</td>
+                  <td>Media *</td>
                   <td>
-                    <ImageUpload uploadMedia={this.uploadMedia}/>
+                    <MediaInput name="media" validations="isLength:3" validationError="Please upload three images." required/>
                   </td>
                 </tr>
 
@@ -96,9 +125,10 @@ class PostPopup extends React.Component {
             </table>
           </section>
           <footer className="post-footer">
-            <button onClick={this.handlePost} className="post-product-btn transition-fast">Create Post!</button>
+            <button type="submit" disabled={!this.state.canSubmit} className="post-product-btn transition-fast">Create Post!</button>
           </footer>
       </Popup>
+      </Formsy.Form>
     );
   }
 }

@@ -569,6 +569,18 @@ button:hover {
   max-width: 70%;
 }
 
+.post-error-msg {
+  color: #A12D2D;
+}
+
+.error {
+  color: #A12D2D;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
 header.post-popup-header {
     font-size: 36px;
     margin-bottom: 10px;
@@ -581,6 +593,12 @@ button.post-product-btn {
 
 button.post-product-btn:hover {
   background-color: #a8dba8;
+}
+
+button.post-product-btn:disabled {
+  color: #FFFFFF;
+  background-color: #A5A7A8;
+  opacity: 0.5;
 }
 
 
