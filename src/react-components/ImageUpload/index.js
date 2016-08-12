@@ -1,4 +1,5 @@
 import React from 'react';
+import {HOC} from 'formsy-react';
 
 class ImageUpload extends React.Component {
   constructor(props) {
@@ -32,9 +33,7 @@ class ImageUpload extends React.Component {
   render() {
     return (
       <div className="previewComponent">
-        <form>
           <input className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)} multiple />
-        </form>
         <div className="imgPreview">
         {
           this.state.imagePreviewUrl
