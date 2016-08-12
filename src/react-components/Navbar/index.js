@@ -5,7 +5,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import LoginPopup from './LoginPopup';
 import ProfileMenu from './ProfileMenu';
 import Actions from '../../actions';
-
+import Search from '../Search';
 
 class Navbar extends React.Component {
   constructor() {
@@ -42,7 +42,7 @@ class Navbar extends React.Component {
   renderProductSearch() {
     return (
       <section className="search-section">
-        <input className="product-search" placeholder="Let's See What We Can Find..." />
+        <Search />
       </section>
     );
   }
