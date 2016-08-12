@@ -520,7 +520,7 @@ button:hover {
 }
 
 .post-popup .imgPreview {
-  height: 300px;
+  height: 190px;
 }
 
 .post-popup .imgPreview img {
@@ -567,6 +567,7 @@ button:hover {
   border-radius: 15px;
   padding: 10px;
   max-width: 70%;
+  max-height: 80%;
 }
 
 .post-error-msg {
@@ -580,6 +581,24 @@ button:hover {
   -o-transition: all .5s ease-in-out;
   transition: all .5s ease-in-out;
 }
+
+.has-feedback label~.form-control-feedback {
+  top: 0px;
+  right: 15px;
+}
+
+span.form-control-feedback.glyphicon.glyphicon-ok {
+  top: 0px;
+}
+
+span.form-control-feedback.glyphicon.glyphicon-remove {
+  top: 0px;
+}
+
+label.col-sm-2.control-label {
+  top: 5px;
+}
+
 
 header.post-popup-header {
     font-size: 36px;
@@ -617,7 +636,7 @@ button.post-product-btn:disabled {
 	height: 10%;
 }
 
-.post-popup > section {
+.post-popup > form > section {
 	font-size: 14px;
 	border: 1px solid #f2f2f2;
 	padding: 20px 0;
@@ -625,24 +644,33 @@ button.post-product-btn:disabled {
 	color: #928B8B;
 }
 
-.post-popup > section table {
+.cat-select {
+    padding-left: 30px;
+    position: relative;
+    margin-left: 100px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.post-popup > form > section table {
 	width: 100%;
 }
 
-.post-popup > section table tr td {
+.post-popup > form > section table tr td {
 	padding: 15px;
 }
 
-.post-popup > section table tr td:first-child {
+.post-popup > form > section table tr td:first-child {
 	width: 20%;
 }
 
-.post-popup > section table tr td:last-child {
+.post-popup > form >section table tr td:last-child {
 	width: 80%;
 	border-bottom: 1px solid #f2f2f2;
 }
 
-.post-popup > section table input {
+.post-popup > form > section table input {
 	border: 0;
 	outline: 0;
 	font-size: 13px;
@@ -926,6 +954,15 @@ img.shuffle-btn {
 .fade-leave.fade-leave-active {
   opacity: 0.01;
 }
+
+.slide-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+.slide-enter.slide-enter-active {
+  opacity: 1;
+}
+
 
 /*------------------------------ CARD FLIPPING ------------------------------*/
 
