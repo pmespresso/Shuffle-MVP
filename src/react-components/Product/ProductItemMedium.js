@@ -86,11 +86,20 @@ class ProductItemMedium extends React.Component {
 
 		return (
 
-			<div className="product-item-medium-content">
-				{this.renderMediaSection()}
-				{this.renderInfoSection()}
+			<div className="flip-container-medium flip-container" onTouchStart={this.toggleHover}>
+					<div className="product-item-medium flip-product">
+						<div className="front-medium front">
+							<div className="product-item-medium-content">
+								{this.renderTags()}
+								{this.renderMediaSection()}
+								{this.renderInfoSection()}
+							</div>
+						</div>
+						<div className="back-medium back">
+							{this.renderTags()}
+						</div>
+					</div>
 			</div>
-
 		);
 	}
 }

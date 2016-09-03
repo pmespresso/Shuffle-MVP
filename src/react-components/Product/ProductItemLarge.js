@@ -88,13 +88,20 @@ class ProductItemLarge extends React.Component {
 	render() {
 
 		return (
-
-			<div className="product-item-large-content">
-				{this.renderTags()}
-				{this.renderMediaSection()}
-				{this.renderInfoSection()}
+			<div className="flip-container-large flip-container" onTouchStart={this.toggleHover}>
+					<div className="product-item-large flip-product">
+						<div className="front-large front">
+							<div className="product-item-large-content">
+								{this.renderTags()}
+								{this.renderMediaSection()}
+								{this.renderInfoSection()}
+							</div>
+						</div>
+						<div className="back-large back">
+							{this.renderTags()}
+						</div>
+					</div>
 			</div>
-
 		);
 	}
 }
