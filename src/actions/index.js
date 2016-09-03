@@ -37,7 +37,6 @@ class Actions {
         }
         console.log("dispatched user: ", user);
         setTimeout( () => dispatch(user));
-        console.log("dispatched user");
       });
 
     }
@@ -101,11 +100,35 @@ class Actions {
     return null;
   }
 
-  addProduct(product) {
+  getCategories() {
+    return(dispatch) => {
+      var db = firebase.database();
+      var firebaseRef = db.ref("/categories");
+      firebaseRef.on('value', (snapshot) => {
+          var catsValue = snapshot.val();
+          var cats = _(catsValue).keys().map((catsKey) => {
+            var item = _.clone(catsValue[catsKey]);
+            item.key = catsKey;
+            return item;
+          })
+          .value();
+          dispatch(cats);
+        });
+    }
+  }
+
+ /*
+    In the interest of keeping a flat data structure,
+    we push products and categories as separate nodes
+ */
+  addProduct(product, category) {
     return (dispatch) => {
       var db = firebase.database();
-      var firebaseRef = db.ref("/products");
-      firebaseRef.push(product);
+      var productsRef = db.ref("/products");
+      productsRef.push(product);
+
+      var categoriesRef = db.ref("/categories/"+category.name);
+      categoriesRef.push(category.product);
     }
   }
 
@@ -113,14 +136,6 @@ class Actions {
     return (dispatch) => {
       var db = firebase.database();
       var ref = db.ref('products');
-      console.log(productID);
-      // ref = ref.child(productID).child('upvote');
-
-      // var vote = 0;
-      // ref.on('value', (snapshot)=> {
-      //   vote = snapshot.val();
-      // });
-      // ref.set(vote+1);
       var voteRef = db.ref('votes').child(productID).child(userID);
       voteRef.on('value', (snapshot) => {
         if(snapshot.val() == null) {

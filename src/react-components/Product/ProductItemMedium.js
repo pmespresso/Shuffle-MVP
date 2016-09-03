@@ -85,7 +85,6 @@ class ProductItemMedium extends React.Component {
 	render() {
 
 		return (
-
 			<div className="flip-container-medium flip-container" onTouchStart={this.toggleHover}>
 					<div className="product-item-medium flip-product">
 						<div className="front-medium front">

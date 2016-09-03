@@ -1,18 +1,27 @@
 import React from 'react';
-
 import { StickyContainer, Sticky } from 'react-sticky';
-
 import LoginPopup from './LoginPopup';
 import ProfileMenu from './ProfileMenu';
+
+import connectToStores from 'alt-utils/lib/connectToStores';
+import ProductStore from '../../stores/ProductStore';
 import Actions from '../../actions';
 
-
+@connectToStores
 class Navbar extends React.Component {
   constructor() {
     super();
     this.state = {
       popupStatus: false
     }
+  }
+
+  static getStores() {
+    return [ProductStore];
+  }
+
+  static getPropsFromStores() {
+    return ProductStore.getState();
   }
 
   showPopup = () => {
@@ -27,7 +36,7 @@ class Navbar extends React.Component {
     return (
       <a href="#" className="shuffle-btn"><img className="logo" src="/img/logo-alt.jpg"/></a>
     );
-  }
+  };
 
   handleLogin = () => {
     Actions.login();
@@ -37,15 +46,28 @@ class Navbar extends React.Component {
   handleLogout = () => {
     Actions.logout();
     this.props.showConfirmation();
-  }
+  };
 
-  renderProductSearch() {
+  // isActive(value) {
+  //   return 'category '+((value===this.state.category) ?'active':'default');
+  // }
+  //
+  // setFilter(category) {
+  //   this.setState({category: category});
+  //   this.filterFeed(category);
+  // }
+  //
+  // filterFeed(category) {
+  //   this.props.setCategory(category);
+  // }
+
+  renderCategories() {
     return (
-      <section className="search-section">
-        <input className="product-search" placeholder="Let's See What We Can Find..." />
-      </section>
+      <div className="search-section">
+        <input ref="search" className="product-search" placeholder="Let's See What We Can Find..." />
+      </div>
     );
-  }
+  };
 
   renderUser() {
     return (
@@ -73,7 +95,7 @@ class Navbar extends React.Component {
         <section className="navbar">
           {this.renderUser()}
           {this.renderLogo()}
-          {this.renderProductSearch()}
+          {this.renderCategories()}
         </section>
       </section>
 

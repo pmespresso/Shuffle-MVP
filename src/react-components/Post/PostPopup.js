@@ -24,6 +24,7 @@ import StepThreeFields from './StepThreeFields';
   tags: ["temp"],
   location: "",
   expires: "",
+  category: "",
   upvote: 0
 }
 
@@ -36,19 +37,23 @@ class PostPopup extends React.Component {
     }
 
     this.resetSteps = this.resetSteps.bind(this);
-
   }
 
   saveValues = (fields) => {
     return function() {
     fieldValues = Object.assign({}, fieldValues, fields)
+
+    category.name = fieldValues.category;
+    category.product = fieldValues;
+
     console.log(fieldValues);
-    console.log(fieldValues.name);
+    console.log("category: ", category);
     }()
   }
 
   submitProduct = () => {
-    Actions.addProduct(fieldValues);
+    Actions.addProduct(fieldValues, category);
+    // Actions.addCategory(category);
     this.props.hidePopup();
   }
 
@@ -60,6 +65,18 @@ class PostPopup extends React.Component {
     this.setState({step: this.state.step + 1})
   }
 
+  uploadMedia = (files) => {
+    //Todo: just emptying array like this will likely cause problems later.
+    this.newProduct.media = [];
+    this.newProduct.media = this.newProduct.media.concat(files);
+  }
+
+
+  // renderLogin = () => {
+  //   return (
+  //     <LoginPopup />
+  //   );
+  // }
 
   previousStep = () => {
     this.setState({step: this.state.step - 1})

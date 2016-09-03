@@ -37,50 +37,22 @@ class StepThreeFields extends React.Component {
   }
 
   submit = (model) => {
-    var data = {
-      name: model.name,
-      media: model.media,
-      maker: {
-        name: this.props.user.name,
-        avatar: this.props.user.avatar
-      },
-      description: model.description
-    }
-    this.props.saveValues(data);
-    this.props.submitProduct();
-
-  }
-
-
-  handlePost = () => {
-
-    //Todo: Clean this up if possible...
-    // var spacelessTags = this.refs.tags.value.replace(/\s+/g, '');
-    // var tagsArray = spacelessTags.split(',')
-
-    if (this.refs.name.value == "") {
-      console.error("name is empty!");
-    } else if (this.refs.description.value == "") {
-      console.error("description is empty!");
-    } else if (this.newProduct.media == []) {
-      console.error("media is empty!");
+    if (!this.props.user) {
+      this.renderLogin();
     } else {
-      this.newProduct.name = this.refs.name.value;
-      this.newProduct.maker = {
-        name: this.props.user.name,
-        avatar: this.props.user.avatar
+      var data = {
+        name: model.name,
+        media: model.media,
+        maker: {
+          name: this.props.user.name,
+          avatar: this.props.user.avatar
+        },
+        description: model.description
       }
-      this.newProduct.description = this.refs.description.value;
-      // this.newProduct.price = this.refs.price.value;
-      this.newProduct.size = "small";
-      // this.newProduct.tags = tagsArray;
-      // this.newProduct.location = this.refs.location.value;
-      // this.newProduct.expires = this.refs.expires.value;
-      this.newProduct.upvote = 0;
-      Actions.addProduct(this.newProduct);
-      this.props.hidePopup();
+      this.props.saveValues(data);
+      this.props.submitProduct();
     }
-  };
+  }
 
   renderLogin = () => {
     return (
@@ -110,23 +82,3 @@ class StepThreeFields extends React.Component {
 }
 
 export default StepThreeFields;
-
-{/*<tr>
-  <td>Price</td>
-  <td><input placeholder="How much are you looking to sell for?" ref="price"/></td>
-</tr>
-<tr>
-  <td>Location</td>
-  <td><input placeholder="Where can this item be picked up?" ref="location"/></td>
-</tr>
-<tr>
-  <td>Expiration Date</td>
-  <td><input placeholder="When will you no longer be offering this item?" ref="expires"/></td>
-</tr>
-<tr>
-  <td>Tags</td>
-  <td>
-    <div className="tag-upload-txt">Separate your tags with commas!</div>
-    <input placeholder="Enter some tags for your item!" ref="tags"/>
-  </td>
-</tr>*/}

@@ -67,7 +67,7 @@ a, a:hover, a:active, a:visited {
 }
 
 .avatar-info .avatar-link {
-  width: 78%;
+  width: 100%;
   float: left;
 }
 
@@ -97,10 +97,10 @@ a, a:hover, a:active, a:visited {
 
 
 .product-item-small {
+  max-height: 100%;
+  width: 260px;
   border: 1px solid #f2f2f2;
   border-radius: 4px;
-  height: 480px;
-  width: 300px;
   display: inline-block;
   margin-top: 15px;
   margin-left: 15px;
@@ -122,11 +122,6 @@ a, a:hover, a:active, a:visited {
 .product-item-small .tags {
   text-align: center;
   margin: 18px auto 0 auto;
-}
-
-.product-item-small-content {
-  width: 100%;
-  height: 100%;
 }
 
 .product-item-small .tags > a {
@@ -154,14 +149,12 @@ a, a:hover, a:active, a:visited {
 }
 
 .product-item-small .product-item-media-small {
-  display: block;
-  height: 250px;
   padding: 0;
 }
 
 .product-item-small .product-item-media-small img {
   zoom: 2;
-  display: block;
+  display: inline-block;
   margin: 0 auto;
 
   height: auto;
@@ -175,8 +168,8 @@ a, a:hover, a:active, a:visited {
 }
 
 .small-avatar {
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   float: left;
   margin-bottom: 5px;
@@ -351,26 +344,20 @@ a, a:hover, a:active, a:visited {
 
 
 .upvote-button {
-  width: 35px;
-  font-size: 20px;
+  width: 65px;
+  height: 75px;
+  font-size: 25px;
   border-radius: 4px;
-  display: block;
   position: absolute;
-  right: 10%;
-  bottom: 0;
-  font-weight: 300;
-  text-align: center;
-  color: #5e9aee !important;
-}
-
-.upvote-button.upvote-button-small {
-  margin: 5px;
-  padding: 4px;
+  right: 0;
+  top: 0;
+  z-index: 939393;
+  font-weight: 400;
+  color: white !important;
 }
 
 .upvote-button:hover {
-  font-weight: 400;
-  color: black !important;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -380,8 +367,8 @@ a, a:hover, a:active, a:visited {
 
 .upvote-button.active {
   text-decoration: none;
-  font-weight: 400;
-  color: black !important;
+  font-weight: 500;
+  color: white !important;
 }
 
 .upvote-button > * {
@@ -429,6 +416,19 @@ a, a:hover, a:active, a:visited {
   clear: none;
 	outline: 0;
   margin: 25px 0 10px 0;
+}
+
+.navbar .categories-section {
+    margin: 10px;
+    padding: 10px;
+    width: auto;
+    max-width: 100%;
+}
+
+.navbar .categories-section ul li a {
+    font-size: 19px;
+    font-weight: 600;
+    margin: 10px 5px;
 }
 
 .navbar .right-side {
@@ -517,7 +517,7 @@ button:hover {
   margin: 0 auto;
   position: relative;
   overflow-y: scroll;
-  height: 300px;
+  height: 600px;
 }
 
 .post-popup #categorySelection,
@@ -991,17 +991,18 @@ img.shuffle-btn {
 	}
 
 .flip-container-large, .front-large, .back-large {
-  height: 800px;
-  width: 620px;
+  height: auto;
+  width: auto;
 }
 
 .flip-container-medium, .front-medium, .back-medium {
-  height: 550px;
-  width: 620px;
+  height: auto;
+  width: auto;
 }
 
 .flip-container-small, .front-small, .back-small {
-  width: 300px;
+  height: 200px;
+  width: 320px;
 }
 
 /* flip speed goes here */

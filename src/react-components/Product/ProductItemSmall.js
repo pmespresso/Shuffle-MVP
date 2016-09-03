@@ -1,4 +1,10 @@
 import React from 'react';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Actions from '../../actions';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../../stores/ProductStore';
@@ -7,6 +13,11 @@ var smallSizes = ['480px', '520px', '500px', '540px', '560px'];
 
 @connectToStores
 class ProductItemSmall extends React.Component {
+
+	constructor() {
+		super();
+		this.state = {hovering: false}
+	}
 
 	static getStores() {
 		return [ProductStore];
@@ -20,10 +31,6 @@ class ProductItemSmall extends React.Component {
 		e.preventDefault();
 		Actions.upvote(this.props.pid, this.props.user.id);
 	};
-
-	toggleHover = () => {
-		this.classList.toggle('hover');
-	}
 
 	renderUpvoteButton() {
 		return (
@@ -45,40 +52,6 @@ class ProductItemSmall extends React.Component {
 		)
 	}
 
-	renderAvatarInfo() {
-		return (
-			<section className="bottom-stick avatar-info">
-				<a href="#" className="avatar-link">
-					<img className="small-avatar" src={this.props.maker.avatar} />
-
-					<p className="small-avatar-name"> {this.props.maker.name.split(" ")[0]} </p>
-				</a>
-					{this.renderUpvoteButton()}
-			</section>
-		);
-	}
-
-	renderInfoSection() {
-
-		return (
-			<section className="product-item-small-info">
-				<section>
-					<h2 className="product-item-name">{this.props.name}</h2>
-				<p>
-					{
-						this.props.description.length > 200 ?
-						this.props.description.slice(0, 200) :
-						this.props.description
-					}
-				</p>
-				</section>
-
-		{this.renderAvatarInfo()}
-			</section>
-		);
-
-	}
-
 	renderMediaSection() {
 		return (
 			<section className="product-item-media-small" >
@@ -87,22 +60,55 @@ class ProductItemSmall extends React.Component {
 		);
 	}
 
+	isHovering = () => {
+		this.setState({hovering: true});
+	}
+
+	notHovering = () => {
+		this.setState({hovering: false});
+	}
+
+	cardHover() {
+		return (
+			this.state.hovering ?
+			<CardTitle
+				title={this.props.name}
+				subtitle={this.props.description.slice(0, 100)}
+				/> :
+			null
+		);
+	}
+
 	render() {
 
 		return (
-			<div className="flip-container-small flip-container" onTouchStart={this.toggleHover}>
-					<div style={{height: smallSizes[this.props.sizeIDX % 3]}} className="product-item-small flip-product">
-						<div className="front-small front">
-							<div className="product-item-small-content">
-								{this.renderMediaSection()}
-								{this.renderInfoSection()}
-							</div>
-						</div>
-						<div className="back-small back">
-							{this.renderTags()}
-						</div>
+				<div className="product-item-small">
+						<MuiThemeProvider>
+							<Card
+								onMouseEnter={this.isHovering}
+								onMouseLeave={this.notHovering}
+							>
+
+								<CardHeader
+									title={this.props.maker.name}
+									avatar={this.props.maker.avatar}
+									actAsExpander={true}
+						      showExpandableButton={true}
+								/>
+
+								<CardMedia overlay={this.cardHover()} >
+									<div className="product-item-media-small">
+										<img src={this.props.media[0]} />
+									</div>
+								</CardMedia>
+
+								<CardText expandable={true}>
+									{this.renderTags()}
+									<h2>TODO: Put a map here, countdown timer, and price/size/condition</h2>
+				        </CardText>
+							</Card>
+						</MuiThemeProvider>
 					</div>
-			</div>
 		);
 	}
 }
