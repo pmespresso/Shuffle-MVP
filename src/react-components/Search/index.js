@@ -1,5 +1,9 @@
 import React from 'react';
+import connectToStores from 'alt-utils/lib/connectToStores';
+import ProductStore from '../../stores/ProductStore';
+import Actions from '../../actions';
 
+@connectToStores
 class Search extends React.Component {
 
   constructor() {
@@ -10,10 +14,26 @@ class Search extends React.Component {
     }
   }
 
+  static getStores() {
+    return [ProductStore];
+  }
+
+  static getPropsFromStores() {
+    return ProductStore.getState();
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    var term = this.refs.search.value;
+
+    Actions.doSearch("products", term);
+  }
 
   render() {
     return (
-      <input className="product-search" placeholder="Let's See What We Can Find..." />
+      <div>
+        <input ref="search" className="product-search" placeholder="Let's See What We Can Find..." onChange={this.handleChange}/>
+      </div>
     );
   }
 

@@ -15,6 +15,11 @@ class App extends React.Component {
 
 	constructor(props) {
 	  super();
+
+    this.state = {
+      category: ""
+    }
+
 		Actions.initSession();
 	}
 
@@ -30,18 +35,24 @@ class App extends React.Component {
 		Actions.shuffleProducts();
 	}
 
+	category = () => {
+		return this.state.category || null;
+	}
 
+	setCategory = (category) => {
+		this.setState({category: category})
+	}
 
 	render() {
 		return(
 			<StickyContainer>
 			<section className="page-content">
 				<Sticky className="sticky">
-					<Navbar user={this.props.user}/>
+					<Navbar user={this.props.user} setCategory={this.setCategory.bind(this)}/>
 					<Post user={this.props.user}/>
 					<Shuffle user={this.props.user} shuffle={this.shuffle}/>
 				</Sticky>
-        <HomePage />
+        <HomePage category={this.category} />
 			</section>
 			</StickyContainer>
 			);

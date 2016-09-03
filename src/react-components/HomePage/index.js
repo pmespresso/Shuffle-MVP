@@ -11,7 +11,6 @@ class HomePage extends React.Component {
 
   constructor() {
     super();
-    console.log("homepage constructor called");
 
     Actions.getProducts();
     Actions.shuffleProducts();
@@ -25,7 +24,6 @@ class HomePage extends React.Component {
     return ProductStore.getState();
   }
 
-
   render() {
     return (
       <section className="main-content">
@@ -33,7 +31,7 @@ class HomePage extends React.Component {
 						{
 							this.props.products
 							?
-							<ProductList productList={this.props.products}/>
+							<ProductList productList={this.props.products} category={this.props.category} />
 							:
 							null
 						}

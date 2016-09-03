@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/lib/Form';
 import HelpBlock from 'react-bootstrap/lib/HelpBlock';
 
 
-class DescriptionInput extends React.Component {
+class ExpirationInput extends React.Component {
 
   changeValue = (event) => {
     this.props.setValue(event.currentTarget.value);
@@ -39,11 +39,11 @@ class DescriptionInput extends React.Component {
           <FormControl type="text" placeholder="Enter text" onChange={this.changeValue} value={this.props.getValue() || ''}/>
         </Col>
         <FormControl.Feedback />
-        <HelpBlock>Enter a description in under 200 characters...</HelpBlock>
+        <HelpBlock>Until when is your offer valid?</HelpBlock>
       </FormGroup>
     );
   }
 
 }
 
-export default HOC(DescriptionInput);
+export default HOC(ExpirationInput);
