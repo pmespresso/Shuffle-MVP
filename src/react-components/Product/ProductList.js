@@ -44,15 +44,9 @@ class ProductList extends React.Component {
 		})
 
 		return (
-			<Masonry
-				className={'product-list-masonry'}
-				elementType={'div'}
-				options={masonryOptions}
-				disableImagesLoaded={false}
-				updateOnEachImageLoad={false}
-			>
+			<div>
 				{childElements}
-			</Masonry>
+			</div>
 		);
 
 	}

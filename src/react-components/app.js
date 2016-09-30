@@ -45,16 +45,25 @@ class App extends React.Component {
 
 	render() {
 		return(
-			<StickyContainer>
 			<section className="page-content">
-				<Sticky className="sticky">
-					<Navbar user={this.props.user} setCategory={this.setCategory.bind(this)}/>
-					<Post user={this.props.user}/>
-					<Shuffle user={this.props.user} shuffle={this.shuffle}/>
-				</Sticky>
-        <HomePage category={this.category} />
+				<Post user={this.props.user}/>
+				<Navbar user={this.props.user} />
+				<HomePage />
 			</section>
-			</StickyContainer>
+
+
+
+
+			// <StickyContainer>
+			// <section className="page-content">
+			// 	<Sticky className="sticky">
+			// 		<Navbar user={this.props.user} setCategory={this.setCategory.bind(this)}/>
+			// 		<Post user={this.props.user}/>
+			// 		<Shuffle user={this.props.user} shuffle={this.shuffle}/>
+			// 	</Sticky>
+      //   <HomePage category={this.category} />
+			// </section>
+			// </StickyContainer>
 			);
 	}
 }

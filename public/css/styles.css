@@ -21,7 +21,6 @@ h2 {
 }
 
 a {
-  font-size: 13px;
   color: #444444;
   text-decoration: none;
 }
@@ -39,352 +38,91 @@ a, a:hover, a:active, a:visited {
 }
 
 .main-content {
-  padding-left: 60px;
-  padding-right: 60px;
   position: relative;
 }
 /* ================== PRODUCT LIST CSS ================== */
 
-.product-list {
-  margin-top: 20px;
-  list-style: none;
-}
-
 .product-list-masonry {
   margin: 0 auto;
-}
-
-.bottom-stick .avatar-link {
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  right: 10%;
-  color: #444444;
-}
-
-.avatar-info {
-  height: 60px;
-}
-
-.avatar-info .avatar-link {
-  width: 100%;
-  float: left;
-}
-
-.small-avatar:hover,
-.medium-avatar:hover,
-.large-avatar:hover {
-  background: #999999;
-  opacity: .9;
-}
-
-.small-avatar-name,
-.medium-avatar-name,
-.large-avatar-name {
-  float: left;
-  margin: 8px auto;
-  text-align: left;
-}
-
-.small-avatar-name:hover,
-.medium-avatar-name:hover,
-.large-avatar-name:hover {
-  color: black !important;
-  cursor: pointer;
-}
-
-/* ================== PRODUCT ITEM SMALL CSS ================== */
-
-
-.product-item-small {
-  max-height: 100%;
-  width: 260px;
-  border: 1px solid #f2f2f2;
-  border-radius: 4px;
-  display: inline-block;
-  margin-top: 15px;
-  margin-left: 15px;
-  box-shadow: 4px 4px 6px #f2f2f2;
-}
-
-.product-item-small-info .product-item-name {
-  font-size: 19px;
-  text-align: center;
-}
-
-.product-item-small:hover,
-.product-item-medium:hover,
-.product-item-large:hover {
-  /*background-color: #f2f2f2;*/
-  cursor: pointer;
-}
-
-.product-item-small .tags {
-  text-align: center;
-  margin: 18px auto 0 auto;
-}
-
-.product-item-small .tags > a {
-  font-weight: 300;
-  font-size: 16px;
-  padding: 3px;
-}
-
-.product-item-small .product-item-small-info {
-  bottom: 0;
-  margin: 20px auto;
-  width: 100%;
+  max-height: 100vh !important;
   position: relative;
 }
 
-.product-item-small .product-item-small-info h2 {
-  text-align: center;
-  color: #5e9aee;
-}
-
-.product-item-small .product-item-small-info p {
-  color: #999999;
-  font-size: 14px;
-  padding: 0 23px 3px 23px;
-}
-
-.product-item-small .product-item-media-small {
-  padding: 0;
-}
-
-.product-item-small .product-item-media-small img {
-  zoom: 2;
-  display: inline-block;
-  margin: 0 auto;
-
-  height: auto;
-  max-height: 100%;
-
-  width: auto;
-  max-width: 100%;
-  clear: both;
-
-  padding: auto;
-}
-
-.small-avatar {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  float: left;
-  margin-bottom: 5px;
-}
-
-/* ================== PRODUCT ITEM MEDIUM HORIZONTAL CSS ================== */
-
-.product-item-medium {
-  border: 1px solid #f2f2f2;
-  border-radius: 4px;
-  height: 550px;
-  width: 615px;
-  display: inline-block;
-  margin-top: 15px;
-  margin-left: 15px;
-  box-shadow: 4px 4px 6px #f2f2f2;
-}
-
-.product-item-medium .tags {
-  text-align: center;
-  margin: 18px auto 0 auto;
-}
-
-.product-item-medium .tags > a {
-  font-weight: 300;
-  font-size: 19px !important;
-  padding: 8px !important;
-}
-
-
-.product-item-medium .product-item-media-medium img {
- zoom: 2;
- display: inline-block;
- margin: 0 auto;
-
- height: auto;
- max-height: 100%;
-
- width: auto;
- max-width: 100%;
- clear: none;
-
- text-align: center;
- padding: auto;
-
- border: 1px solid #f2f2f2;
-}
-
-.product-item-medium .product-item-media-medium {
-  display: block;
-  height: 300px;
-  padding: 10px;
-  margin-bottom: 20px;
-}
-
-.product-item-medium .product-item-medium-info {
-  position: relative;
-  text-align: center !important;
-  bottom: 0;
-  margin-top: 20px;
+/* ================== Small Card CSS ================== */
+.home-page {
+  padding: 1em 0.2em;
   width: 100%;
+  margin: auto;
 }
 
-.product-item-medium .product-item-medium-info h2 {
-  text-align: center !important;
-  font-size: 21px;
-  color: #5e9aee;
-
-}
-
-.product-item-medium .product-item-medium-info p {
-  text-align: center !important;
-  color: #999999;
-  font-size: 14px;
-  padding: 0 23px 3px 23px;
-}
-
-.medium-avatar {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  float: left;
-  margin-bottom: 5px;
-}
-
-/* ================== PRODUCT ITEM LARGE CSS ================== */
-
-.product-item-large {
-  border: 1px solid #f2f2f2;
-  border-radius: 4px;
-  height: 800px;
-  width: 615px;
+.home-page-wrapper {
   display: inline-block;
-  margin-top: 15px;
-  margin-left: 15px;
-  box-shadow: 4px 4px 6px #f2f2f2;
+  border-radius: 2px;
+  padding: 1em;
 }
 
-.product-item-large .tags {
-  text-align: center;
-  margin: 18px auto 0 auto;
+.home-page-wrapper .home-page-product-list {
+    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
+    background: white;
 }
 
-.product-item-large .tags > a {
-  font-weight: 300;
-  font-size: 19px !important;
-  padding: 8px !important;
+.image-wrapper {
+    position: relative;
+    background-color: grey;
 }
 
-
-.product-item-large .product-item-media-large img {
- display: inline-block;
- margin: 0 auto;
-
- height: auto;
- max-height: 100%;
-
- width: auto;
- max-width: 100%;
- clear: none;
-
- text-align: center;
- padding: auto;
-
- border: 1px solid #f2f2f2;
+.image-wrapper .button {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    margin: 0;
+    padding: 0.5em 1em;
+    background: rgba(65, 106, 166, 0.5);
+    border: 2px solid white;
+    display: hidden;
 }
 
-.product-item-large .product-item-media-large {
-  display: block;
-  height: 300px;
-  padding: 10px;
-  margin-bottom: 20px;
+.home-page-wrapper .home-page-product-list .home-page-meta {
+    border-top: 1px solid #eeeeee;
+    padding: 1em;
+    text-align: center;
 }
 
-.product-item-large .product-item-large-info {
-  position: absolute;
-  text-align: center !important;
-  bottom: 40px;
-  margin-top: 20px;
-  width: 100%;
+.home-page-wrapper .home-page-product-list .home-page-meta .item-description {
+  text-overflow: ellipsis;
 }
 
-.product-item-large .product-item-large-info h2 {
-  text-align: center !important;
-  font-size: 23px;
-  color: #5e9aee;
-
+.home-page-wrapper .home-page-product-list .home-page-meta .avatar-image {
+  margin-right: 5px;
 }
 
-.product-item-large .product-item-large-info p {
-  text-align: center !important;
-  color: #999999;
-  font-size: 14px;
-  padding: 0 23px 3px 23px;
-}
-
-.large-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  float: left;
-  margin-bottom: 5px;
+.home-page-wrapper .home-page-product-list .home-page-meta .like {
+  float: right;
+  cursor: pointer;
 }
 
 
 
-
-
-
-
-/* ================== UPVOTE BUTTON CSS ================== */
-
-
-.upvote-button {
-  width: 65px;
-  height: 75px;
-  font-size: 25px;
-  border-radius: 4px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 939393;
-  font-weight: 400;
-  color: white !important;
-}
-
-.upvote-button:hover {
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.upvote-button:focus {
-  text-decoration: none;
-}
-
-.upvote-button.active {
-  text-decoration: none;
-  font-weight: 500;
-  color: white !important;
-}
-
-.upvote-button > * {
-  display: block;
-  padding: 3px;
+.social-share-buttons {
+    list-style: none;
+    font-size: 18px;
+    text-align: center;
+    float: none;
+    border: none;
+    margin: 0;
+    margin-top: 0.5em;
+    padding: 0;
 }
 
 /*------------------------------ NAVBAR ------------------------------*/
 .navbar {
   background-color: white;
-  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.2);
+  height: 75px;
 }
 
 .logo {
-  height: 75px;
-  width: 75px;
+  height: 55px;
+  width: 55px;
   border-radius: 25%;
   float: left;
   margin: 10px 20px;
@@ -406,7 +144,7 @@ a, a:hover, a:active, a:visited {
 .navbar .search-section .product-search {
 	background-color: #f2f2f2;
 	color: #999999;
-	padding: 19px 12px;
+	padding: 9px 3px;
 	border: 1px solid #f2f2f2;
 	border-radius: 4px;
 	font-size: 11px;
@@ -418,19 +156,6 @@ a, a:hover, a:active, a:visited {
   margin: 25px 0 10px 0;
 }
 
-.navbar .categories-section {
-    margin: 10px;
-    padding: 10px;
-    width: auto;
-    max-width: 100%;
-}
-
-.navbar .categories-section ul li a {
-    font-size: 19px;
-    font-weight: 600;
-    margin: 10px 5px;
-}
-
 .navbar .right-side {
 	float: right;
 }
@@ -440,8 +165,8 @@ a, a:hover, a:active, a:visited {
 }
 
 .navbar .right-side .profile-menu img {
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 
@@ -510,6 +235,7 @@ button:hover {
 
 /* POST POPUP */
 .post-popup {
+  z-index: 10000000000;
 	width: 90%;
 	right: 0;
 	top: 10%;
@@ -833,6 +559,10 @@ img.profile-btn.medium-avatar {
 .post-btn-container {
   height: 60px;
   width: 60px;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  z-index: 1000000;
 }
 
 .post-btn {

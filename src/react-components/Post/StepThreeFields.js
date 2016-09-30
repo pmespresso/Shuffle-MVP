@@ -64,12 +64,12 @@ class StepThreeFields extends React.Component {
     return (
       <Popup {...this.props} style="post-popup">
       <Formsy.Form onValidSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton}>
-          <PageHeader>Add Something to Sell</PageHeader>
+          <PageHeader>So What's This About Anyway?</PageHeader>
           <section>
             <NameInput name="name" validations="isValidName" validationError="This is not a valid name." required/>
             <DescriptionInput name="description" validations="isValidDesc" validationError="This is not a valid description." required/>
             <div className="media-upload">
-                <MediaInput name="media" validations="isLength:3" validationError="Please upload three images." required/>
+                <MediaInput name="media" validations="isLength:3" validationError="Please upload some images." required/>
             </div>
           </section>
           <footer className="post-footer">

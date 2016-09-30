@@ -11,7 +11,7 @@ import StepOneFields from './StepOneFields';
 import StepTwoFields from './StepTwoFields';
 import StepThreeFields from './StepThreeFields';
 
- var fieldValues = {
+var fieldValues = {
   name: "",
   media: [],
   maker: {
@@ -43,16 +43,16 @@ class PostPopup extends React.Component {
     return function() {
     fieldValues = Object.assign({}, fieldValues, fields)
 
-    category.name = fieldValues.category;
-    category.product = fieldValues;
+    // category.name = fieldValues.category;
+    // category.product = fieldValues;
 
-    console.log(fieldValues);
-    console.log("category: ", category);
+    console.log('fieldValues: ' + fieldValues);
+    // console.log("category: ", category);
     }()
   }
 
   submitProduct = () => {
-    Actions.addProduct(fieldValues, category);
+    Actions.addProduct(fieldValues);
     // Actions.addCategory(category);
     this.props.hidePopup();
   }

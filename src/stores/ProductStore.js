@@ -7,15 +7,7 @@ class ProductStore {
   constructor() {
     this.state = {
       user: null,
-      products: [],
-      textbooks: [],
-      emergencies: [],
-      tutoring: [],
-      clothing: [],
-      food: [],
-      furniture: [],
-      lostFound: [],
-      other: []
+      products: []
     };
   }
 
@@ -29,38 +21,38 @@ class ProductStore {
     this.setState({products: products});
   }
 
-  @bind(Actions.getCategories)
-  getCategories(cats) {
-    let _this = this;
-    cats.forEach(function(cat) {
-      switch (cat.key) {
-        case "textbooks":
-          _this.setState({textbooks: cat});
-          break;
-        case "emergencies":
-          _this.setState({emergencies: cat});
-          break;
-        case "tutoring":
-          _this.setState({tutoring: cat});
-          break;
-        case "clothing":
-          _this.setState({clothing: cat});
-          break;
-        case "food":
-          _this.setState({food: cat});
-          break;
-        case "furniture":
-          _this.setState({furniture: cat});
-          break;
-        case "lostFound":
-          _this.setState({lostFound: cat});
-          break;
-        default:
-          _this.setState({other: cat});
-          break;
-      }
-    })
-  }
+  // @bind(Actions.getCategories)
+  // getCategories(cats) {
+  //   let _this = this;
+  //   cats.forEach(function(cat) {
+  //     switch (cat.key) {
+  //       case "textbooks":
+  //         _this.setState({textbooks: cat});
+  //         break;
+  //       case "emergencies":
+  //         _this.setState({emergencies: cat});
+  //         break;
+  //       case "tutoring":
+  //         _this.setState({tutoring: cat});
+  //         break;
+  //       case "clothing":
+  //         _this.setState({clothing: cat});
+  //         break;
+  //       case "food":
+  //         _this.setState({food: cat});
+  //         break;
+  //       case "furniture":
+  //         _this.setState({furniture: cat});
+  //         break;
+  //       case "lostFound":
+  //         _this.setState({lostFound: cat});
+  //         break;
+  //       default:
+  //         _this.setState({other: cat});
+  //         break;
+  //     }
+  //   })
+  // }
 
   @bind(Actions.shuffleProducts)
   shuffleProducts(products) {

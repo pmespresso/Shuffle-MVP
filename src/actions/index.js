@@ -100,35 +100,32 @@ class Actions {
     return null;
   }
 
-  getCategories() {
-    return(dispatch) => {
-      var db = firebase.database();
-      var firebaseRef = db.ref("/categories");
-      firebaseRef.on('value', (snapshot) => {
-          var catsValue = snapshot.val();
-          var cats = _(catsValue).keys().map((catsKey) => {
-            var item = _.clone(catsValue[catsKey]);
-            item.key = catsKey;
-            return item;
-          })
-          .value();
-          dispatch(cats);
-        });
-    }
-  }
+  // getCategories() {
+  //   return(dispatch) => {
+  //     var db = firebase.database();
+  //     var firebaseRef = db.ref("/categories");
+  //     firebaseRef.on('value', (snapshot) => {
+  //         var catsValue = snapshot.val();
+  //         var cats = _(catsValue).keys().map((catsKey) => {
+  //           var item = _.clone(catsValue[catsKey]);
+  //           item.key = catsKey;
+  //           return item;
+  //         })
+  //         .value();
+  //         dispatch(cats);
+  //       });
+  //   }
+  // }
 
  /*
     In the interest of keeping a flat data structure,
     we push products and categories as separate nodes
  */
-  addProduct(product, category) {
+  addProduct(product) {
     return (dispatch) => {
       var db = firebase.database();
       var productsRef = db.ref("/products");
       productsRef.push(product);
-
-      var categoriesRef = db.ref("/categories/"+category.name);
-      categoriesRef.push(category.product);
     }
   }
 

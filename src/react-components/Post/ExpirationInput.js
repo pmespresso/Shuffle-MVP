@@ -33,9 +33,10 @@ class ExpirationInput extends React.Component {
       <FormGroup controlId="formHorizontalDesc"
         validationState={this.getValidationState()}>
         <Col componentClass={ControlLabel} sm={2}>
-          Description
+          What is Your Time Frame?
         </Col>
         <Col sm={10}>
+          {/*here we need to implement a datepicker */}
           <FormControl type="text" placeholder="Enter text" onChange={this.changeValue} value={this.props.getValue() || ''}/>
         </Col>
         <FormControl.Feedback />
