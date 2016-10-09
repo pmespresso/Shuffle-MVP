@@ -4,7 +4,7 @@
 body {
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 13px;
-  color: #444444;
+  color: #666666;
   margin: 0 auto;
   text-align: center;
 }
@@ -29,10 +29,6 @@ a, a:hover, a:active, a:visited {
     text-decoration:none;
 }
 
-.sticky {
-  z-index: 9393939;
-}
-
 .fa.fa-heart-o {
   margin-left: 2px
 }
@@ -49,54 +45,51 @@ a, a:hover, a:active, a:visited {
 }
 
 /* ================== Small Card CSS ================== */
-.home-page {
+.home-page-item {
   padding: 1em 0.2em;
-  width: 100%;
   margin: auto;
 }
 
-.home-page-wrapper {
+.home-page-item-wrapper {
   display: inline-block;
-  border-radius: 2px;
-  padding: 1em;
+  width: 100%;
+  max-height: inherit;
 }
 
-.home-page-wrapper .home-page-product-list {
+.home-page-item-wrapper .item {
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
     background: white;
 }
 
 .image-wrapper {
     position: relative;
-    background-color: grey;
+    background-color: white;
 }
 
-.image-wrapper .button {
-    position: absolute;
-    bottom: 1em;
-    right: 1em;
-    margin: 0;
-    padding: 0.5em 1em;
-    background: rgba(65, 106, 166, 0.5);
-    border: 2px solid white;
-    display: hidden;
+.resource-image {
+  max-height: 200px;
+  height: auto;
+  margin: 0 auto;
 }
 
-.home-page-wrapper .home-page-product-list .home-page-meta {
+
+.home-page-item-wrapper .item .home-page-item-meta {
     border-top: 1px solid #eeeeee;
     padding: 1em;
     text-align: center;
 }
 
-.home-page-wrapper .home-page-product-list .home-page-meta .item-description {
+.home-page-item-wrapper .item .home-page-item-meta .item-description {
   text-overflow: ellipsis;
 }
 
-.home-page-wrapper .home-page-product-list .home-page-meta .avatar-image {
+.home-page-item-wrapper .item .home-page-item-meta .avatar-image {
   margin-right: 5px;
+  margin-bottom: 15px;
+  float: left;
 }
 
-.home-page-wrapper .home-page-product-list .home-page-meta .like {
+.home-page-item-wrapper .item .home-page-item-meta .like {
   float: right;
   cursor: pointer;
 }
@@ -283,7 +276,7 @@ button:hover {
     text-align:center;
     line-height:100%;
     color:#fff;
-    z-index: 2;
+    z-index: inherit;
 }
 
 .popup-close:hover {
@@ -539,6 +532,7 @@ img.profile-btn.medium-avatar {
 	background-color: white;
 	border-radius: 4px;
 	text-align: left;
+  z-index: 500;
 }
 
 .profile-menu .profile-nav a {
@@ -628,10 +622,11 @@ section.post-section {
 }
 
 .shuffle-section {
-  position: inherit;
-  bottom: 135px;
-  right: 35px;
+  position: fixed;
+  bottom: 6em;
+  right: 1em;
   margin: 0;
+  z-index: 100000;
 }
 
 img.shuffle-btn {

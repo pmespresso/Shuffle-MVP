@@ -3,6 +3,8 @@ import ProductStore from '../../stores/ProductStore';
 import Actions from '../../actions';
 import connectToStores from 'alt-utils/lib/connectToStores';
 
+import { Link } from 'react-router';
+
 
 @connectToStores
 class ProfileMenu extends React.Component {
@@ -47,7 +49,7 @@ class ProfileMenu extends React.Component {
   renderProfileNav() {
     return (
       <nav className="profile-nav" ref="profileNav">
-        <a href="#">My Profile</a>
+        <Link to="/user">My Profile</Link>
         <a href="#" onClick={this.props.handleLogout}>Logout</a>
       </nav>
     );

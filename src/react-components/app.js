@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Navbar from './Navbar';
+import Navbar from './Navbar/';
 import HomePage from './HomePage/';
-import Post from './Post';
-import Shuffle from './Shuffle';
+import Profile from './Profile/';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../stores/ProductStore';
 import Actions from '../actions';
 import { StickyContainer, Sticky } from 'react-sticky';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 @connectToStores
 class App extends React.Component {
@@ -46,26 +47,18 @@ class App extends React.Component {
 	render() {
 		return(
 			<section className="page-content">
-				<Post user={this.props.user}/>
 				<Navbar user={this.props.user} />
-				<HomePage />
+				{this.props.children}
 			</section>
-
-
-
-
-			// <StickyContainer>
-			// <section className="page-content">
-			// 	<Sticky className="sticky">
-			// 		<Navbar user={this.props.user} setCategory={this.setCategory.bind(this)}/>
-			// 		<Post user={this.props.user}/>
-			// 		<Shuffle user={this.props.user} shuffle={this.shuffle}/>
-			// 	</Sticky>
-      //   <HomePage category={this.category} />
-			// </section>
-			// </StickyContainer>
 			);
 	}
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(
+	<Router history={hashHistory}>
+		<Route path="/" component={App}>
+			<IndexRoute component={HomePage}/>
+			<Route path="/user(/:userId)" name="user" component={Profile}></Route>
+	  </Route>
+	</Router>,
+	document.getElementById('root'));

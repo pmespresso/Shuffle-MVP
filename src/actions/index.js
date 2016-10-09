@@ -30,12 +30,9 @@ class Actions {
             name: current.displayName,
             avatar: current.photoURL
           }
-          console.log(user);
         } else {
-          console.log("user is not currently logged in");
           user = null;
         }
-        console.log("dispatched user: ", user);
         setTimeout( () => dispatch(user));
       });
 
@@ -53,10 +50,8 @@ class Actions {
         }
 
         firebase.database().ref().child("users").child(result.user.uid).set(user);
-        console.log("Successfully logged in!", user);
         // dispatch user
         dispatch(user);
-        console.log("dispatched user login");
       }).catch(function(error) {
         console.log("Login failed");
       });
@@ -83,14 +78,32 @@ class Actions {
 
       firebaseRef.on('value', (snapshot) => {
           var productsValue = snapshot.val();
-
           var products = _(productsValue).keys().map((productKey) => {
             var item = _.clone(productsValue[productKey]);
             item.key = productKey;
             return item;
           })
           .value();
-          console.log("products", products);
+          dispatch(products);
+        });
+    }
+  }
+
+  getUserActiveProducts(id) {
+    return (dispatch) => {
+      var db = firebase.database();
+
+      var userActiveProductsRef = db.ref("/users/"+id+"/activeProducts");
+      var productsRef = db.ref("/products");
+
+      userActiveProductsRef.on('value', (snapshot) => {
+          var productsValue = snapshot.val();
+          var products = _(productsValue).keys().map((productKey) => {
+            var item = _.clone(productsValue[productKey]);
+            item.key = productKey;
+            return item;
+          })
+          .value();
           dispatch(products);
         });
     }
@@ -98,6 +111,48 @@ class Actions {
 
   shuffleProducts() {
     return null;
+  }
+
+ /*
+    In the interest of keeping a flat data structure,
+    we push entire product objects to /products, and
+    a reference to that product's key to /categories
+    as well as to users/uid/products.
+ */
+
+  addProduct(product, uid) {
+    return (dispatch) => {
+      var db = firebase.database();
+      var productsRef = db.ref("/products");
+      var userRef = db.ref("/users");
+      var catRef = db.ref("/categories");
+
+      // With Firebase/NoSql, you need to keep the same object
+      // accessible from a bunch of different places.
+      var productKey = productsRef.push(product).key;
+      userRef.child(uid).child("/activeProducts").push(product);
+      var cat = product.category;
+      catRef.child(cat).push(product);
+    }
+  }
+
+  upvote(productID, userID) {
+    return (dispatch) => {
+      var db = firebase.database();
+      var ref = db.ref('products');
+      var voteRef = db.ref('votes').child(productID).child(userID);
+      voteRef.on('value', (snapshot) => {
+        if(snapshot.val() == null) {
+          voteRef.set(true);
+          ref = ref.child(productID).child('upvote');
+          var vote = 0;
+          ref.on('value', (snapshot)=> {
+            vote = snapshot.val();
+          });
+          ref.set(vote+1);
+        }
+      });
+    }
   }
 
   // getCategories() {
@@ -116,39 +171,6 @@ class Actions {
   //       });
   //   }
   // }
-
- /*
-    In the interest of keeping a flat data structure,
-    we push products and categories as separate nodes
- */
-  addProduct(product) {
-    return (dispatch) => {
-      var db = firebase.database();
-      var productsRef = db.ref("/products");
-      productsRef.push(product);
-    }
-  }
-
-  upvote(productID, userID) {
-    return (dispatch) => {
-      var db = firebase.database();
-      var ref = db.ref('products');
-      var voteRef = db.ref('votes').child(productID).child(userID);
-      voteRef.on('value', (snapshot) => {
-        if(snapshot.val() == null) {
-          voteRef.set(true);
-
-          ref = ref.child(productID).child('upvote');
-
-          var vote = 0;
-          ref.on('value', (snapshot)=> {
-            vote = snapshot.val();
-          });
-          ref.set(vote+1);
-        }
-      });
-    }
-  }
 
 }
 

@@ -15,6 +15,7 @@ var fieldValues = {
   name: "",
   media: [],
   maker: {
+    uid: "",
     name: "",
     avatar: ""
   },
@@ -40,19 +41,17 @@ class PostPopup extends React.Component {
   }
 
   saveValues = (fields) => {
+    let _this = this;
     return function() {
-    fieldValues = Object.assign({}, fieldValues, fields)
-
-    // category.name = fieldValues.category;
-    // category.product = fieldValues;
-
-    console.log('fieldValues: ' + fieldValues);
-    // console.log("category: ", category);
+      fieldValues = Object.assign({}, fieldValues, fields)
+      fieldValues.maker.uid = _this.props.user.id;
+      console.log('uid: ' + _this.props.user.id);
+      console.log('fieldValues: ' + fieldValues);
     }()
   }
 
   submitProduct = () => {
-    Actions.addProduct(fieldValues);
+    Actions.addProduct(fieldValues, fieldValues.maker.uid);
     // Actions.addCategory(category);
     this.props.hidePopup();
   }

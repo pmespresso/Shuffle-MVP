@@ -1,6 +1,5 @@
 import React from 'react';
 import Popup from '../Popup';
-import Actions from '../../actions';
 import Formsy from 'formsy-react';
 import NameInput from './NameInput'
 import ImageUpload from '../ImageUpload';

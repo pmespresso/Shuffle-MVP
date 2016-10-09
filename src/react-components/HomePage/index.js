@@ -4,14 +4,17 @@ var _ = require('lodash');
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../../stores/ProductStore';
 import Actions from '../../actions';
-import ImageUpload from '../ImageUpload';
+import Post from '../Post';
+import Shuffle from '../Shuffle';
 
 @connectToStores
 class HomePage extends React.Component {
 
   constructor() {
     super();
+  }
 
+  componentDidMount() {
     Actions.getProducts();
     Actions.shuffleProducts();
   }
@@ -25,15 +28,24 @@ class HomePage extends React.Component {
   }
 
   render() {
+    let loadingStyle = {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      background: 'url(img/loading.gif)'
+    }
+
     return (
       <section className="main-content">
 					<section className="container">
+          <Post user={this.props.user}/>
+          <Shuffle user={this.props.user} shuffle={this.shuffle}/>
 						{
 							this.props.products
 							?
-							<ProductList productList={this.props.products} category={this.props.category} />
+							<ProductList productList={this.props.products} category={this.props.category}  />
 							:
-							null
+              <div className="loading" ref="loading" style={loadingStyle}></div>
 						}
 					</section>
 				</section>

@@ -34,17 +34,11 @@ class ProductList extends React.Component {
 
 	render() {
 		var childElements = this.props.productList.map(function(item, idx) {
-			if (item.size == "small") {
 				return <ProductItemSmall sizeIDX={idx} key={idx} pid={item.key} {...item} />
-			} else if (item.size == "medium") {
-				return <ProductItemMedium key={idx} pid={item.key} {...item} />
-			} else if (item.size == "large") {
-				return <ProductItemLarge key={idx} pid={item.key} {...item} />
-			}
 		})
 
 		return (
-			<div>
+			<div className="row">
 				{childElements}
 			</div>
 		);

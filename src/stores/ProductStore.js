@@ -7,7 +7,8 @@ class ProductStore {
   constructor() {
     this.state = {
       user: null,
-      products: []
+      products: [],
+      myProducts: []
     };
   }
 
@@ -21,38 +22,10 @@ class ProductStore {
     this.setState({products: products});
   }
 
-  // @bind(Actions.getCategories)
-  // getCategories(cats) {
-  //   let _this = this;
-  //   cats.forEach(function(cat) {
-  //     switch (cat.key) {
-  //       case "textbooks":
-  //         _this.setState({textbooks: cat});
-  //         break;
-  //       case "emergencies":
-  //         _this.setState({emergencies: cat});
-  //         break;
-  //       case "tutoring":
-  //         _this.setState({tutoring: cat});
-  //         break;
-  //       case "clothing":
-  //         _this.setState({clothing: cat});
-  //         break;
-  //       case "food":
-  //         _this.setState({food: cat});
-  //         break;
-  //       case "furniture":
-  //         _this.setState({furniture: cat});
-  //         break;
-  //       case "lostFound":
-  //         _this.setState({lostFound: cat});
-  //         break;
-  //       default:
-  //         _this.setState({other: cat});
-  //         break;
-  //     }
-  //   })
-  // }
+  @bind(Actions.getUserActiveProducts)
+  getUserActiveProducts(myProducts) {
+    this.setState({myProducts: myProducts})
+  }
 
   @bind(Actions.shuffleProducts)
   shuffleProducts(products) {
@@ -73,8 +46,40 @@ class ProductStore {
     }
 
     this.setState({products: shuffled});
-
   }
 }
 
 export default alt.createStore(ProductStore);
+
+// @bind(Actions.getCategories)
+// getCategories(cats) {
+//   let _this = this;
+//   cats.forEach(function(cat) {
+//     switch (cat.key) {
+//       case "textbooks":
+//         _this.setState({textbooks: cat});
+//         break;
+//       case "emergencies":
+//         _this.setState({emergencies: cat});
+//         break;
+//       case "tutoring":
+//         _this.setState({tutoring: cat});
+//         break;
+//       case "clothing":
+//         _this.setState({clothing: cat});
+//         break;
+//       case "food":
+//         _this.setState({food: cat});
+//         break;
+//       case "furniture":
+//         _this.setState({furniture: cat});
+//         break;
+//       case "lostFound":
+//         _this.setState({lostFound: cat});
+//         break;
+//       default:
+//         _this.setState({other: cat});
+//         break;
+//     }
+//   })
+// }

@@ -48,19 +48,6 @@ class Navbar extends React.Component {
     this.props.showConfirmation();
   };
 
-  // isActive(value) {
-  //   return 'category '+((value===this.state.category) ?'active':'default');
-  // }
-  //
-  // setFilter(category) {
-  //   this.setState({category: category});
-  //   this.filterFeed(category);
-  // }
-  //
-  // filterFeed(category) {
-  //   this.props.setCategory(category);
-  // }
-
   renderCategories() {
     return (
       <div className="search-section">
@@ -90,14 +77,15 @@ class Navbar extends React.Component {
 
   render() {
     return (
-
-      <section className="container-fluid">
-        <section className="navbar">
-          {this.renderUser()}
-          {this.renderLogo()}
-          {this.renderCategories()}
+      // <Sticky>
+        <section className="container-fluid">
+          <section className="navbar">
+            {this.renderUser()}
+            {this.renderLogo()}
+            {this.renderCategories()}
+          </section>
         </section>
-      </section>
+      // </Sticky>
 
     );
   }
