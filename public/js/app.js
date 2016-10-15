@@ -72565,17 +72565,10 @@ var Navbar = (0, _connectToStores2.default)(_class = function (_React$Component)
   }, {
     key: 'renderSearchBar',
     value: function renderSearchBar() {
-      // <div className="search-section">
-      // <input ref="search" className="product-search" placeholder="Let's See What We Can Find..." />
-      // </div>
-    }
-  }, {
-    key: 'renderCategories',
-    value: function renderCategories() {
       return _react2.default.createElement(
-        'section',
-        { className: 'right-side' },
-        _react2.default.createElement(_CategoriesMenu2.default, null)
+        'form',
+        { className: 'search-section' },
+        _react2.default.createElement('input', { ref: 'search', className: 'product-search', placeholder: 'Let\'s See What We Can Find...' })
       );
     }
   }, {
@@ -72595,23 +72588,29 @@ var Navbar = (0, _connectToStores2.default)(_class = function (_React$Component)
     key: 'renderUser',
     value: function renderUser() {
       return _react2.default.createElement(
-        'section',
+        'div',
         { className: 'right-side' },
         this.props.user ?
         // Display Profile Menu
         _react2.default.createElement(
-          'section',
+          'span',
           null,
           _react2.default.createElement(_ProfileMenu2.default, { handleLogout: this.handleLogout })
         ) : _react2.default.createElement(
-          'section',
+          'span',
           null,
           _react2.default.createElement(
             'a',
-            { href: '#', onClick: this.handleLogin, className: 'login-btn' },
-            'LOGIN'
+            { href: '#', onClick: this.handleSignup, className: 'lead signup-btn' },
+            'Signup'
+          ),
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: this.handleLogin, className: 'lead login-btn' },
+            'Login'
           )
-        )
+        ),
+        _react2.default.createElement(_CategoriesMenu2.default, null)
       );
     }
   }, {
@@ -72620,16 +72619,11 @@ var Navbar = (0, _connectToStores2.default)(_class = function (_React$Component)
       return(
         // <Sticky>
         _react2.default.createElement(
-          'section',
-          { className: 'container-fluid' },
-          _react2.default.createElement(
-            'section',
-            { className: 'navbar' },
-            this.renderPost(),
-            this.renderCategories(),
-            this.renderUser(),
-            this.renderLogo()
-          )
+          'header',
+          { className: 'navbar' },
+          this.renderLogo(),
+          this.renderSearchBar(),
+          this.renderUser()
         )
         // </Sticky>
 
@@ -74640,7 +74634,7 @@ var ProductList = (0, _connectToStores2.default)(_class = function (_React$Compo
 
 			return _react2.default.createElement(
 				'div',
-				null,
+				{ className: 'product-list' },
 				childElements
 			);
 		}
@@ -74927,6 +74921,12 @@ var App = (0, _connectToStores2.default)(_class = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
 
+		_this.handleScroll = function (event) {
+			event.preventDefault();
+			var scrollTop = event.srcElement.body.scrollTop;
+			var itemTranslate = Math.min(0, scrollTop / 3 - 60);
+		};
+
 		_this.category = function () {
 			return _this.state.category || null;
 		};
@@ -74936,7 +74936,13 @@ var App = (0, _connectToStores2.default)(_class = function (_React$Component) {
 		};
 
 		_this.state = {
-			category: ""
+			category: "",
+			stickyStyle: {
+				zIndex: 100,
+				padding: 0,
+				margin: 0,
+				height: 50
+			}
 		};
 
 		_actions2.default.initSession();
@@ -74944,6 +74950,16 @@ var App = (0, _connectToStores2.default)(_class = function (_React$Component) {
 	}
 
 	_createClass(App, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			window.addEventListener('scroll', this.handleScroll);
+		}
+	}, {
+		key: 'componentWillUnMount',
+		value: function componentWillUnMount() {
+			window.removeEventListener('scroll', this.handleScroll);
+		}
+	}, {
 		key: 'shuffle',
 		value: function shuffle() {
 			_actions2.default.shuffleProducts();
@@ -74951,11 +74967,21 @@ var App = (0, _connectToStores2.default)(_class = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			var stickyStyle = this.state.stickyStyle;
+
 			return _react2.default.createElement(
-				'section',
-				{ className: 'page-content' },
-				_react2.default.createElement(_Navbar2.default, { user: this.props.user }),
-				this.props.children
+				_reactSticky.StickyContainer,
+				null,
+				_react2.default.createElement(
+					'section',
+					{ className: 'page-content' },
+					_react2.default.createElement(
+						_reactSticky.Sticky,
+						{ stickyStyle: stickyStyle },
+						_react2.default.createElement(_Navbar2.default, { user: this.props.user })
+					),
+					this.props.children
+				)
 			);
 		}
 	}], [{

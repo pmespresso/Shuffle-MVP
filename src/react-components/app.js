@@ -19,7 +19,13 @@ class App extends React.Component {
 	  super();
 
     this.state = {
-      category: ""
+      category: "",
+			stickyStyle: {
+					zIndex: 100,
+					padding: 0,
+					margin: 0,
+					height: 50
+			}
     }
 
 		Actions.initSession();
@@ -31,6 +37,20 @@ class App extends React.Component {
 
 	static getPropsFromStores() {
 		return ProductStore.getState();
+	}
+
+	componentDidMount() {
+		window.addEventListener('scroll', this.handleScroll);
+	}
+
+	componentWillUnMount() {
+		window.removeEventListener('scroll', this.handleScroll);
+	}
+
+	handleScroll = (event) => {
+		event.preventDefault();
+		let scrollTop = event.srcElement.body.scrollTop
+		let itemTranslate = Math.min(0, scrollTop/3 - 60);
 	}
 
 	shuffle() {
@@ -46,21 +66,27 @@ class App extends React.Component {
 	}
 
 	render() {
+		let stickyStyle = this.state.stickyStyle;
+
 		return(
+			<StickyContainer>
 			<section className="page-content">
-				<Navbar user={this.props.user} />
+				<Sticky stickyStyle={stickyStyle}>
+					<Navbar user={this.props.user} />
+				</Sticky>
 				{this.props.children}
 			</section>
+			</StickyContainer>
 			);
 	}
 }
 
 ReactDOM.render(
 	<Router history={hashHistory}>
-		<Route path="/" component={App}>
-			<IndexRoute component={HomePage}/>
-			<Route path="/user(/:userId)" name="user" component={Profile}></Route>
-			<Route path="/post" component={Post}></Route>
-	  </Route>
+			<Route path="/" component={App}>
+				<IndexRoute component={HomePage}/>
+				<Route path="/user(/:userId)" name="user" component={Profile}></Route>
+				<Route path="/post" component={Post}></Route>
+		  </Route>
 	</Router>,
 	document.getElementById('root'));

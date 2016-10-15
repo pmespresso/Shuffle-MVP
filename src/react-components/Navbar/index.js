@@ -51,16 +51,10 @@ class Navbar extends React.Component {
   };
 
   renderSearchBar() {
-    // <div className="search-section">
-      // <input ref="search" className="product-search" placeholder="Let's See What We Can Find..." />
-    // </div>
-  }
-
-  renderCategories() {
     return (
-      <section className="right-side">
-        <CategoriesMenu />
-      </section>
+      <form className="search-section">
+        <input ref="search" className="product-search" placeholder="Let's See What We Can Find..." />
+      </form>
     );
   };
 
@@ -74,34 +68,33 @@ class Navbar extends React.Component {
 
   renderUser() {
     return (
-      <section className="right-side">
+      <div className="right-side">
         {
           this.props.user
           ?
           // Display Profile Menu
-          <section>
+          <span>
             <ProfileMenu handleLogout={this.handleLogout}/>
-          </section>
+          </span>
           :
-          <section>
-            <a href="#" onClick={this.handleLogin} className="login-btn">LOGIN</a>
-          </section>
+          <span>
+            <a href="#" onClick={this.handleSignup} className="lead signup-btn">Signup</a>
+            <a href="#" onClick={this.handleLogin} className="lead login-btn">Login</a>
+          </span>
         }
-      </section>
+        <CategoriesMenu />
+      </div>
     );
   }
 
   render() {
     return (
       // <Sticky>
-        <section className="container-fluid">
-          <section className="navbar">
-            {this.renderPost()}
-            {this.renderCategories()}
-            {this.renderUser()}
+          <header className="navbar">
             {this.renderLogo()}
-          </section>
-        </section>
+            {this.renderSearchBar()}
+            {this.renderUser()}
+          </header>
       // </Sticky>
 
     );
