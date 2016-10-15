@@ -72,7 +72,6 @@ a, a:hover, a:active, a:visited {
   margin: 0 auto;
 }
 
-
 .home-page-item-wrapper .item .home-page-item-meta {
     border-top: 1px solid #eeeeee;
     padding: 1em;
@@ -93,8 +92,6 @@ a, a:hover, a:active, a:visited {
   float: right;
   cursor: pointer;
 }
-
-
 
 .social-share-buttons {
     list-style: none;
@@ -163,13 +160,27 @@ a, a:hover, a:active, a:visited {
   border-radius: 50%;
 }
 
-.profile-nav {
-  margin: 20px 27px 0 0;
+.navbar .right-side .categories-menu i {
+  margin: 15px 0;
+  padding: 5px;
+  font-size: 30px;
 }
 
-.profile-nav > a:hover {
+.profile-nav {
+  margin: 6px 64px 0 0;
+  border: 1px solid #f2f2f2;
+}
+
+.categories-nav {
+  margin: 6px 10px 0 0;
+  border: 1px solid #f2f2f2;
+}
+
+.profile-nav > a:hover,
+.categories-nav > a:hover {
   color: #5e9aee !important;
   text-decoration: none;
+  cursor: pointer;
 }
 
 /*------------------------------ POPUP ------------------------------*/
@@ -509,8 +520,9 @@ button.post-product-btn:disabled {
 	font-size: 14px;
 }
 
-/*------------------------------ PROFILE MENU ------------------------------*/
-.profile-menu .profile-btn {
+/*------------------------------ PROFILE, CATEGORIES MENU ------------------------------*/
+.profile-menu .profile-btn,
+.categories-menu .categories-btn {
   margin-left: 24px;
 	opacity: 0.9;
 }
@@ -520,22 +532,29 @@ img.profile-btn.medium-avatar {
   width: 50px;
 }
 
-.profile-menu .profile-btn:hover {
+.profile-menu .profile-btn:hover,
+.categories-menu .categories-btn:hover {
 	cursor: pointer;
 	opacity: 1;
 }
 
-.profile-menu .profile-nav {
+.profile-menu .profile-nav,
+.categories-menu .categories-nav {
 	position: fixed;
-	top: 55px;
-	right: 20px;
 	background-color: white;
 	border-radius: 4px;
 	text-align: left;
   z-index: 500;
 }
 
-.profile-menu .profile-nav a {
+.profile-menu .profile-nav,
+.categories-menu .categories-nav {
+  top: 55px;
+  right: 20px;
+}
+
+.profile-menu .profile-nav a,
+.categories-menu .categories-nav a {
 	display: block;
 	width: 140px;
 	font-size: 15px;
@@ -544,7 +563,8 @@ img.profile-btn.medium-avatar {
 	color: #bbbbbb;
 }
 
-.profile-menu .profile-nav a:hover {
+.profile-menu .profile-nav a:hover,
+.categories-menu .categories-nav a:hover {
 	background-color: #f2f2f2;
 	border-radius: 4px;
 }

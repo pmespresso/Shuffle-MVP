@@ -39,7 +39,7 @@ class HomePage extends React.Component {
       <section className="main-content">
 					<section className="container">
           <Post user={this.props.user}/>
-          <Shuffle user={this.props.user} shuffle={this.shuffle}/>
+          {/*<Shuffle user={this.props.user} shuffle={this.shuffle}/>*/}
 						{
 							this.props.products
 							?

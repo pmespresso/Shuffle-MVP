@@ -155,6 +155,27 @@ class Actions {
     }
   }
 
+  // This works! :)
+  getClothing() {
+    return (dispatch) => {
+      var db = firebase.database();
+      var firebaseRef = db.ref("/categories/clothing");
+      firebaseRef.on('value', (snapshot) => {
+        var clothesValues = snapshot.val();
+        var clothes = _(clothesValues).keys().map((clothesKeys) => {
+          var item = _.clone(clothesValues[clothesKeys]);
+          item.key = clothesKeys;
+          return item;
+        })
+        .value();
+        dispatch(clothes);
+      });
+    }
+  }
+
+
+
+
   // getCategories() {
   //   return(dispatch) => {
   //     var db = firebase.database();

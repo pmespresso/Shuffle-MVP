@@ -8,7 +8,8 @@ class ProductStore {
     this.state = {
       user: null,
       products: [],
-      myProducts: []
+      myProducts: [],
+      clothing: []
     };
   }
 
@@ -25,6 +26,12 @@ class ProductStore {
   @bind(Actions.getUserActiveProducts)
   getUserActiveProducts(myProducts) {
     this.setState({myProducts: myProducts})
+  }
+
+  // This works! :)
+  @bind(Actions.getClothing)
+  getClothing(clothes) {
+    this.setState({clothing: clothes})
   }
 
   @bind(Actions.shuffleProducts)

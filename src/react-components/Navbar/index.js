@@ -1,6 +1,7 @@
 import React from 'react';
 import { StickyContainer, Sticky } from 'react-sticky';
 import LoginPopup from './LoginPopup';
+import CategoriesMenu from './CategoriesMenu';
 import ProfileMenu from './ProfileMenu';
 
 import connectToStores from 'alt-utils/lib/connectToStores';
@@ -48,11 +49,17 @@ class Navbar extends React.Component {
     this.props.showConfirmation();
   };
 
+  renderSearchBar() {
+    // <div className="search-section">
+      // <input ref="search" className="product-search" placeholder="Let's See What We Can Find..." />
+    // </div>
+  }
+
   renderCategories() {
     return (
-      <div className="search-section">
-        <input ref="search" className="product-search" placeholder="Let's See What We Can Find..." />
-      </div>
+      <section className="right-side">
+        <CategoriesMenu />
+      </section>
     );
   };
 
@@ -80,9 +87,9 @@ class Navbar extends React.Component {
       // <Sticky>
         <section className="container-fluid">
           <section className="navbar">
+            {this.renderCategories()}
             {this.renderUser()}
             {this.renderLogo()}
-            {this.renderCategories()}
           </section>
         </section>
       // </Sticky>

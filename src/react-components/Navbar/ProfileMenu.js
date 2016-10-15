@@ -59,7 +59,7 @@ class ProfileMenu extends React.Component {
       <section className="profile-menu">
         <img src={this.props.user.avatar} onClick={this.handleClick} className="profile-btn medium-avatar" ref="profileBtn"/>
         {
-          this.state.showProfileNav? this.renderProfileNav() : null
+          this.state.showProfileNav ? this.renderProfileNav() : null
         }
       </section>
     );

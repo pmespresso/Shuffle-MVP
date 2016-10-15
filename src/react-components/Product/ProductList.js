@@ -20,7 +20,8 @@ class ProductList extends React.Component {
 		super();
 
 		this.state = {
-			productList: []
+			productList: [],
+			clothing: []
 		}
 	}
 
