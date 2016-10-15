@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Navbar from './Navbar/';
 import HomePage from './HomePage/';
 import Profile from './Profile/';
+import Post from './Post';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../stores/ProductStore';
 import Actions from '../actions';
@@ -59,6 +60,7 @@ ReactDOM.render(
 		<Route path="/" component={App}>
 			<IndexRoute component={HomePage}/>
 			<Route path="/user(/:userId)" name="user" component={Profile}></Route>
+			<Route path="/post" component={Post}></Route>
 	  </Route>
 	</Router>,
 	document.getElementById('root'));

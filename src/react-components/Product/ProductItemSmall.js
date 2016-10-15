@@ -41,8 +41,8 @@ class ProductItemSmall extends React.Component {
 				<small className="user-resource-user-details">
 						<a href="#"><img src={this.props.maker.avatar} width="20" className="avatar-image img-responsive" /></a>
 							Shuffled by <a href="#">{this.props.maker.name}</a>
+						<a className="like" onClick={this.handleVote}><i className='fa fa-heart-o'>{this.props.upvote}</i></a>
 				</small>
-				<a className="like" onClick={this.handleVote}><i className='fa fa-heart-o'>{this.props.upvote}</i></a>
 			</div>
 		);
 	}

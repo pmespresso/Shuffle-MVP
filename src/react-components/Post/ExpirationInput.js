@@ -6,9 +6,18 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import Form from 'react-bootstrap/lib/Form';
 import HelpBlock from 'react-bootstrap/lib/HelpBlock';
-
+import DatePicker from 'react-bootstrap-date-picker';
 
 class ExpirationInput extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    let value = new Date().toISOString();
+    this.props.setValue(value);
+  }
 
   changeValue = (event) => {
     this.props.setValue(event.currentTarget.value);
@@ -28,7 +37,7 @@ class ExpirationInput extends React.Component {
   render() {
     var className = this.props.showRequired() ? 'required' : this.props.showError() ? 'error' : '';
     const errorMessage = this.props.getErrorMessage();
-
+    console.log(this.props);
     return(
       <FormGroup controlId="formHorizontalDesc"
         validationState={this.getValidationState()}>
@@ -37,7 +46,7 @@ class ExpirationInput extends React.Component {
         </Col>
         <Col sm={10}>
           {/*here we need to implement a datepicker */}
-          <FormControl type="text" placeholder="Enter text" onChange={this.changeValue} value={this.props.getValue() || ''}/>
+          <DatePicker onChange={this.changeValue} value={this.props.getValue() || ''}  />
         </Col>
         <FormControl.Feedback />
         <HelpBlock>Until when is your offer valid?</HelpBlock>

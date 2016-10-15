@@ -68,7 +68,7 @@ class StepThreeFields extends React.Component {
             <NameInput name="name" validations="isValidName" validationError="This is not a valid name." required/>
             <DescriptionInput name="description" validations="isValidDesc" validationError="This is not a valid description." required/>
             <div className="media-upload">
-                <MediaInput name="media" validations="isLength:3" validationError="Please upload some images." required/>
+              <MediaInput name="media" validations="isLength:1" validationError="Please upload some images." required/>
             </div>
           </section>
           <footer className="post-footer">

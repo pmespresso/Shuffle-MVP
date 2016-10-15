@@ -48,43 +48,60 @@ a, a:hover, a:active, a:visited {
 .home-page-item {
   padding: 1em 0.2em;
   margin: auto;
+  height: 550px;
 }
 
 .home-page-item-wrapper {
   display: inline-block;
   width: 100%;
-  max-height: inherit;
+  height: 100%;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .home-page-item-wrapper .item {
-    box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
-    background: white;
+  background: white;
 }
 
 .image-wrapper {
-    position: relative;
-    background-color: white;
+  position: relative;
+  background-color: white;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .resource-image {
-  max-height: 200px;
-  height: auto;
-  margin: 0 auto;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
 }
 
 .home-page-item-wrapper .item .home-page-item-meta {
-    border-top: 1px solid #eeeeee;
-    padding: 1em;
-    text-align: center;
+  border-top: 1px solid #eeeeee;
+  padding: 1em;
+  text-align: center;
 }
 
+
 .home-page-item-wrapper .item .home-page-item-meta .item-description {
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 5px;
+}
+
+.home-page-item-wrapper .item .home-page-item-meta .user-resource-user-details {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1em;
+  margin: 10px;
 }
 
 .home-page-item-wrapper .item .home-page-item-meta .avatar-image {
-  margin-right: 5px;
-  margin-bottom: 15px;
   float: left;
 }
 

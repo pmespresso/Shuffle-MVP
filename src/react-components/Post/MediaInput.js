@@ -25,13 +25,14 @@ class MediaInput extends React.Component {
   // }
 
   render() {
+    console.log(this.props);
     const className = this.props.showRequired() ? 'required' : this.props.showError() ? this.props.error : null;
     const errorMessage = this.props.getErrorMessage();
     return(
         <div>
           <ImageUpload uploadMedia={this.changeValue} value={this.props.getValue() || ''}/>
           <span className="post-error-msg transition-fast">{errorMessage}</span>
-          <span>{this.props.isPristine() ? 'Please upload three images.' : ''}</span>
+          <span>{this.props.isPristine() ? 'Add Some Pictures!' : ''}</span>
         </div>
     );
   }

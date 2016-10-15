@@ -24,7 +24,7 @@ var fieldValues = {
   size: "small",
   tags: ["temp"],
   location: "",
-  expires: "",
+  expiration: "",
   category: "",
   upvote: 0
 }
@@ -52,7 +52,6 @@ class PostPopup extends React.Component {
 
   submitProduct = () => {
     Actions.addProduct(fieldValues, fieldValues.maker.uid);
-    // Actions.addCategory(category);
     this.props.hidePopup();
   }
 
