@@ -3,10 +3,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 class Popup extends React.Component {
 
   onPopupClose = () => {
+    console.log('ass');
     this.props.hidePopup();
-    if ("post-popup" === this.props.style) {
-      this.props.resetSteps();
-    }
   }
 
   renderPopupContent() {
@@ -25,15 +23,12 @@ class Popup extends React.Component {
   render() {
     return (
       <section>
-        <ReactCSSTransitionGroup transitionName = "fade"
-          transitionEnterTimeout={500} transitionLeaveTimeout={500}>
         {
           this.props.status ?
             this.renderPopupContent()
            :
             null
         }
-        </ReactCSSTransitionGroup>
       </section>
     );
   }

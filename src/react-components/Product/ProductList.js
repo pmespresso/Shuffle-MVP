@@ -34,12 +34,14 @@ class ProductList extends React.Component {
 	}
 
 	render() {
+
 		var childElements = this.props.productList.map(function(item, idx) {
 				return <ProductItemSmall sizeIDX={idx} key={idx} pid={item.key} {...item} />
 		})
 
 		return (
 			<div className="product-list">
+				<div className="loading"></div>
 				{childElements}
 			</div>
 		);

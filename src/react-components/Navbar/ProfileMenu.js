@@ -46,10 +46,14 @@ class ProfileMenu extends React.Component {
     window.removeEventListener("click", this.handleClickOutside, false);
   }
 
+  componentDidMount() {
+    console.log("profile menu props: " + this.props);
+  }
+
   renderProfileNav() {
     return (
       <nav className="profile-nav" ref="profileNav">
-        <Link to="/user">My Profile</Link>
+        <Link to={`/users/${this.props.user.id}`}>My Profile</Link>
         <a href="#" onClick={this.props.handleLogout}>Logout</a>
       </nav>
     );

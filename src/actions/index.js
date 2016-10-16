@@ -71,6 +71,7 @@ class Actions {
     }
   }
 
+  /* All products */
   getProducts() {
     return(dispatch) => {
       var db = firebase.database();
@@ -78,14 +79,28 @@ class Actions {
 
       firebaseRef.on('value', (snapshot) => {
           var productsValue = snapshot.val();
+          /**begin building products array**/
           var products = _(productsValue).keys().map((productKey) => {
             var item = _.clone(productsValue[productKey]);
             item.key = productKey;
             return item;
-          })
-          .value();
+          }).value();
+          /**end building products array**/
           dispatch(products);
         });
+    }
+  }
+
+  /*Specific Product*/
+  getProduct(pid) {
+    return(dispatch) => {
+      var db = firebase.database();
+      var productRef = db.ref("/products").child(pid);
+
+      productRef.on('value', (snapshot) => {
+        var product = snapshot.val();
+        dispatch(product);
+      });
     }
   }
 

@@ -9,7 +9,8 @@ class ProductStore {
       user: null,
       products: [],
       myProducts: [],
-      clothing: []
+      clothing: [],
+      product: null
     };
   }
 
@@ -23,11 +24,11 @@ class ProductStore {
     this.setState({products: products});
   }
 
-  @bind(Actions.getUserActiveProducts)
-  getUserActiveProducts(myProducts) {
-    this.setState({myProducts: myProducts})
+  @bind(Actions.getProduct)
+  getProduct(product) {
+    this.setState({product: product});
   }
-
+  
   // This works! :)
   @bind(Actions.getClothing)
   getClothing(clothes) {

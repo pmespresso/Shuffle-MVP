@@ -7,7 +7,7 @@ import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../../stores/ProductStore';
 import Actions from '../../actions';
 
-import { Link } from 'react-router';
+import { IndexLink } from 'react-router';
 
 @connectToStores
 class Navbar extends React.Component {
@@ -36,7 +36,7 @@ class Navbar extends React.Component {
 
   renderLogo() {
     return (
-      <a href="#" className="shuffle-btn"><img className="logo" src="/img/logo-alt.jpg"/></a>
+      <IndexLink to="/" className="shuffle-btn"><img className="logo" src="/img/logo-alt.jpg"/></IndexLink>
     );
   };
 

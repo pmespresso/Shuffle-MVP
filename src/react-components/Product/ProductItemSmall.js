@@ -3,11 +3,17 @@ import Actions from '../../actions';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../../stores/ProductStore';
 
+import { Link } from 'react-router';
+
 @connectToStores
 class ProductItemSmall extends React.Component {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			open: true
+		}
 	}
 
 	static getStores() {
@@ -34,9 +40,11 @@ class ProductItemSmall extends React.Component {
 	}
 
 	renderItemMeta() {
+		let to = "/products" + this.props.pid;
 		return (
 			<div className="home-page-item-meta">
-				<h4 className="item-title lead"><a href="#">{this.props.name}</a></h4>
+				<h4 className="item-title lead"><Link to={`/products/${this.props.pid}`}>{this.props.name}</Link></h4>
+
 				<p className="item-description lead"> {this.props.description}</p>
 				<small className="user-resource-user-details">
 						<a href="#"><img src={this.props.maker.avatar} width="20" className="avatar-image img-responsive" /></a>
@@ -48,15 +56,16 @@ class ProductItemSmall extends React.Component {
 	}
 
 	render() {
+
 		return (
-			<div className="home-page-item col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<div className="home-page-item col-xs-12 col-sm-12 col-md-4 col-lg-4" onClick={this.showProductPage}>
 				<div className="home-page-item-wrapper">
 					<div className="item">
               {this.renderImageWrapper()}
 							{this.renderItemMeta()}
 					</div>
 				</div>
-			</div>
+      </div>
 		);
 	}
 }

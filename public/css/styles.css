@@ -279,7 +279,6 @@ button:hover {
   position: relative;
   overflow-y: scroll;
   height: 600px;
-  z-index: 10000;
 }
 
 .post-popup #categorySelection,
