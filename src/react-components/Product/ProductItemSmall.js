@@ -10,10 +10,6 @@ class ProductItemSmall extends React.Component {
 
 	constructor(props) {
 		super(props);
-
-		this.state = {
-			open: true
-		}
 	}
 
 	static getStores() {
@@ -40,7 +36,7 @@ class ProductItemSmall extends React.Component {
 	}
 
 	renderItemMeta() {
-		let to = "/products" + this.props.pid;
+		// let to = "/products" + this.props.pid;
 		return (
 			<div className="home-page-item-meta">
 				<h4 className="item-title lead"><Link to={`/products/${this.props.pid}`}>{this.props.name}</Link></h4>

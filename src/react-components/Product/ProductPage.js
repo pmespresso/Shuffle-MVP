@@ -7,7 +7,7 @@ class ProductPage extends React.Component {
 
   componentDidMount() {
     console.log("ProductPage component mounted");
-    console.log(this.props);
+    console.log(this.props.params);
   }
 
   render() {

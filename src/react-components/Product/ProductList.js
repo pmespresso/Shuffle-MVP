@@ -1,8 +1,6 @@
 import React from 'react';
-import Masonry from 'react-masonry-component';
 import ProductItemSmall from './ProductItemSmall';
-import ProductItemMedium from './ProductItemMedium';
-import ProductItemLarge from './ProductItemLarge';
+import _ from 'lodash';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProductStore from '../../stores/ProductStore';
 import Actions from '../../actions';
@@ -16,13 +14,12 @@ var masonryOptions = {
 @connectToStores
 class ProductList extends React.Component {
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
-		this.state = {
-			productList: [],
-			clothing: []
-		}
+		// this.state = {
+		// 	gems: []
+		// }
 	}
 
 	static getStores() {
@@ -34,15 +31,21 @@ class ProductList extends React.Component {
 	}
 
 	render() {
-
-		var childElements = this.props.productList.map(function(item, idx) {
+		console.log(this.state.gems);
+		let posts = this.props.productList;
+		//bottle neck, dramatic performance improvment with lodash.
+		var gems = _(posts).take(10).map(function(item, idx) {
+				// take(10) is a temporary hack. this should be done with firebase query in Actions.
 				return <ProductItemSmall sizeIDX={idx} key={idx} pid={item.key} {...item} />
-		})
+		}).value();
 
 		return (
 			<div className="product-list">
-				<div className="loading"></div>
-				{childElements}
+				{
+					gems.length > 0 ?
+					gems :
+					<img src="img/loading.gif" />
+				}
 			</div>
 		);
 

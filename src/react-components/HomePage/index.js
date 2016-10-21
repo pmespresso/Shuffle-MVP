@@ -12,10 +12,18 @@ class HomePage extends React.Component {
 
   constructor() {
     super();
+
+    this.state = {
+      loading: false
+    }
+  }
+
+  componentWillMount() {
+    console.log("homepage did mount, loading state is: " + this.state.loading);
+    Actions.getProducts();
   }
 
   componentDidMount() {
-    Actions.getProducts();
     Actions.shuffleProducts();
   }
 
@@ -27,26 +35,22 @@ class HomePage extends React.Component {
     return ProductStore.getState();
   }
 
-  render() {
-    let loadingStyle = {
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      background: 'url(img/loading.gif)'
+  onLoad() {
+    console.log('asshole');
+    if (this.state.loading) {
+      this.setState({loading: false});
     }
+  }
+
+  render() {
 
     return (
       <section className="main-content">
 					<section className="container">
           <Post user={this.props.user}/>
           {/*<Shuffle user={this.props.user} shuffle={this.shuffle}/>*/}
-						{
-							this.props.products
-							?
-							<ProductList productList={this.props.products} category={this.props.category}  />
-							:
-              <div className="loading" ref="loading" style={loadingStyle}></div>
-						}
+          <ProductList productList={this.props.products} category={this.props.category} onLoad={this.onLoad()} />
+
 					</section>
 				</section>
 

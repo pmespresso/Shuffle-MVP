@@ -78,15 +78,16 @@ class Actions {
       var firebaseRef = db.ref("/products");
 
       firebaseRef.on('value', (snapshot) => {
-          var productsValue = snapshot.val();
-          /**begin building products array**/
-          var products = _(productsValue).keys().map((productKey) => {
-            var item = _.clone(productsValue[productKey]);
-            item.key = productKey;
-            return item;
-          }).value();
-          /**end building products array**/
-          dispatch(products);
+
+        var productsValue = snapshot.val();
+        /**begin building products array**/
+        var products = _(productsValue).keys().map((productKey) => {
+          var item = _.clone(productsValue[productKey]);
+          item.key = productKey;
+          return item;
+        }).value();
+        /**end building products array**/
+        dispatch(products);
         });
     }
   }
